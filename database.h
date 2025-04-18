@@ -1,14 +1,19 @@
 #ifndef DATABASE_H
 #define DATABASE_H
 #include "apiclient.h"
-
-class Database
+#include <QFile>
+#include <QJsonDocument>
+class Database : public QObject
 {
+    Q_OBJECT
 public:
     Database() = default;
-    Database(const ApiClient *client);
+    Database(ApiClient *client);
+    void init();
+
 private:
-    ApiClient *client;
+    QString _indexPath;
+    ApiClient *_client;
 };
 
 #endif // DATABASE_H

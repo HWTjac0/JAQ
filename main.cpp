@@ -1,5 +1,5 @@
-#include "app.h"
 #include <QDebug>
+#include "app.h"
 
 int main(int argc, char *argv[])
 {
