@@ -9,6 +9,7 @@ class CityHandler : public QObject
     Q_OBJECT
 public:
     CityHandler(ApiClient *client);
+    Q_INVOKABLE QStringList getCities() const;
 public slots:
     void receiveText(const QString &text);
 

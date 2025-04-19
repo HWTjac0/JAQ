@@ -11,6 +11,8 @@ public:
     QString region;
     QString aqi_status;
     void setAQIStatus(QString &status);
+    Station() = default;
+    Station(const int city);
     static Station fromJson(const QJsonObject &obj)
     {
         Station station;

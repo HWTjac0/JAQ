@@ -15,26 +15,20 @@ Window {
             spacing: 3
             Label {
                 Layout.alignment: Qt.AlignHCenter
-                text: "Podaj miasto"
+                text: "Wybierz miasto"
                 font.pixelSize: 20
                 font.bold: true
             }
-            TextField {
-                id: cityInput
-                onAccepted: cityHandler.receiveText(text)
+            ComboBox {
+                id: city
                 Layout.alignment: Qt.AlignHCenter
-                placeholderText: qsTr("np. Warszawa")
-                font.pixelSize: 12
-                topPadding: 8
-                bottomPadding: 8
-                leftPadding: 13
-                rightPadding: 13
-                Layout.preferredWidth: 200
+                model: cityHandler.getCities()
+                onActivated: cityHandler.receiveText(city.currentText)
             }
             Button {
                 Layout.alignment: Qt.AlignHCenter
-                text: "Szukaj"
-                onPressed: cityHandler.receiveText(cityInput.text)
+                text: "Sprawdź"
+                onPressed: cityHandler.receiveText(city.currentText)
             }
         }
     }

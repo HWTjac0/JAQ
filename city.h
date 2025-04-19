@@ -10,6 +10,7 @@ public:
     QString name;
     City() = default;
     City(const QString &name);
+    City(const QString &name, const QJsonArray &stations);
     void addStation(const Station &station);
     QVector<Station> getStations() const;
     void debugStations() const;

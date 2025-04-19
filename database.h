@@ -7,6 +7,8 @@ class Database : public QObject
 {
     Q_OBJECT
 public:
+    static QMap<QString, City> index;
+    static QStringList cities;
     Database() = default;
     Database(ApiClient *client);
     void init();

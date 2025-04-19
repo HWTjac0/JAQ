@@ -12,6 +12,8 @@ int App::init(int argc, char *argv[])
     ApiClient client;
 
     Database db(&client);
+    db.init();
+
     CityHandler handler(&client);
 
     QQmlApplicationEngine engine;
