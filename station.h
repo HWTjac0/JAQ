@@ -8,7 +8,6 @@ class Station
 public:
     int id;
     QString cityName;
-    QString region;
     QString aqi_status;
     void setAQIStatus(QString &status);
     Station() = default;
@@ -18,7 +17,6 @@ public:
         Station station;
         station.cityName = obj["Nazwa miasta"].toString();
         station.id = obj["Identyfikator stacji"].toInt();
-        station.region = obj["Województwo"].toString();
         return station;
     }
 };

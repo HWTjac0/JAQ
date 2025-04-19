@@ -2,16 +2,22 @@
 #include <QStringList>
 #include "database.h"
 
-CityHandler::CityHandler(ApiClient *client)
-    : _client(client)
-{}
+CityHandler::CityHandler(ApiClient *client, QObject *parent)
+    : _client(client), QObject(parent)
+{
+    _baseModel = new CityIndexModel(this);
+    _proxyModel = new CitySortProxyModel(this);
+
+    _baseModel->addCities(Database::cities);
+    _proxyModel->setSourceModel(_baseModel);
+}
 
 void CityHandler::receiveText(const QString &text)
 {
     qDebug() << "Received text from QML:" << text;
-    Database::index.value(text).debugStations();
+    emit cityChanged(text);
 }
 
-QStringList CityHandler::getCities() const {
-    return Database::cities;
+CitySortProxyModel* CityHandler::getCities() const {
+    return _proxyModel;
 }

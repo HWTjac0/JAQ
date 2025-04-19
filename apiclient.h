@@ -27,7 +27,7 @@ public slots:
     void handleStations();
     void handleStationAQI();
 signals:
-    void stationsFinished(QMap<QString, City> &cities);
+    void stationsFinished(QMap<int, City*> cities);
     void stationAQIFinished(const QJsonDocument &doc);
 private:
     QNetworkAccessManager *_manager;

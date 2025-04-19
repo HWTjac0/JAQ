@@ -20,16 +20,28 @@ Window {
                 font.bold: true
             }
             ComboBox {
-                id: city
+                id: cityCombo
                 Layout.alignment: Qt.AlignHCenter
+                implicitContentWidthPolicy: ComboBox.WidestTextWhenCompleted
                 model: cityHandler.getCities()
-                onActivated: cityHandler.receiveText(city.currentText)
+                textRole: "display"
+
+                height: 40  // Set your desired fixed height
+                    implicitHeight: height
+                delegate: ItemDelegate {
+                    width: cityCombo.width
+                    text: model.display
+                    highlighted: cityCombo.highlightedIndex === index
+                }
+                onActivated: {
+                    console.log(cityCombo.model.id)
+                }
             }
             Button {
                 Layout.alignment: Qt.AlignHCenter
                 text: "Sprawdź"
-                onPressed: cityHandler.receiveText(city.currentText)
             }
+            Test {}
         }
     }
 }

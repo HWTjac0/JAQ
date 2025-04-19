@@ -7,12 +7,15 @@ class Database : public QObject
 {
     Q_OBJECT
 public:
-    static QMap<QString, City> index;
-    static QStringList cities;
+    static QMap<int, City*> index;
+    static QList<City*> cities;
     Database() = default;
     Database(ApiClient *client);
+    void populate();
+public slots:
     void init();
-
+signals:
+    void dbPopulated();
 private:
     QString _indexPath;
     ApiClient *_client;

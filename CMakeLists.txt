@@ -23,6 +23,8 @@ qt_add_qml_module(appairQuality
         SOURCES database.h database.cpp
         SOURCES city.h city.cpp
         SOURCES station.h station.cpp
+        SOURCES cityindexmodel.h cityindexmodel.cpp
+        QML_FILES Test.qml
 )
 
 # Qt for iOS sets MACOSX_BUNDLE_GUI_IDENTIFIER automatically since Qt 6.1.

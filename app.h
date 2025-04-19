@@ -2,8 +2,9 @@
 #define APP_H
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
-class App
+class App : public QObject
 {
+    Q_OBJECT
 public:
     App();
     int init(int argc, char *argv[]);

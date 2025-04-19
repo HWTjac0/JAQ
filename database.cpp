@@ -6,28 +6,40 @@
 #include "city.h"
 #include "apiclient.h"
 
-QMap<QString, City> Database::index;
-QStringList Database::cities;
+QMap<int, City*> Database::index;
+QList<City*> Database::cities;
 
 Database::Database(ApiClient *client)
     : _client(client), _indexPath("db.json")
 {
-    QString indexPath = _indexPath;
     if(!QFile::exists(_indexPath)) {
-        client->fetchStations();
-        QJsonObject index_obj;
-        connect(client, &ApiClient::stationsFinished, this, [index_obj, indexPath](QMap<QString, City> &cities) mutable {
+        populate();
+        connect(this, &Database::dbPopulated, this, &Database::init);
+    } else {
+        init();
+    }
+}
+// index looks as follow
+//     id: {
+//         name: string
+//         voivodeship: string
+//         stations: int[]
+//     }
+void Database::populate() {
+    _client->fetchStations();
+    QJsonObject index_obj;
+    QString indexPath = _indexPath;
+    connect(
+        _client,
+        &ApiClient::stationsFinished,
+        this,
+        [index_obj, indexPath, this](QMap<int, City*> cities) mutable {
             for(auto city = cities.cbegin(); city != cities.cend(); city++) {
-                QVector<Station> stations = city.value().getStations();
-                QJsonArray stations_json;
-                foreach (const Station &station, stations) {
-                    stations_json.append(QJsonValue(station.id));
-                }
-                index_obj.insert(city.value().name, stations_json);
+                index_obj.insert(QString::number(city.value()->id()), city.value()->toIndexEntry());
             }
             QFile file(indexPath);
             try {
-                file.open(QIODevice::WriteOnly);
+                file.open(QIODevice::WriteOnly | QIODevice::Text);
                 QJsonDocument doc(index_obj);
                 qint64 bytes_written = file.write(doc.toJson());
                 if(bytes_written == -1) {
@@ -39,20 +51,26 @@ Database::Database(ApiClient *client)
             } catch (...) {
                 qWarning() << "Error writing index database";
             }
+            qDeleteAll(cities);
+            emit dbPopulated();
         });
-    }
 }
 
 void Database::init() {
     QFile index_file(_indexPath);
-    index_file.open(QIODevice::ReadOnly);
+    index_file.open(QIODevice::ReadOnly | QIODevice::Text);
     QByteArray data = index_file.readAll();
     QJsonObject index = QJsonDocument::fromJson(data).object();
     for(auto it = index.constBegin(); it != index.constEnd(); it++) {
-        Database::cities.append(it.key());
+        City *city = new City(
+            it.value().toObject().value("name").toString(),
+            it.value().toObject().value("voivodeship").toString(),
+            it.key().toInt()
+        );
+        Database::cities.append(city);
         Database::index.insert(
-            it.key(),
-            City(it.key(), it.value().toArray())
+            it.key().toInt(),
+            city
         );
     }
 }

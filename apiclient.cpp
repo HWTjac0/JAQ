@@ -27,7 +27,7 @@ QUrl ApiClient::buildUrl(const QString &endpoint,
 void ApiClient::fetchStations(int page)
 {
     QMap<QString, QString> params;
-    params.insert("size", "100");
+    params.insert("size", "300");
     QUrl url = buildUrl("/station/findAll", params);
     QNetworkRequest request(url);
     QNetworkReply *reply = _manager->get(request);
@@ -62,13 +62,28 @@ void ApiClient::handleStations()
     QJsonObject data = getJsonFromReply(qobject_cast<QNetworkReply *>(sender())).object();
     QJsonArray stations = data["Lista stacji pomiarowych"].toArray();
 
-    QMap<QString, City> cities;
+    QMap<int, City*> cities;
     for (auto it = stations.cbegin(); it != stations.cend(); it++) {
-        Station station = Station::fromJson(it->toObject());
-        if (!cities.contains(station.cityName)) {
-            cities.insert(station.cityName, City(station.cityName));
+        QJsonObject station_json = it->toObject();
+        Station station = Station::fromJson(station_json);
+        int city_id = station_json.value("Identyfikator miasta").toInt();
+
+        auto cityIt = cities.find(city_id);
+        if (cityIt == cities.end()) {
+            City *city = new City(station.cityName, station_json.value("Województwo").toString(), city_id);
+            cityIt = cities.insert(city_id, city);
         }
-        cities[station.cityName].addStation(station);
+        cityIt.value()->addStation(station);
+        // if (!cities.contains(city_id)) {
+        //     City city(station.cityName, station_json.value("Województwo").toString(), city_id);
+        //     cities.insert(
+        //         city_id,
+        //         city
+        //         );
+        // }
+        // if(cities.contains(city_id)){
+        //     cities[city_id].addStation(station);
+        // }
     }
     emit stationsFinished(cities);
 }

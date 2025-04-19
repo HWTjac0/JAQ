@@ -12,12 +12,11 @@ int App::init(int argc, char *argv[])
     ApiClient client;
 
     Database db(&client);
-    db.init();
-
     CityHandler handler(&client);
 
     QQmlApplicationEngine engine;
     engine.rootContext()->setContextProperty("cityHandler", &handler);
+    engine.
     QObject::connect(
         &engine,
         &QQmlApplicationEngine::objectCreationFailed,
