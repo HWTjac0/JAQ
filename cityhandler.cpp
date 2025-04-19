@@ -1,4 +1,5 @@
 #include "cityhandler.h"
+#include "citysortproxymodel.h"
 #include <QStringList>
 #include "database.h"
 
@@ -20,4 +21,10 @@ void CityHandler::receiveText(const QString &text)
 
 CitySortProxyModel* CityHandler::getCities() const {
     return _proxyModel;
+}
+int CityHandler::getCityId(int comboBoxIndex) {
+    return _proxyModel->data(
+                          _proxyModel->index(comboBoxIndex, 0),
+                          CityIndexModel::IdRole
+                          ).toInt();
 }

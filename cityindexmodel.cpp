@@ -1,5 +1,4 @@
 #include "cityindexmodel.h"
-#include <algorithm>
 
 CityIndexModel::CityIndexModel(QObject *parent)
     : QAbstractListModel(parent) {}
@@ -76,16 +75,4 @@ int CityIndexModel::getId(int index) const
     if (index >= 0 && index < _entries.count())
         return _entries.at(index)->id();
     return -1;
-}
-
-void CityIndexModel::sortByVoivodeship()
-{
-    beginResetModel();
-    std::sort(_entries.begin(), _entries.end(), [](City *a, City *b) {
-        if (a->voivodeship() == b->voivodeship()) {
-            return a->name() < b->name();
-        }
-        return a->voivodeship() < b->voivodeship();
-    });
-    endResetModel();
 }
