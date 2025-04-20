@@ -1,6 +1,6 @@
 #include "apiclient.h"
 #include "station.h"
-#include "city.h"
+#include "City/city.h"
 
 ApiClient::ApiClient(QObject *parent)
     : QObject(parent)

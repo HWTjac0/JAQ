@@ -1,7 +1,7 @@
 #include "cityhandler.h"
 #include "citysortproxymodel.h"
 #include <QStringList>
-#include "database.h"
+#include "../database.h"
 
 CityHandler::CityHandler(ApiClient *client, QObject *parent)
     : _client(client), QObject(parent)

@@ -3,7 +3,7 @@
 #include <QString>
 #include <QJsonDocument>
 #include <QJsonObject>
-#include "city.h"
+#include "City/city.h"
 #include "apiclient.h"
 
 QMap<int, City*> Database::index;

@@ -1,8 +1,9 @@
 #include "app.h"
 #include <QQmlContext>
 #include "apiclient.h"
-#include "cityhandler.h"
+#include "City/cityhandler.h"
 #include "database.h"
+#include <QDir>
 
 App::App() {}
 int App::init(int argc, char *argv[])
@@ -24,7 +25,7 @@ int App::init(int argc, char *argv[])
         []() { QCoreApplication::exit(-1); },
         Qt::QueuedConnection);
 
+    engine.addImportPath(QDir::currentPath() + "/Components");
     engine.loadFromModule("airQuality", "Main");
-
     return app.exec();
 }

@@ -11,7 +11,7 @@
 #include <QUrl>
 #include <QUrlQuery>
 #include "station.h"
-#include "city.h"
+#include "City/city.h"
 
 class ApiClient : public QObject
 {

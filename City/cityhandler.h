@@ -2,7 +2,7 @@
 #define CITYHANDLER_H
 #include <QDebug>
 #include <QObject>
-#include "apiclient.h"
+#include "../apiclient.h"
 #include "cityindexmodel.h"
 #include "citysortproxymodel.h"
 
