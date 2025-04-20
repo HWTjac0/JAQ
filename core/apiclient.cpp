@@ -10,7 +10,7 @@ ApiClient::ApiClient(QObject *parent)
 }
 
 QUrl ApiClient::buildUrl(const QString &endpoint,
-                         const QMap<QString, QString> &params = QMap<QString, QString>())
+                         const QMap<QString, QString> &params)
 {
     QUrl url(_basePath + endpoint);
     QUrlQuery query;
@@ -34,16 +34,16 @@ void ApiClient::fetchStations(int page)
     connect(reply, &QNetworkReply::finished, this, &ApiClient::handleStations);
 }
 
-void ApiClient::fetchStationAQI(Station &station) {
-    QUrl url = buildUrl("/aqindex/getIndex/" + QString::number(station.id()));
+void ApiClient::fetchStationAQI(int station_id) {
+    QUrl url = buildUrl("/aqindex/getIndex/" + QString::number(station_id));
     QNetworkRequest req(url);
     QNetworkReply *reply = _manager->get(req);
     connect(reply, &QNetworkReply::finished, this, &ApiClient::handleStationAQI);
-    connect(this, &ApiClient::stationAQIFinished, this, [station](const QJsonDocument& doc) mutable {
-        QString aqi_status = doc.object()
-                                 .value("AqIndex").toObject()
-                                 .value("Nazwa kategorii indeksu")
-                                 .toString();
+    connect(this, &ApiClient::stationAQIFinished, this, [](const QJsonDocument& doc) mutable {
+        QVariantMap obj = doc.object().value("AqIndex").toObject().toVariantMap();
+        for(auto [key, value] : obj.asKeyValueRange()) {
+            qDebug() << key << "\t" << value;
+        }
     });
 }
 QJsonDocument ApiClient::getJsonFromReply(QNetworkReply *reply) {

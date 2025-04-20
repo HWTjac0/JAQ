@@ -8,7 +8,7 @@ CityHandler::CityHandler(ApiClient *client, QObject *parent)
 {
     _baseModel = new CityIndexModel(this);
     _proxyModel = new CitySortProxyModel(this);
-    _stationHandler = new StationHandler(this);
+    _stationHandler = new StationHandler(client, this);
 
     _baseModel->addCities(Database::cities);
     _proxyModel->setSourceModel(_baseModel);

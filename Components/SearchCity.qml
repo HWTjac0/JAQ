@@ -3,10 +3,7 @@ import QtQuick.Controls
 import QtQuick.Layouts
 
 Item {
-    width: 300
-    height: 60
-    ColumnLayout {
-        anchors.fill: parent
+    RowLayout {
         spacing: 5
         TextField {
             id: searchField
@@ -20,6 +17,7 @@ Item {
         ComboBox {
             id: cityCombo
             Layout.alignment: Qt.AlignHCenter
+            height: 30
             model: cityHandler.getCities()
             textRole: "display"
             implicitContentWidthPolicy: ComboBox.WidestTextWhenCompleted
@@ -48,16 +46,6 @@ Item {
                highlighted: cityCombo.highlightedIndex === index
            }
             onActivated: cityHandler.citySelected(currentIndex)
-        }
-        ListView {
-            id: stationsList
-            width: 300
-            height: 400
-            model: cityHandler.stationHandler().stationModel()
-            delegate: ItemDelegate {
-                height: 50
-                text: address
-            }
         }
     }
 }

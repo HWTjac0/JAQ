@@ -19,7 +19,7 @@ class ApiClient : public QObject
 public:
     ApiClient(QObject *parent = nullptr);
     void fetchStations(int page = 1);
-    QUrl buildUrl(const QString &endpoint, const QMap<QString, QString> &params);
+    QUrl buildUrl(const QString &endpoint, const QMap<QString, QString> &params = QMap<QString, QString>());
     void fetchStationAQI(int station_id);
     void fetchStationAQI(Station &station);
     QJsonDocument getJsonFromReply(QNetworkReply *reply);
