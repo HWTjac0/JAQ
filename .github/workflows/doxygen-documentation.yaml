@@ -1,0 +1,62 @@
+name: Generate Doxygen Documentation and Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [ main, master ]  # Trigger on push to main/master branches
+    paths:
+      - '**/*.cpp'
+      - '**/*.h'
+      - '**/*.qml'
+      - 'Doxyfile'
+      - 'CMakeLists.txt'
+      - '**/CMakeLists.txt'
+  # Allow manual trigger
+  workflow_dispatch:
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+      with:
+        fetch-depth: 0  # We need full history for documentation generation
+
+    - name: Install Doxygen
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y doxygen graphviz
+
+    - name: Download Qt tag files
+      run: |
+        mkdir -p qt-tags
+        wget -q -P qt-tags https://doc.qt.io/qt-6/qtcore.tags
+        wget -q -P qt-tags https://doc.qt.io/qt-6/qtgui.tags
+        wget -q -P qt-tags https://doc.qt.io/qt-6/qtqml.tags
+        wget -q -P qt-tags https://doc.qt.io/qt-6/qtquick.tags
+    
+    - name: Update Doxyfile with tag file paths
+      run: |
+        # Update the tag file paths in Doxyfile to use the downloaded files
+        sed -i 's|TAGFILES               =.*|TAGFILES               = qt-tags/qtcore.tags=https://doc.qt.io/qt-6/ \\
+                         qt-tags/qtgui.tags=https://doc.qt.io/qt-6/ \\
+                         qt-tags/qtqml.tags=https://doc.qt.io/qt-6/ \\
+                         qt-tags/qtquick.tags=https://doc.qt.io/qt-6/|' Doxyfile
+
+    - name: Generate Documentation with Doxygen
+      run: |
+        doxygen Doxyfile
+        
+        # Fix permissions of the output directory to avoid Jekyll errors
+        chmod -R 755 docs
+        
+        # Create .nojekyll file to prevent GitHub Pages from ignoring files that begin with an underscore
+        touch docs/html/.nojekyll
+        
+    - name: Deploy to GitHub Pages
+      uses: JamesIves/github-pages-deploy-action@v4
+      with:
+        branch: gh-pages  # The branch the action should deploy to
+        folder: docs/html  # The folder that contains the generated Doxygen HTML documentation
+        clean: true       # Automatically remove deleted files from the deploy branch

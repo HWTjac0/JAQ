@@ -1,0 +1,59 @@
+PROJECT_NAME 		= Jacs Air Quality app
+PROJECT_BRIEF 		=  Jacs Air Quality app, university assignment written in C++ and QML 
+PROJECT_NUMBER 		= 2025.04.1
+OUTPUT_DIRECTORY 	= docs
+
+INPUT                  = .
+FILE_PATTERNS          = *.cpp *.h *.qml *.qdoc
+RECURSIVE              = YES
+EXCLUDE                = build/ .git/ .github/
+EXCLUDE_PATTERNS       = */build/* */debug/* */release/* moc_*.cpp ui_*.h qrc_*.cpp
+
+ENABLE_PREPROCESSING   = YES
+MACRO_EXPANSION        = YES
+EXPAND_ONLY_PREDEF     = YES
+PREDEFINED             = Q_DECLARE_FLAGS(x,y)=typedef QFlags<y> x; \
+                         Q_PROPERTY(x)= \
+                         Q_PRIVATE_PROPERTY(x,y)= \
+                         Q_DECLARE_PRIVATE(x)= \
+                         Q_DECLARE_PUBLIC(x)= \
+                         Q_D(x)= \
+                         Q_Q(x)= \
+                         Q_DISABLE_COPY(x)= \
+                         Q_INTERFACES(x)= \
+                         Q_OBJECT= \
+                         Q_GADGET= \
+                         QT_BEGIN_NAMESPACE= \
+                         QT_END_NAMESPACE= \
+                         Q_SIGNALS=public \
+                         Q_SLOTS=public
+
+GENERATE_HTML          = YES
+GENERATE_LATEX         = NO
+HTML_OUTPUT            = html
+HTML_FILE_EXTENSION    = .html
+HTML_DYNAMIC_SECTIONS  = YES
+SEARCHENGINE           = YES
+
+EXTENSION_MAPPING      = qml=C++
+FILTER_PATTERNS        = *.qml="sed -e 's/^/\/\/\/ /' -e 's/property /Q_PROPERTY(/' -e 's/://' -e 's/;/)/'
+
+TAGFILES               = qtcore.tags=https://doc.qt.io/qt-6/ \
+                         qtgui.tags=https://doc.qt.io/qt-6/ \
+                         qtqml.tags=https://doc.qt.io/qt-6/ \
+                         qtquick.tags=https://doc.qt.io/qt-6/
+
+SOURCE_BROWSER         = YES
+INLINE_SOURCES         = NO
+STRIP_CODE_COMMENTS    = NO
+REFERENCED_BY_RELATION = YES
+REFERENCES_RELATION    = YES
+VERBATIM_HEADERS       = YES
+
+FULL_PATH_NAMES        = NO
+JAVADOC_AUTOBRIEF      = YES
+INHERIT_DOCS           = YES
+SORT_MEMBER_DOCS       = YES
+SORT_BRIEF_DOCS        = YES
+WARN_IF_UNDOCUMENTED   = YES
+WARN_NO_PARAMDOC       = YES
