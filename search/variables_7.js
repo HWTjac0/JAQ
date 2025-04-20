@@ -77,7 +77,7 @@ var searchData=
   ['hoverleave_74',['HoverLeave',['https://doc.qt.io/qt-6/qevent.html#Type-enum',1,'QEvent']]],
   ['hovermove_75',['HoverMove',['https://doc.qt.io/qt-6/qevent.html#Type-enum',1,'QEvent']]],
   ['hsl_76',['hsl',['https://doc.qt.io/qt-6/qcolor.html#Spec-enum',1,'QColor::Hsl'],['https://doc.qt.io/qt-6/qpixelformat.html#ColorModel-enum',1,'QPixelFormat::HSL']]],
-  ['hsv_77',['hsv',['https://doc.qt.io/qt-6/qcolor.html#Spec-enum',1,'QColor::Hsv'],['https://doc.qt.io/qt-6/qpixelformat.html#ColorModel-enum',1,'QPixelFormat::HSV']]],
+  ['hsv_77',['hsv',['https://doc.qt.io/qt-6/qpixelformat.html#ColorModel-enum',1,'QPixelFormat::HSV'],['https://doc.qt.io/qt-6/qcolor.html#Spec-enum',1,'QColor::Hsv']]],
   ['htmlresource_78',['HtmlResource',['https://doc.qt.io/qt-6/qtextdocument.html#ResourceType-enum',1,'QTextDocument']]],
   ['hungarian_79',['Hungarian',['https://doc.qt.io/qt-6/qlocale.html#Language-enum',1,'QLocale']]],
   ['hungary_80',['Hungary',['https://doc.qt.io/qt-6/qlocale.html#Country-enum',1,'QLocale']]],
