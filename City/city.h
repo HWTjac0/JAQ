@@ -24,8 +24,7 @@ public:
     City(const QString &name, const QJsonArray &stations);
     QJsonObject toIndexEntry() const;
     void addStation(const Station &station);
-    QVector<Station> getStations() const;
-    void debugStations() const;
+    QList<Station> getStations() const;
 private:
     QVector<Station> _stations;
     QString _name;

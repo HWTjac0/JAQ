@@ -35,7 +35,7 @@ void ApiClient::fetchStations(int page)
 }
 
 void ApiClient::fetchStationAQI(Station &station) {
-    QUrl url = buildUrl("/aqindex/getIndex/" + QString::number(station.id));
+    QUrl url = buildUrl("/aqindex/getIndex/" + QString::number(station.id()));
     QNetworkRequest req(url);
     QNetworkReply *reply = _manager->get(req);
     connect(reply, &QNetworkReply::finished, this, &ApiClient::handleStationAQI);
@@ -44,7 +44,6 @@ void ApiClient::fetchStationAQI(Station &station) {
                                  .value("AqIndex").toObject()
                                  .value("Nazwa kategorii indeksu")
                                  .toString();
-        station.setAQIStatus(aqi_status);
     });
 }
 QJsonDocument ApiClient::getJsonFromReply(QNetworkReply *reply) {
@@ -70,7 +69,8 @@ void ApiClient::handleStations()
 
         auto cityIt = cities.find(city_id);
         if (cityIt == cities.end()) {
-            City *city = new City(station.cityName, station_json.value("Województwo").toString(), city_id);
+            QString station_cityName = station_json.value("Nazwa miasta").toString();
+            City *city = new City(station_cityName, station_json.value("Województwo").toString(), city_id);
             cityIt = cities.insert(city_id, city);
         }
         cityIt.value()->addStation(station);

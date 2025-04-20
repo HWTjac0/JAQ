@@ -6,22 +6,24 @@
 class Station
 {
 public:
-    int id;
-    QString cityName;
-    QString address;
-    QString aqi_status;
-    void setAQIStatus(QString &status);
     Station() = default;
-    Station(const int city);
+    Station(const int id);
     Station(const int id, const QString &address);
+    QJsonObject toIndexEntry() const;
+    int id() const;
+    QString address() const;
+    void setId(int id);
+    void setAddress(const QString &address);
     static Station fromJson(const QJsonObject &obj)
     {
         Station station;
-        station.cityName = obj.value("Nazwa miasta").toString();
-        station.address  = obj.value("Ulica").toString();
-        station.id = obj.value("Identyfikator stacji").toInt();
+        station.setAddress(obj.value("Ulica").toString());
+        station.setId(obj.value("Identyfikator stacji").toInt());
+
         return station;
     }
-    QJsonObject toIndexEntry() const;
+private:
+    int _id;
+    QString _address;
 };
 #endif // STATION_H

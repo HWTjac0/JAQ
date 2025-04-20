@@ -5,6 +5,7 @@
 #include "../core/apiclient.h"
 #include "cityindexmodel.h"
 #include "citysortproxymodel.h"
+#include "../Station/stationhandler.h"
 
 class CityHandler : public QObject
 {
@@ -12,14 +13,17 @@ class CityHandler : public QObject
 public:
     CityHandler(ApiClient *client, QObject *parent = nullptr);
     Q_INVOKABLE CitySortProxyModel* getCities() const;
-    Q_SIGNAL void cityChanged(const QString &city_name);
     Q_INVOKABLE int getCityId(int comboBoxIndex);
-    Q_INVOKABLE void getCityStations(int comboBoxIndex);
-
+    Q_SIGNAL void cityChanged(const QString &city_name);
+    Q_INVOKABLE StationHandler* stationHandler() const;
+public slots:
+    void citySelected(int comboBoxIndex);
 private:
     ApiClient *_client;
     CityIndexModel  *_baseModel;
     CitySortProxyModel *_proxyModel;
+    City* _currentCity;
+    StationHandler *_stationHandler;
 };
 
 #endif // CITYHANDLER_H

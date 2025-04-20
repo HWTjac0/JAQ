@@ -24,16 +24,11 @@ QVariant CityIndexModel::data(const QModelIndex &index, int role) const
 
     City *city = _entries.at(index.row());
     switch (role) {
-    case DisplayRole:
-        return QString("%1, %2").arg(city->name(), city->voivodeship());
-    case CityNameRole:
-        return city->name();
-    case VoivodeshipRole:
-        return city->voivodeship();
-    case IdRole:
-        return city->id();
-    default:
-        return QVariant();
+        case DisplayRole: return QString("%1, %2").arg(city->name(), city->voivodeship());
+        case CityNameRole: return city->name();
+        case VoivodeshipRole:  return city->voivodeship();
+        case IdRole: return city->id();
+        default: return QVariant();
     }
 }
 void CityIndexModel::addCity(City *city)

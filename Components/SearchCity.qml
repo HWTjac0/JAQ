@@ -47,7 +47,17 @@ Item {
                text: model.display
                highlighted: cityCombo.highlightedIndex === index
            }
-            onActivated: cityHandler.getCityStations(currentIndex)
+            onActivated: cityHandler.citySelected(currentIndex)
+        }
+        ListView {
+            id: stationsList
+            width: 300
+            height: 400
+            model: cityHandler.stationHandler().stationModel()
+            delegate: ItemDelegate {
+                height: 50
+                text: address
+            }
         }
     }
 }

@@ -38,20 +38,6 @@ void Database::populate() {
                 index_obj.insert(QString::number(city.value()->id()), city.value()->toIndexEntry());
             }
             writeJson(index_obj, indexPath);
-            // QFile file(indexPath);
-            // try {
-            //     file.open(QIODevice::WriteOnly | QIODevice::Text);
-            //     QJsonDocument doc(index_obj);
-            //     qint64 bytes_written = file.write(doc.toJson());
-            //     if(bytes_written == -1) {
-            //         throw std::runtime_error("Failed to write index database");
-            //     }
-            //     file.close();
-            // } catch (std::exception &e) {
-            //     qWarning() << "Error: " << e.what();
-            // } catch (...) {
-            //     qWarning() << "Error writing index database";
-            // }
             qDeleteAll(cities);
             emit dbPopulated();
         });

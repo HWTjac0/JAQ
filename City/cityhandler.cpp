@@ -8,6 +8,7 @@ CityHandler::CityHandler(ApiClient *client, QObject *parent)
 {
     _baseModel = new CityIndexModel(this);
     _proxyModel = new CitySortProxyModel(this);
+    _stationHandler = new StationHandler(this);
 
     _baseModel->addCities(Database::cities);
     _proxyModel->setSourceModel(_baseModel);
@@ -23,12 +24,10 @@ int CityHandler::getCityId(int comboBoxIndex) {
                           ).toInt();
 }
 
-void CityHandler::getCityStations(int comboBoxIndex) {
-    int cityId = _proxyModel->data(
-        _proxyModel->index(comboBoxIndex, 0),
-        CityIndexModel::IdRole).toInt();
-    City *city = Database::getCity(cityId);
-    foreach (const Station& station, city->getStations()) {
-        qDebug() << station.id << " " << station.address;
-    }
+StationHandler* CityHandler::stationHandler() const{
+    return _stationHandler;
+}
+void CityHandler::citySelected(int comboBoxIndex) {
+    int cityId = getCityId(comboBoxIndex);
+    _stationHandler->loadStationsForCity(cityId);
 }
