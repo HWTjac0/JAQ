@@ -47,9 +47,7 @@ Item {
                text: model.display
                highlighted: cityCombo.highlightedIndex === index
            }
-            onActivated: {
-                console.log("Selected City ID:", cityHandler.getCityId(currentIndex))
-            }
+            onActivated: cityHandler.getCityStations(currentIndex)
         }
     }
 }

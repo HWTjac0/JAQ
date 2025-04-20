@@ -1,6 +1,6 @@
 #include "apiclient.h"
-#include "station.h"
-#include "City/city.h"
+#include "../Station/station.h"
+#include "../City/city.h"
 
 ApiClient::ApiClient(QObject *parent)
     : QObject(parent)
@@ -74,16 +74,6 @@ void ApiClient::handleStations()
             cityIt = cities.insert(city_id, city);
         }
         cityIt.value()->addStation(station);
-        // if (!cities.contains(city_id)) {
-        //     City city(station.cityName, station_json.value("Województwo").toString(), city_id);
-        //     cities.insert(
-        //         city_id,
-        //         city
-        //         );
-        // }
-        // if(cities.contains(city_id)){
-        //     cities[city_id].addStation(station);
-        // }
     }
     emit stationsFinished(cities);
 }

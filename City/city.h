@@ -1,7 +1,7 @@
 #ifndef CITY_H
 #define CITY_H
 #include <QString>
-#include "../station.h"
+#include "../Station/station.h"
 #include <QVector>
 #include <QObject>
 

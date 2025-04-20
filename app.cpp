@@ -1,8 +1,8 @@
 #include "app.h"
 #include <QQmlContext>
-#include "apiclient.h"
+#include "core/apiclient.h"
 #include "City/cityhandler.h"
-#include "database.h"
+#include "core/database.h"
 #include <QDir>
 
 App::App() {}

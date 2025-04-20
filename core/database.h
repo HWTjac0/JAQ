@@ -11,7 +11,9 @@ public:
     static QList<City*> cities;
     Database() = default;
     Database(ApiClient *client);
+    static City* getCity(int city_id);
     void populate();
+    void writeJson(const QJsonObject &json, const QString &path);
 public slots:
     void init();
 signals:

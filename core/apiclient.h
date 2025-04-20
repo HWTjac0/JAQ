@@ -10,8 +10,8 @@
 #include <QObject>
 #include <QUrl>
 #include <QUrlQuery>
-#include "station.h"
-#include "City/city.h"
+#include "../Station/station.h"
+#include "../City/city.h"
 
 class ApiClient : public QObject
 {

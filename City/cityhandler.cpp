@@ -1,7 +1,7 @@
 #include "cityhandler.h"
 #include "citysortproxymodel.h"
 #include <QStringList>
-#include "../database.h"
+#include "../core/database.h"
 
 CityHandler::CityHandler(ApiClient *client, QObject *parent)
     : _client(client), QObject(parent)
@@ -27,4 +27,14 @@ int CityHandler::getCityId(int comboBoxIndex) {
                           _proxyModel->index(comboBoxIndex, 0),
                           CityIndexModel::IdRole
                           ).toInt();
+}
+
+void CityHandler::getCityStations(int comboBoxIndex) {
+    int cityId = _proxyModel->data(
+        _proxyModel->index(comboBoxIndex, 0),
+        CityIndexModel::IdRole).toInt();
+    City *city = Database::getCity(cityId);
+    foreach (const Station& station, city->getStations()) {
+        qDebug() << station.id << " " << station.address;
+    }
 }

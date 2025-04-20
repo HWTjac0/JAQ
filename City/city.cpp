@@ -24,7 +24,7 @@ QJsonObject City::toIndexEntry() const {
     QJsonObject obj;
     QJsonArray stations_json;
     foreach (const Station &station, _stations) {
-        stations_json.append(QJsonValue(station.id));
+        stations_json.append(station.toIndexEntry());
     }
     QString vship = voivodeship().toLower();
     vship.front() = vship.front().toUpper();

@@ -18,11 +18,11 @@ qt_add_qml_module(appairQuality
     QML_FILES
         Main.qml
         SOURCES app.h app.cpp
-        SOURCES apiclient.h apiclient.cpp
+        SOURCES core/apiclient.h core/apiclient.cpp
         SOURCES City/cityhandler.h City/cityhandler.cpp
-        SOURCES database.h database.cpp
+        SOURCES core/database.h core/database.cpp
         SOURCES City/city.h City/city.cpp
-        SOURCES station.h station.cpp
+        SOURCES Station/station.h Station/station.cpp
         SOURCES City/cityindexmodel.h City/cityindexmodel.cpp
         QML_FILES Components/SearchCity.qml
         SOURCES City/citysortproxymodel.h City/citysortproxymodel.cpp
