@@ -42,7 +42,6 @@ Item {
                     }
                 }
             }
-
             delegate: ItemDelegate {
                width: cityCombo.popup.width
                text: model.display
