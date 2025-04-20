@@ -1,0 +1,25 @@
+var searchData=
+[
+  ['readelementtextbehaviour_0',['ReadElementTextBehaviour',['https://doc.qt.io/qt-6/qxmlstreamreader.html#ReadElementTextBehaviour-enum',1,'QXmlStreamReader']]],
+  ['realnumbernotation_1',['RealNumberNotation',['https://doc.qt.io/qt-6/qtextstream.html#RealNumberNotation-enum',1,'QTextStream']]],
+  ['reason_2',['Reason',['https://doc.qt.io/qt-6/qcontextmenuevent.html#Reason-enum',1,'QContextMenuEvent']]],
+  ['recursionmode_3',['RecursionMode',['https://doc.qt.io/qt-6/qreadwritelock.html#RecursionMode-enum',1,'QReadWriteLock']]],
+  ['regiontype_4',['RegionType',['https://doc.qt.io/qt-6/qregion.html#RegionType-enum',1,'QRegion']]],
+  ['relationflag_5',['RelationFlag',['https://doc.qt.io/qt-6/qaccessible.html#RelationFlag-enum',1,'QAccessible']]],
+  ['renderabletype_6',['RenderableType',['https://doc.qt.io/qt-6/qsurfaceformat.html#RenderableType-enum',1,'QSurfaceFormat']]],
+  ['renderflag_7',['RenderFlag',['https://doc.qt.io/qt-6/qtextitem.html#RenderFlag-enum',1,'QTextItem']]],
+  ['renderhint_8',['RenderHint',['https://doc.qt.io/qt-6/qpainter.html#RenderHint-enum',1,'QPainter']]],
+  ['renderingflag_9',['RenderingFlag',['https://doc.qt.io/qt-6/qsgrendernode.html#RenderingFlag-enum',1,'QSGRenderNode']]],
+  ['rendermode_10',['RenderMode',['https://doc.qt.io/qt-6/qsgrendererinterface.html#RenderMode-enum',1,'QSGRendererInterface']]],
+  ['renderstage_11',['RenderStage',['https://doc.qt.io/qt-6/qquickwindow.html#RenderStage-enum',1,'QQuickWindow']]],
+  ['rendertarget_12',['RenderTarget',['https://doc.qt.io/qt-6/qquickpainteditem.html#RenderTarget-enum',1,'QQuickPaintedItem']]],
+  ['rendertype_13',['RenderType',['https://doc.qt.io/qt-6/qsgtextnode.html#RenderType-enum',1,'QSGTextNode']]],
+  ['resizemode_14',['resizemode',['https://doc.qt.io/qt-6/qquickview.html#ResizeMode-enum',1,'QQuickView::ResizeMode'],['https://doc.qt.io/qt-6/qquickwidget.html#ResizeMode-enum',1,'QQuickWidget::ResizeMode']]],
+  ['resource_15',['Resource',['https://doc.qt.io/qt-6/qsgrendererinterface.html#Resource-enum',1,'QSGRendererInterface']]],
+  ['resourcelimit_16',['ResourceLimit',['https://doc.qt.io/qt-6/qrhi.html#ResourceLimit-enum',1,'QRhi']]],
+  ['resourcetype_17',['ResourceType',['https://doc.qt.io/qt-6/qtextdocument.html#ResourceType-enum',1,'QTextDocument']]],
+  ['restarthint_18',['RestartHint',['https://doc.qt.io/qt-6/qsessionmanager.html#RestartHint-enum',1,'QSessionManager']]],
+  ['returnbyvalueconstant_19',['ReturnByValueConstant',['https://doc.qt.io/qt-6/qt.html#ReturnByValueConstant-enum',1,'Qt']]],
+  ['role_20',['Role',['https://doc.qt.io/qt-6/qaccessible.html#Role-enum',1,'QAccessible']]],
+  ['roles_21',['Roles',['https://doc.qt.io/qt-6/qfilesystemmodel.html#Roles-enum',1,'QFileSystemModel']]]
+];

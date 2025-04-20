@@ -1,0 +1,28 @@
+var searchData=
+[
+  ['cachemode_0',['cacheMode',['https://doc.qt.io/qt-6/qmovie.html#cacheMode-prop',1,'QMovie']]],
+  ['canredo_1',['canRedo',['https://doc.qt.io/qt-6/qundostack.html#canRedo-prop',1,'QUndoStack']]],
+  ['canundo_2',['canUndo',['https://doc.qt.io/qt-6/qundostack.html#canUndo-prop',1,'QUndoStack']]],
+  ['checkable_3',['checkable',['https://doc.qt.io/qt-6/qaction.html#checkable-prop',1,'QAction']]],
+  ['checked_4',['checked',['https://doc.qt.io/qt-6/qaction.html#checked-prop',1,'QAction']]],
+  ['childrenrect_5',['childrenRect',['https://doc.qt.io/qt-6/qquickitem.html#childrenRect-prop',1,'QQuickItem']]],
+  ['clean_6',['clean',['https://doc.qt.io/qt-6/qundostack.html#clean-prop',1,'QUndoStack']]],
+  ['clip_7',['clip',['https://doc.qt.io/qt-6/qquickitem.html#clip-prop',1,'QQuickItem']]],
+  ['color_8',['color',['https://doc.qt.io/qt-6/qquickwindow.html#color-prop',1,'QQuickWindow']]],
+  ['colorbufferformat_9',['colorBufferFormat',['https://doc.qt.io/qt-6/qquickrhiitem.html#colorBufferFormat-prop',1,'QQuickRhiItem']]],
+  ['colorscheme_10',['colorScheme',['https://doc.qt.io/qt-6/qstylehints.html#colorScheme-prop',1,'QStyleHints']]],
+  ['comment_11',['comment',['https://doc.qt.io/qt-6/qmimetype.html#comment-prop',1,'QMimeType']]],
+  ['containmentmask_12',['containmentMask',['https://doc.qt.io/qt-6/qquickitem.html#containmentMask-prop',1,'QQuickItem']]],
+  ['contentitem_13',['contentItem',['https://doc.qt.io/qt-6/qquickwindow.html#contentItem-prop',1,'QQuickWindow']]],
+  ['contentorientation_14',['contentOrientation',['https://doc.qt.io/qt-6/qwindow.html#contentOrientation-prop',1,'QWindow']]],
+  ['contentsscale_15',['contentsScale',['https://doc.qt.io/qt-6/qquickpainteditem-obsolete.html#contentsScale-prop',1,'QQuickPaintedItem']]],
+  ['contentssize_16',['contentsSize',['https://doc.qt.io/qt-6/qquickpainteditem-obsolete.html#contentsSize-prop',1,'QQuickPaintedItem']]],
+  ['context_17',['context',['https://doc.qt.io/qt-6/qshortcut.html#context-prop',1,'QShortcut']]],
+  ['contextmenutrigger_18',['contextMenuTrigger',['https://doc.qt.io/qt-6/qstylehints.html#contextMenuTrigger-prop',1,'QStyleHints']]],
+  ['currentanimation_19',['currentAnimation',['https://doc.qt.io/qt-6/qsequentialanimationgroup.html#currentAnimation-prop',1,'QSequentialAnimationGroup']]],
+  ['currentloop_20',['currentLoop',['https://doc.qt.io/qt-6/qabstractanimation.html#currentLoop-prop',1,'QAbstractAnimation']]],
+  ['currenttime_21',['currenttime',['https://doc.qt.io/qt-6/qabstractanimation.html#currentTime-prop',1,'QAbstractAnimation::currentTime'],['https://doc.qt.io/qt-6/qtimeline.html#currentTime-prop',1,'QTimeLine::currentTime']]],
+  ['currentvalue_22',['currentValue',['https://doc.qt.io/qt-6/qvariantanimation.html#currentValue-prop',1,'QVariantAnimation']]],
+  ['cursorflashtime_23',['cursorFlashTime',['https://doc.qt.io/qt-6/qstylehints.html#cursorFlashTime-prop',1,'QStyleHints']]],
+  ['cursorrectangle_24',['cursorRectangle',['https://doc.qt.io/qt-6/qinputmethod.html#cursorRectangle-prop',1,'QInputMethod']]]
+];

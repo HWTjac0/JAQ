@@ -1,0 +1,23 @@
+var searchData=
+[
+  ['pagesize_0',['pageSize',['https://doc.qt.io/qt-6/qtextdocument.html#pageSize-prop',1,'QTextDocument']]],
+  ['parent_1',['parent',['https://doc.qt.io/qt-6/qquickitem.html#parent-prop',1,'QQuickItem']]],
+  ['parentmimetypes_2',['parentMimeTypes',['https://doc.qt.io/qt-6/qmimetype.html#parentMimeTypes-prop',1,'QMimeType']]],
+  ['passwordmaskcharacter_3',['passwordMaskCharacter',['https://doc.qt.io/qt-6/qstylehints.html#passwordMaskCharacter-prop',1,'QStyleHints']]],
+  ['passwordmaskdelay_4',['passwordMaskDelay',['https://doc.qt.io/qt-6/qstylehints.html#passwordMaskDelay-prop',1,'QStyleHints']]],
+  ['physicaldotsperinch_5',['physicalDotsPerInch',['https://doc.qt.io/qt-6/qscreen.html#physicalDotsPerInch-prop',1,'QScreen']]],
+  ['physicaldotsperinchx_6',['physicalDotsPerInchX',['https://doc.qt.io/qt-6/qscreen.html#physicalDotsPerInchX-prop',1,'QScreen']]],
+  ['physicaldotsperinchy_7',['physicalDotsPerInchY',['https://doc.qt.io/qt-6/qscreen.html#physicalDotsPerInchY-prop',1,'QScreen']]],
+  ['physicalsize_8',['physicalSize',['https://doc.qt.io/qt-6/qscreen.html#physicalSize-prop',1,'QScreen']]],
+  ['platformname_9',['platformName',['https://doc.qt.io/qt-6/qguiapplication.html#platformName-prop',1,'QGuiApplication']]],
+  ['position_10',['position',['https://doc.qt.io/qt-6/qeventpoint.html#position-prop',1,'QEventPoint']]],
+  ['preferredsuffix_11',['preferredSuffix',['https://doc.qt.io/qt-6/qmimetype.html#preferredSuffix-prop',1,'QMimeType']]],
+  ['pressposition_12',['pressPosition',['https://doc.qt.io/qt-6/qeventpoint.html#pressPosition-prop',1,'QEventPoint']]],
+  ['presstimestamp_13',['pressTimestamp',['https://doc.qt.io/qt-6/qeventpoint.html#pressTimestamp-prop',1,'QEventPoint']]],
+  ['pressure_14',['pressure',['https://doc.qt.io/qt-6/qeventpoint.html#pressure-prop',1,'QEventPoint']]],
+  ['primaryorientation_15',['primaryOrientation',['https://doc.qt.io/qt-6/qscreen.html#primaryOrientation-prop',1,'QScreen']]],
+  ['primaryscreen_16',['primaryScreen',['https://doc.qt.io/qt-6/qguiapplication.html#primaryScreen-prop',1,'QGuiApplication']]],
+  ['priority_17',['priority',['https://doc.qt.io/qt-6/qaction.html#priority-prop',1,'QAction']]],
+  ['progress_18',['progress',['https://doc.qt.io/qt-6/qqmlcomponent.html#progress-prop',1,'QQmlComponent']]],
+  ['propertyname_19',['propertyName',['https://doc.qt.io/qt-6/qpropertyanimation.html#propertyName-prop',1,'QPropertyAnimation']]]
+];
