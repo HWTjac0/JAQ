@@ -63,6 +63,7 @@ jobs:
     - name: Deploy to GitHub Pages
       uses: JamesIves/github-pages-deploy-action@v4
       with:
+        token: ${{ secrets.GH_PAT }}
         branch: gh-pages  # The branch the action should deploy to
         folder: docs/html  # The folder that contains the generated Doxygen HTML documentation
         clean: true       # Automatically remove deleted files from the deploy branch
