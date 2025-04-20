@@ -471,7 +471,7 @@ var searchData=
   ['qscopedpointer_468',['QScopedPointer',['https://doc.qt.io/qt-6/qscopedpointer.html#QScopedPointer',1,'QScopedPointer']]],
   ['qscopedpropertyupdategroup_469',['QScopedPropertyUpdateGroup',['https://doc.qt.io/qt-6/qscopedpropertyupdategroup.html#QScopedPropertyUpdateGroup',1,'QScopedPropertyUpdateGroup']]],
   ['qscopedvaluerollback_470',['qscopedvaluerollback',['https://doc.qt.io/qt-6/qscopedvaluerollback.html#QScopedValueRollback',1,'QScopedValueRollback::QScopedValueRollback(T &amp;var)'],['https://doc.qt.io/qt-6/qscopedvaluerollback.html#QScopedValueRollback-1',1,'QScopedValueRollback::QScopedValueRollback(T &amp;var, T value)']]],
-  ['qscopeguard_471',['qscopeguard',['https://doc.qt.io/qt-6/qscopeguard.html#qScopeGuard',1,'QScopeGuard::qScopeGuard(F &amp;&amp;f)'],['https://doc.qt.io/qt-6/qscopeguard.html#QScopeGuard',1,'QScopeGuard::QScopeGuard(F &amp;&amp;f)'],['https://doc.qt.io/qt-6/qscopeguard.html#QScopeGuard-1',1,'QScopeGuard::QScopeGuard(const F &amp;f)']]],
+  ['qscopeguard_471',['qscopeguard',['https://doc.qt.io/qt-6/qscopeguard.html#QScopeGuard',1,'QScopeGuard::QScopeGuard(F &amp;&amp;f)'],['https://doc.qt.io/qt-6/qscopeguard.html#QScopeGuard-1',1,'QScopeGuard::QScopeGuard(const F &amp;f)'],['https://doc.qt.io/qt-6/qscopeguard.html#qScopeGuard',1,'QScopeGuard::qScopeGuard(F &amp;&amp;f)']]],
   ['qscrollevent_472',['QScrollEvent',['https://doc.qt.io/qt-6/qscrollevent.html#QScrollEvent',1,'QScrollEvent']]],
   ['qscrollprepareevent_473',['QScrollPrepareEvent',['https://doc.qt.io/qt-6/qscrollprepareevent.html#QScrollPrepareEvent',1,'QScrollPrepareEvent']]],
   ['qsemaphore_474',['QSemaphore',['https://doc.qt.io/qt-6/qsemaphore.html#QSemaphore',1,'QSemaphore']]],
