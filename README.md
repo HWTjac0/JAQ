@@ -5,4 +5,5 @@ TODO
 ## Documentation
 For documentation head [here](hwtjac0.github.io/JAQ/) 
 ## Tests
+Tests are written using QtTest. They are always built and run before pushing to repo (not yet). Rest...
 TODO

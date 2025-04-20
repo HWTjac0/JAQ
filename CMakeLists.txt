@@ -26,6 +26,8 @@ qt_add_qml_module(appairQuality
         SOURCES City/cityindexmodel.h City/cityindexmodel.cpp
         QML_FILES Components/SearchCity.qml
         SOURCES City/citysortproxymodel.h City/citysortproxymodel.cpp
+        SOURCES Station/stationmodel.h Station/stationmodel.cpp
+        SOURCES Station/stationhandler.h Station/stationhandler.cpp
 )
 
 # Qt for iOS sets MACOSX_BUNDLE_GUI_IDENTIFIER automatically since Qt 6.1.
@@ -49,3 +51,4 @@ install(TARGETS appairQuality
     LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
     RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
 )
+add_subdirectory(Tests)

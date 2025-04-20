@@ -15,8 +15,7 @@ public:
     Q_SIGNAL void cityChanged(const QString &city_name);
     Q_INVOKABLE int getCityId(int comboBoxIndex);
     Q_INVOKABLE void getCityStations(int comboBoxIndex);
-public slots:
-    void receiveText(const QString &text);
+
 private:
     ApiClient *_client;
     CityIndexModel  *_baseModel;

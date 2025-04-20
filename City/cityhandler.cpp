@@ -13,12 +13,6 @@ CityHandler::CityHandler(ApiClient *client, QObject *parent)
     _proxyModel->setSourceModel(_baseModel);
 }
 
-void CityHandler::receiveText(const QString &text)
-{
-    qDebug() << "Received text from QML:" << text;
-    emit cityChanged(text);
-}
-
 CitySortProxyModel* CityHandler::getCities() const {
     return _proxyModel;
 }
