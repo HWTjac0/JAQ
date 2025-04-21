@@ -21,7 +21,7 @@ var searchData=
   ['yoruba_18',['Yoruba',['https://doc.qt.io/qt-6/qlocale.html#Language-enum',1,'QLocale']]],
   ['younggrass_19',['YoungGrass',['https://doc.qt.io/qt-6/qgradient.html#Preset-enum',1,'QGradient']]],
   ['youngpassion_20',['YoungPassion',['https://doc.qt.io/qt-6/qgradient.html#Preset-enum',1,'QGradient']]],
-  ['ytilt_21',['ytilt',['https://doc.qt.io/qt-6/qtabletevent.html#yTilt',1,'QTabletEvent::yTilt()'],['https://doc.qt.io/qt-6/qinputdevice.html#Capability-enum',1,'QInputDevice::YTilt']]],
+  ['ytilt_21',['ytilt',['https://doc.qt.io/qt-6/qinputdevice.html#Capability-enum',1,'QInputDevice::YTilt'],['https://doc.qt.io/qt-6/qtabletevent.html#yTilt',1,'QTabletEvent::yTilt()']]],
   ['yuv_22',['YUV',['https://doc.qt.io/qt-6/qpixelformat.html#ColorModel-enum',1,'QPixelFormat']]],
   ['yuv411_23',['YUV411',['https://doc.qt.io/qt-6/qpixelformat.html#YUVLayout-enum',1,'QPixelFormat']]],
   ['yuv420p_24',['YUV420P',['https://doc.qt.io/qt-6/qpixelformat.html#YUVLayout-enum',1,'QPixelFormat']]],
