@@ -22,6 +22,7 @@ public:
     QUrl buildUrl(const QString &endpoint, const QMap<QString, QString> &params = QMap<QString, QString>());
     void fetchStationAQI(int station_id);
     void fetchStationAQI(Station &station);
+    void fetchSensors(int stationId);
     QJsonDocument getJsonFromReply(QNetworkReply *reply);
 public slots:
     void handleStations();

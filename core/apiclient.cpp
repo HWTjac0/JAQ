@@ -24,6 +24,11 @@ QUrl ApiClient::buildUrl(const QString &endpoint,
     return url;
 }
 
+void ApiClient::fetchSensors(int stationId) {
+    QUrl url = buildUrl("/station/sensors/" + QString::number(stationId));
+}
+
+
 void ApiClient::fetchStations(int page)
 {
     QMap<QString, QString> params;
