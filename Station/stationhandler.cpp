@@ -14,7 +14,8 @@ void StationHandler::loadStationsForCity(int cityId) {
 
 void StationHandler::getStationUrl(int stationId) {
     QUrl stationUrl = _apiClient->buildUrl("/aqindex/getIndex/" + QString::number(stationId));
-    _apiClient->fetchStationAQI(stationId);
+    //_apiClient->fetchStationAQI(stationId);
+    _apiClient->fetchSensors(stationId);
     qDebug() << stationUrl;
 }
 

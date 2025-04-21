@@ -1,6 +1,7 @@
 #ifndef DATABASE_H
 #define DATABASE_H
 #include "apiclient.h"
+#include "../Sensor/sensor.h"
 #include <QFile>
 #include <QJsonDocument>
 class Database : public QObject
@@ -8,6 +9,7 @@ class Database : public QObject
     Q_OBJECT
 public:
     static QMap<int, City*> index;
+    static QMap<int, Indicator> indicatorIndex;
     static QList<City*> cities;
     Database() = default;
     Database(ApiClient *client);
@@ -16,6 +18,7 @@ public:
     void writeJson(const QJsonObject &json, const QString &path);
 public slots:
     void init();
+    void handleFetchedStations(QMap<int, City*> cities);
 signals:
     void dbPopulated();
 private:

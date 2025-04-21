@@ -26,10 +26,12 @@ public:
     QJsonDocument getJsonFromReply(QNetworkReply *reply);
 public slots:
     void handleStations();
+    void handleSensors();
     void handleStationAQI();
 signals:
     void stationsFinished(QMap<int, City*> cities);
     void stationAQIFinished(const QJsonDocument &doc);
+    void sensorsFinished(QVector<Sensor> sensors, QVector<QPair<int, Indicator>> indicators);
 private:
     QNetworkAccessManager *_manager;
     QString _basePath;

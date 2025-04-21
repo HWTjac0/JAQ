@@ -2,8 +2,7 @@
 #define STATION_H
 #include <QJsonObject>
 #include <QString>
-
-
+#include "../Sensor/sensor.h"
 
 class Station
 {
@@ -24,6 +23,7 @@ public:
     void setType(Type type);
     Type getType() const;
     QString getTypeString() const;
+    void setSensors(QVector<Sensor> &sensors);
     static Station fromJson(const QJsonObject &obj)
     {
         Station station;
@@ -35,6 +35,7 @@ public:
 private:
     int _id;
     QString _address;
+    QVector<Sensor> _sensors;
     Type _type;
 };
 #endif // STATION_H

@@ -1,5 +1,6 @@
 #include "station.h"
 #include <QJsonObject>
+#include <QJsonArray>
 
 Station::Station(const int id) : _id(id) {}
 Station::Station(const int id, const QString &address)
@@ -16,7 +17,11 @@ QJsonObject Station::toIndexEntry() const {
     QJsonObject obj;
     obj.insert("id", _id);
     obj.insert("address", _address);
-
+    QJsonArray sensors;
+    for(auto s : _sensors) {
+        sensors.append(s.id());
+    }
+    obj.insert("sensors", sensors);
     return obj;
 }
 int Station::id() const { return _id; }
@@ -42,6 +47,12 @@ QString Station::getTypeString() const {
         case Manual: return "manualna";
         case Automatic: return "automatyczna";
         default: return "automatyczna";
+    }
+}
+
+void Station::setSensors(QVector<Sensor> &sensors){
+    for(auto s : sensors) {
+        _sensors.append(s);
     }
 }
 

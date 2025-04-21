@@ -1,6 +1,7 @@
 #include "apiclient.h"
 #include "../Station/station.h"
 #include "../City/city.h"
+#include "../Sensor/sensor.h"
 
 ApiClient::ApiClient(QObject *parent)
     : QObject(parent)
@@ -26,8 +27,27 @@ QUrl ApiClient::buildUrl(const QString &endpoint,
 
 void ApiClient::fetchSensors(int stationId) {
     QUrl url = buildUrl("/station/sensors/" + QString::number(stationId));
+    QNetworkRequest req(url);
+    QNetworkReply *reply = _manager->get(req);
+    connect(reply, &QNetworkReply::finished, this, &ApiClient::handleSensors);
 }
 
+void ApiClient::handleSensors() {
+    QJsonObject data = getJsonFromReply(qobject_cast<QNetworkReply *>(sender())).object();
+    QJsonArray sensors_json = data["Lista stanowisk pomiarowych dla podanej stacji"].toArray();
+    QVector<Sensor> sensors;
+    QVector<QPair<int, Indicator>> indicators;
+    for(const auto &s : std::as_const(sensors_json)) {
+        QJsonObject sens = s.toObject();
+        int sensorId = sens.value("Identyfikator stanowiska").toInt();
+        int indicatorId = sens.value("Id wskaźnika").toInt();
+        QString indicatorName =  sens.value("Wskaźnik").toString();
+        QString indicatorCode = sens.value("Wskaźnik - wzór").toString();
+        sensors.append(Sensor(sensorId, indicatorId));
+        indicators.append(QPair<int, Indicator>(indicatorId, Indicator{.code = indicatorCode, .name = indicatorName}));
+    }
+    emit sensorsFinished(sensors, indicators);
+}
 
 void ApiClient::fetchStations(int page)
 {
@@ -66,10 +86,12 @@ void ApiClient::handleStations()
     QJsonObject data = getJsonFromReply(qobject_cast<QNetworkReply *>(sender())).object();
     QJsonArray stations = data["Lista stacji pomiarowych"].toArray();
 
+    // city map index container
     QMap<int, City*> cities;
     for (auto it = stations.cbegin(); it != stations.cend(); it++) {
         QJsonObject station_json = it->toObject();
         Station station = Station::fromJson(station_json);
+        // Get list of cities into the map to create index
         int city_id = station_json.value("Identyfikator miasta").toInt();
 
         auto cityIt = cities.find(city_id);
@@ -82,4 +104,3 @@ void ApiClient::handleStations()
     }
     emit stationsFinished(cities);
 }
-

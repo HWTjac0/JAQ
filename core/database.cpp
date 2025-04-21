@@ -8,6 +8,8 @@
 
 QMap<int, City*> Database::index;
 QList<City*> Database::cities;
+QMap<int, Indicator> Database::indicatorIndex;
+
 
 Database::Database(ApiClient *client)
     : _client(client), _indexPath("db.json")
@@ -27,20 +29,31 @@ Database::Database(ApiClient *client)
 //     }
 void Database::populate() {
     _client->fetchStations();
+    connect(_client, &ApiClient::stationsFinished, this, &Database::handleFetchedStations);
+}
+
+void Database::handleFetchedStations(QMap<int, City*> cities) {
     QJsonObject index_obj;
-    QString indexPath = _indexPath;
-    connect(
-        _client,
-        &ApiClient::stationsFinished,
-        this,
-        [index_obj, indexPath, this](QMap<int, City*> cities) mutable {
-            for(auto city = cities.cbegin(); city != cities.cend(); city++) {
-                index_obj.insert(QString::number(city.value()->id()), city.value()->toIndexEntry());
-            }
-            writeJson(index_obj, indexPath);
-            qDeleteAll(cities);
-            emit dbPopulated();
-        });
+    int pendingRequests = 0;
+    for(auto city = cities.cbegin(); city != cities.cend(); city++) {
+        for(auto& station : city.value()->getStations()) {
+            _client->fetchSensors(station.id());
+            connect(_client,
+                    &ApiClient::sensorsFinished,
+                    this,
+                    [station](QVector<Sensor> sensors,
+                              QVector<QPair<int, Indicator>> indicators) mutable {
+                        station.setSensors(sensors);
+                        for(const auto& i : indicators) {
+                            Database::indicatorIndex.insert(i.first, i.second);
+                        }
+                    });
+        }
+        index_obj.insert(QString::number(city.value()->id()), city.value()->toIndexEntry());
+        qDebug() << city.value()->toIndexEntry();
+    }
+    writeJson(index_obj, _indexPath);
+    qDeleteAll(cities);
 }
 
 void Database::writeJson(const QJsonObject &json, const QString &path) {
@@ -73,11 +86,9 @@ void Database::init() {
         );
         QJsonArray stations_json = it.value().toObject().value("stations").toArray();
         for(auto s = stations_json.cbegin(); s != stations_json.cend(); s++) {
-            QJsonObject station = s->toObject();
-            city->addStation(Station(
-                station.value("id").toInt(),
-                station.value("address").toString()
-                ));
+            QJsonObject s_json = s->toObject();
+            Station station ( s_json.value("id").toInt(), s_json.value("address").toString());
+            city->addStation(station);
         }
         Database::cities.append(city);
         Database::index.insert(
