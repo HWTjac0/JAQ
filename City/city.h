@@ -25,6 +25,7 @@ public:
     QJsonObject toIndexEntry() const;
     void addStation(const Station &station);
     QList<Station> getStations() const;
+    void setStationsSensors(int stationId, const QVector<Sensor>& sensors);
 private:
     QVector<Station> _stations;
     QString _name;

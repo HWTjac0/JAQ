@@ -26,7 +26,9 @@ QUrl ApiClient::buildUrl(const QString &endpoint,
 }
 
 void ApiClient::fetchSensors(int stationId) {
-    QUrl url = buildUrl("/station/sensors/" + QString::number(stationId));
+    QMap<QString, QString> params;
+    params.insert("size", "20");
+    QUrl url = buildUrl("/station/sensors/" + QString::number(stationId), params);
     QNetworkRequest req(url);
     QNetworkReply *reply = _manager->get(req);
     connect(reply, &QNetworkReply::finished, this, &ApiClient::handleSensors);
@@ -52,7 +54,7 @@ void ApiClient::handleSensors() {
 void ApiClient::fetchStations(int page)
 {
     QMap<QString, QString> params;
-    params.insert("size", "300");
+    params.insert("size", "5");
     QUrl url = buildUrl("/station/findAll", params);
     QNetworkRequest request(url);
     QNetworkReply *reply = _manager->get(request);

@@ -11,6 +11,7 @@ public:
         Automatic,
         Manual
     };
+    int cityId;
     Station() = default;
     Station(const int id);
     Station(const int id, const QString &address);
@@ -23,7 +24,7 @@ public:
     void setType(Type type);
     Type getType() const;
     QString getTypeString() const;
-    void setSensors(QVector<Sensor> &sensors);
+    void setSensors(const QVector<Sensor> &sensors);
     static Station fromJson(const QJsonObject &obj)
     {
         Station station;

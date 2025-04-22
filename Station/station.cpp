@@ -19,7 +19,10 @@ QJsonObject Station::toIndexEntry() const {
     obj.insert("address", _address);
     QJsonArray sensors;
     for(auto s : _sensors) {
-        sensors.append(s.id());
+        QJsonObject sensor_obj;
+        sensor_obj.insert("id", s.id());
+        sensor_obj.insert("indicator_id", s.indicatorId());
+        sensors.append(sensor_obj);
     }
     obj.insert("sensors", sensors);
     return obj;
@@ -50,7 +53,7 @@ QString Station::getTypeString() const {
     }
 }
 
-void Station::setSensors(QVector<Sensor> &sensors){
+void Station::setSensors(const QVector<Sensor> &sensors){
     for(auto s : sensors) {
         _sensors.append(s);
     }

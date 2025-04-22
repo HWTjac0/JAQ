@@ -1,7 +1,7 @@
 #include "cityhandler.h"
 #include "citysortproxymodel.h"
 #include <QStringList>
-#include "../core/database.h"
+#include "../core/Database/database.h"
 
 CityHandler::CityHandler(ApiClient *client, QObject *parent)
     : _client(client), QObject(parent)
@@ -10,7 +10,7 @@ CityHandler::CityHandler(ApiClient *client, QObject *parent)
     _proxyModel = new CitySortProxyModel(this);
     _stationHandler = new StationHandler(client, this);
 
-    _baseModel->addCities(Database::cities);
+    _baseModel->addCities(Database::index.values());
     _proxyModel->setSourceModel(_baseModel);
 }
 

@@ -1,5 +1,5 @@
 #include "stationhandler.h"
-#include "../core/database.h"
+#include "../core/Database/database.h"
 
 StationHandler::StationHandler(ApiClient *apiClient, QObject *parent) : QObject(parent) {
     _stationModel = new StationModel(this);

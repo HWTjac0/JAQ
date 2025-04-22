@@ -2,7 +2,7 @@
 #include <QQmlContext>
 #include "core/apiclient.h"
 #include "City/cityhandler.h"
-#include "core/database.h"
+#include "core/Database/database.h"
 #include <QDir>
 
 App::App() {}
@@ -17,7 +17,6 @@ int App::init(int argc, char *argv[])
 
     QQmlApplicationEngine engine;
     engine.rootContext()->setContextProperty("cityHandler", &handler);
-    engine.
     QObject::connect(
         &engine,
         &QQmlApplicationEngine::objectCreationFailed,
