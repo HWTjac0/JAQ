@@ -13,9 +13,9 @@ class Database : public QObject
 public:
     static QMap<int, City*> index;
     static QMap<int, Indicator> indicatorIndex;
-    static QMutex indicatorMutex;
     Database() = default;
     Database(ApiClient *client, QObject* parent = nullptr);
+    static void addCity(int cityId, City *city);
     static City* getCity(int city_id);
 public slots:
     void init();

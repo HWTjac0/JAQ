@@ -8,7 +8,6 @@
 
 QMap<int, City*> Database::index;
 QMap<int, Indicator> Database::indicatorIndex;
-QMutex Database::indicatorMutex;
 
 Database::Database(ApiClient *client, QObject* parent)
     : _client(client), _indexPath("db.json")
@@ -17,6 +16,10 @@ Database::Database(ApiClient *client, QObject* parent)
     if(!QFile::exists(_indexPath)) {
         _writer->fetchAllData();
     }
+}
+
+void Database::addCity(int cityId, City *city){
+    index.insert(cityId, city);
 }
 
 void Database::init() {
