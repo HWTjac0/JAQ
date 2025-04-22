@@ -83,7 +83,7 @@ $(document).ready(function() { init_codefold(0); });
 </div><!--header-->
 <div class="contents">
 <div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#include &quot;stationhandler.h&quot;</span></div>
-<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#include &quot;../core/database.h&quot;</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#include &quot;../core/Database/database.h&quot;</span></div>
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span>StationHandler::StationHandler(<a class="code hl_class" href="classApiClient.html">ApiClient</a> *apiClient, <a class="code hl_classRef" href="https://doc.qt.io/qt-6/qobject.html">QObject</a> *parent) : <a class="code hl_classRef" href="https://doc.qt.io/qt-6/qobject.html">QObject</a>(parent) {</div>
 <div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span>    _stationModel = <span class="keyword">new</span> <a class="code hl_class" href="classStationModel.html">StationModel</a>(<span class="keyword">this</span>);</div>
@@ -92,7 +92,7 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span>}</div>
 <div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="keywordtype">void</span> StationHandler::loadStationsForCity(<span class="keywordtype">int</span> cityId) {</div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>    <a class="code hl_classRef" href="https://doc.qt.io/qt-6/qlist.html">QList&lt;Station&gt;</a> <a class="code hl_functionRef" href="https://doc.qt.io/qt-6/qobject.html#qobject_cast">stations</a> = Database::getCity(<a class="code hl_functionRef" href="https://doc.qt.io/qt-6/qobject.html#qobject_cast">cityId</a>)-&gt;getStations();</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>    <a class="code hl_classRef" href="https://doc.qt.io/qt-6/qlist.html">QList&lt;Station&gt;</a> <a class="code hl_functionRef" href="https://doc.qt.io/qt-6/qobject.html#qobject_cast">stations</a> = Database::getCity(cityId)-&gt;getStations();</div>
 <div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>    _stationModel-&gt;setStations(<a class="code hl_functionRef" href="https://doc.qt.io/qt-6/qobject.html#qobject_cast">stations</a>);</div>
 <div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>}</div>
 <div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>

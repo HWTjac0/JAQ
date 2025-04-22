@@ -21,14 +21,14 @@ var searchData=
   ['yoruba_18',['Yoruba',['https://doc.qt.io/qt-6/qlocale.html#Language-enum',1,'QLocale']]],
   ['younggrass_19',['YoungGrass',['https://doc.qt.io/qt-6/qgradient.html#Preset-enum',1,'QGradient']]],
   ['youngpassion_20',['YoungPassion',['https://doc.qt.io/qt-6/qgradient.html#Preset-enum',1,'QGradient']]],
-  ['ytilt_21',['ytilt',['https://doc.qt.io/qt-6/qinputdevice.html#Capability-enum',1,'QInputDevice::YTilt'],['https://doc.qt.io/qt-6/qtabletevent.html#yTilt',1,'QTabletEvent::yTilt()']]],
+  ['ytilt_21',['ytilt',['https://doc.qt.io/qt-6/qtabletevent.html#yTilt',1,'QTabletEvent::yTilt()'],['https://doc.qt.io/qt-6/qinputdevice.html#Capability-enum',1,'QInputDevice::YTilt']]],
   ['yuv_22',['YUV',['https://doc.qt.io/qt-6/qpixelformat.html#ColorModel-enum',1,'QPixelFormat']]],
   ['yuv411_23',['YUV411',['https://doc.qt.io/qt-6/qpixelformat.html#YUVLayout-enum',1,'QPixelFormat']]],
   ['yuv420p_24',['YUV420P',['https://doc.qt.io/qt-6/qpixelformat.html#YUVLayout-enum',1,'QPixelFormat']]],
   ['yuv420sp_25',['YUV420SP',['https://doc.qt.io/qt-6/qpixelformat.html#YUVLayout-enum',1,'QPixelFormat']]],
   ['yuv422_26',['YUV422',['https://doc.qt.io/qt-6/qpixelformat.html#YUVLayout-enum',1,'QPixelFormat']]],
   ['yuv444_27',['YUV444',['https://doc.qt.io/qt-6/qpixelformat.html#YUVLayout-enum',1,'QPixelFormat']]],
-  ['yuvlayout_28',['yuvlayout',['https://doc.qt.io/qt-6/qpixelformat.html#YUVLayout-enum',1,'QPixelFormat::YUVLayout'],['https://doc.qt.io/qt-6/qpixelformat.html#yuvLayout',1,'QPixelFormat::yuvLayout() const const']]],
+  ['yuvlayout_28',['yuvlayout',['https://doc.qt.io/qt-6/qpixelformat.html#yuvLayout',1,'QPixelFormat::yuvLayout() const const'],['https://doc.qt.io/qt-6/qpixelformat.html#YUVLayout-enum',1,'QPixelFormat::YUVLayout']]],
   ['yuyv_29',['YUYV',['https://doc.qt.io/qt-6/qpixelformat.html#YUVLayout-enum',1,'QPixelFormat']]],
   ['yv12_30',['YV12',['https://doc.qt.io/qt-6/qpixelformat.html#YUVLayout-enum',1,'QPixelFormat']]]
 ];

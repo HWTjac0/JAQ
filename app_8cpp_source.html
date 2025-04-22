@@ -82,7 +82,7 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#include &lt;QQmlContext&gt;</span></div>
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &quot;core/apiclient.h&quot;</span></div>
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &quot;City/cityhandler.h&quot;</span></div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &quot;core/database.h&quot;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &quot;core/Database/database.h&quot;</span></div>
 <div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &lt;QDir&gt;</span></div>
 <div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
 <div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span>App::App() {}</div>
@@ -97,21 +97,20 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
 <div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    <a class="code hl_classRef" href="https://doc.qt.io/qt-6/qqmlapplicationengine.html">QQmlApplicationEngine</a> engine;</div>
 <div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    engine.<a class="code hl_functionRef" href="https://doc.qt.io/qt-6/qqmlengine.html#rootContext">rootContext</a>()-&gt;<a class="code hl_functionRef" href="https://doc.qt.io/qt-6/qqmlcontext.html#setContextProperty">setContextProperty</a>(<span class="stringliteral">&quot;cityHandler&quot;</span>, &amp;handler);</div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    engine.</div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    <a class="code hl_functionRef" href="https://doc.qt.io/qt-6/qobject.html#connect-2">QObject::connect</a>(</div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>        &amp;engine,</div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>        &amp;<a class="code hl_functionRef" href="https://doc.qt.io/qt-6/qqmlapplicationengine.html#objectCreationFailed">QQmlApplicationEngine::objectCreationFailed</a>,</div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>        &amp;app,</div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>        []() { <a class="code hl_functionRef" href="https://doc.qt.io/qt-6/qcoreapplication.html#exit">QCoreApplication::exit</a>(-1); },</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>        <a class="code hl_variableRef" href="https://doc.qt.io/qt-6/qt.html#ConnectionType-enum">Qt::QueuedConnection</a>);</div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    engine.<a class="code hl_functionRef" href="https://doc.qt.io/qt-6/qqmlengine.html#addImportPath">addImportPath</a>(<a class="code hl_functionRef" href="https://doc.qt.io/qt-6/qdir.html#currentPath">QDir::currentPath</a>() + <span class="stringliteral">&quot;/Components&quot;</span>);</div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    engine.<a class="code hl_functionRef" href="https://doc.qt.io/qt-6/qqmlapplicationengine.html#loadFromModule">loadFromModule</a>(<span class="stringliteral">&quot;airQuality&quot;</span>, <span class="stringliteral">&quot;Main&quot;</span>);</div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    <span class="keywordflow">return</span> app.exec();</div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>}</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    <a class="code hl_functionRef" href="https://doc.qt.io/qt-6/qobject.html#connect-2">QObject::connect</a>(</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>        &amp;engine,</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>        &amp;<a class="code hl_functionRef" href="https://doc.qt.io/qt-6/qqmlapplicationengine.html#objectCreationFailed">QQmlApplicationEngine::objectCreationFailed</a>,</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>        &amp;app,</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>        []() { <a class="code hl_functionRef" href="https://doc.qt.io/qt-6/qcoreapplication.html#exit">QCoreApplication::exit</a>(-1); },</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>        <a class="code hl_variableRef" href="https://doc.qt.io/qt-6/qt.html#ConnectionType-enum">Qt::QueuedConnection</a>);</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    engine.<a class="code hl_functionRef" href="https://doc.qt.io/qt-6/qqmlengine.html#addImportPath">addImportPath</a>(<a class="code hl_functionRef" href="https://doc.qt.io/qt-6/qdir.html#currentPath">QDir::currentPath</a>() + <span class="stringliteral">&quot;/Components&quot;</span>);</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    engine.<a class="code hl_functionRef" href="https://doc.qt.io/qt-6/qqmlapplicationengine.html#loadFromModule">loadFromModule</a>(<span class="stringliteral">&quot;airQuality&quot;</span>, <span class="stringliteral">&quot;Main&quot;</span>);</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    <span class="keywordflow">return</span> app.exec();</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>}</div>
 <div class="ttc" id="aclassApiClient_html"><div class="ttname"><a href="classApiClient.html">ApiClient</a></div><div class="ttdef"><b>Definition</b> <a href="apiclient_8h_source.html#l00016">apiclient.h:17</a></div></div>
 <div class="ttc" id="aclassCityHandler_html"><div class="ttname"><a href="classCityHandler.html">CityHandler</a></div><div class="ttdef"><b>Definition</b> <a href="cityhandler_8h_source.html#l00010">cityhandler.h:11</a></div></div>
-<div class="ttc" id="aclassDatabase_html"><div class="ttname"><a href="classDatabase.html">Database</a></div><div class="ttdef"><b>Definition</b> <a href="database_8h_source.html#l00007">database.h:8</a></div></div>
+<div class="ttc" id="aclassDatabase_html"><div class="ttname"><a href="classDatabase.html">Database</a></div><div class="ttdef"><b>Definition</b> <a href="database_8h_source.html#l00010">database.h:11</a></div></div>
 <div class="ttc" id="aqcoreapplication_html_exit"><div class="ttname"><a href="https://doc.qt.io/qt-6/qcoreapplication.html#exit">QCoreApplication::exit</a></div><div class="ttdeci">void exit(int returnCode)</div></div>
 <div class="ttc" id="aqdir_html_currentPath"><div class="ttname"><a href="https://doc.qt.io/qt-6/qdir.html#currentPath">QDir::currentPath</a></div><div class="ttdeci">QString currentPath()</div></div>
 <div class="ttc" id="aqguiapplication_html"><div class="ttname"><a href="https://doc.qt.io/qt-6/qguiapplication.html">QGuiApplication</a></div></div>

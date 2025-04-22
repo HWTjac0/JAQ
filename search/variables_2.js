@@ -112,7 +112,7 @@ var searchData=
   ['closesoftwareinputpanel_109',['CloseSoftwareInputPanel',['https://doc.qt.io/qt-6/qevent.html#Type-enum',1,'QEvent']]],
   ['cloudyapple_110',['CloudyApple',['https://doc.qt.io/qt-6/qgradient.html#Preset-enum',1,'QGradient']]],
   ['cloudyknoxville_111',['CloudyKnoxville',['https://doc.qt.io/qt-6/qgradient.html#Preset-enum',1,'QGradient']]],
-  ['cmyk_112',['cmyk',['https://doc.qt.io/qt-6/qcolorspace.html#ColorModel-enum',1,'QColorSpace::Cmyk'],['https://doc.qt.io/qt-6/qcolor.html#Spec-enum',1,'QColor::Cmyk'],['https://doc.qt.io/qt-6/qpixelformat.html#ColorModel-enum',1,'QPixelFormat::CMYK'],['https://doc.qt.io/qt-6/qpdfwriter.html#ColorModel-enum',1,'QPdfWriter::CMYK']]],
+  ['cmyk_112',['cmyk',['https://doc.qt.io/qt-6/qpixelformat.html#ColorModel-enum',1,'QPixelFormat::CMYK'],['https://doc.qt.io/qt-6/qpdfwriter.html#ColorModel-enum',1,'QPdfWriter::CMYK'],['https://doc.qt.io/qt-6/qcolorspace.html#ColorModel-enum',1,'QColorSpace::Cmyk'],['https://doc.qt.io/qt-6/qcolor.html#Spec-enum',1,'QColor::Cmyk']]],
   ['coarsetimer_113',['CoarseTimer',['https://doc.qt.io/qt-6/qt.html#TimerType-enum',1,'Qt']]],
   ['cochitilake_114',['CochitiLake',['https://doc.qt.io/qt-6/qgradient.html#Preset-enum',1,'QGradient']]],
   ['cocosislands_115',['CocosIslands',['https://doc.qt.io/qt-6/qlocale.html#Country-enum',1,'QLocale']]],
