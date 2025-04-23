@@ -14,7 +14,7 @@ Database::Database(ApiClient *client, QObject* parent)
 {
     _writer = new DatabaseWriter(this, _client);
     _reader = new DatabaseReader(this);
-    if(!QFile::exists(_indexPath)) {
+    if(!QFile::exists("indexCities.json")){
         _writer->fetchAllData();
     }
     _reader->readCityIndex();

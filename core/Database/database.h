@@ -22,7 +22,7 @@ public:
 public slots:
     void init();
 signals:
-    void dbPopulated();
+    void dbReady();
 private:
     QString _indexPath;
     DatabaseWriter *_writer;
