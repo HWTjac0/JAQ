@@ -53,6 +53,10 @@ QString Station::getTypeString() const {
     }
 }
 
+QVector<Sensor> Station::getSensors() const {
+    return _sensors;
+}
+
 void Station::setSensors(const QVector<Sensor> &sensors){
     for(auto s : sensors) {
         _sensors.append(s);

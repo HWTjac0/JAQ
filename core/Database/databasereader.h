@@ -3,6 +3,7 @@
 
 #include <QObject>
 #include "../../City/city.h"
+#include "../../Sensor/sensor.h"
 
 class DatabaseReader : public QObject
 {
@@ -12,10 +13,10 @@ public:
     void readCityIndex();
     void readIndicators();
     QJsonObject readJson(QString path);
-    void parseIndicators();
+    Indicator parseIndicator(const QJsonObject &indicator);
     City* parseCity(const QJsonObject &cityObj, int cityId) const;
-    void parseStation(const QJsonArray &stationsArr) const;
-    void parseSensors();
+    Station parseStation(const QJsonObject &station) const;
+    QVector<Sensor> parseSensors(const QJsonArray &sensors) const;
 private:
     QString _rootPath;
 };

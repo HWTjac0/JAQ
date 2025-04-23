@@ -46,7 +46,6 @@ void DatabaseWriter::handleFetchedSensors(
     ) {
     for(const auto& pair : indicators) {
         Database::indicatorIndex.insert(pair.first, pair.second);
-        qDebug() << pair.first << " " << pair.second.code << " " << pair.second.name;
     }
     _processingCities.value(_currentStation.cityId)->setStationsSensors(_currentStation.id(), sensors);
     if(_isProcessingStations) {

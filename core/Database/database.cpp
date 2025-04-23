@@ -13,13 +13,22 @@ Database::Database(ApiClient *client, QObject* parent)
     : _client(client), _indexPath("db.json")
 {
     _writer = new DatabaseWriter(this, _client);
+    _reader = new DatabaseReader(this);
     if(!QFile::exists(_indexPath)) {
         _writer->fetchAllData();
+    }
+    _reader->readCityIndex();
+    if(indicatorIndex.size() == 0) {
+        _reader->readIndicators();
     }
 }
 
 void Database::addCity(int cityId, City *city){
     index.insert(cityId, city);
+}
+
+void Database::addIndicator(int indicatorId, Indicator indicator){
+    indicatorIndex.insert(indicatorId, indicator);
 }
 
 void Database::init() {
