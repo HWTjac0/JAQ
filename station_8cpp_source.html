@@ -137,12 +137,16 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    }</div>
 <div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>}</div>
 <div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span> </div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span><span class="keywordtype">void</span> Station::setSensors(<span class="keyword">const</span> <a class="code hl_classRef" href="https://doc.qt.io/qt-6/qvector.html">QVector&lt;Sensor&gt;</a> &amp;sensors){</div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    <span class="keywordflow">for</span>(<span class="keyword">auto</span> s : sensors) {</div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>        _sensors.append(s);</div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    }</div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>}</div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span> </div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span><a class="code hl_classRef" href="https://doc.qt.io/qt-6/qvector.html">QVector&lt;Sensor&gt;</a> Station::getSensors()<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    <span class="keywordflow">return</span> _sensors;</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>}</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span> </div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span><span class="keywordtype">void</span> Station::setSensors(<span class="keyword">const</span> <a class="code hl_classRef" href="https://doc.qt.io/qt-6/qvector.html">QVector&lt;Sensor&gt;</a> &amp;sensors){</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    <span class="keywordflow">for</span>(<span class="keyword">auto</span> s : sensors) {</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>        _sensors.append(s);</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    }</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>}</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span> </div>
 <div class="ttc" id="aclassStation_html"><div class="ttname"><a href="classStation.html">Station</a></div><div class="ttdef"><b>Definition</b> <a href="station_8h_source.html#l00007">station.h:8</a></div></div>
 <div class="ttc" id="aqjsonarray_html"><div class="ttname"><a href="https://doc.qt.io/qt-6/qjsonarray.html">QJsonArray</a></div></div>
 <div class="ttc" id="aqjsonarray_html_append"><div class="ttname"><a href="https://doc.qt.io/qt-6/qjsonarray.html#append">QJsonArray::append</a></div><div class="ttdeci">void append(const QJsonValue &amp;value)</div></div>

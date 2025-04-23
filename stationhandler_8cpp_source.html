@@ -100,12 +100,11 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    <a class="code hl_classRef" href="https://doc.qt.io/qt-6/qurl.html">QUrl</a> <a class="code hl_functionRef" href="https://doc.qt.io/qt-6/qobject.html#qobject_cast">stationUrl</a> = _apiClient-&gt;buildUrl(<span class="stringliteral">&quot;/aqindex/getIndex/&quot;</span> + <a class="code hl_functionRef" href="https://doc.qt.io/qt-6/qstring.html#number-1">QString::number</a>(<a class="code hl_functionRef" href="https://doc.qt.io/qt-6/qobject.html#qobject_cast">stationId</a>));</div>
 <div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    <span class="comment">//_apiClient-&gt;fetchStationAQI(stationId);</span></div>
 <div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    _apiClient-&gt;fetchSensors(<a class="code hl_functionRef" href="https://doc.qt.io/qt-6/qobject.html#qobject_cast">stationId</a>);</div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    <a class="code hl_functionRef" href="https://doc.qt.io/qt-6/qobject.html#qobject_cast">qDebug</a>() &lt;&lt; <a class="code hl_functionRef" href="https://doc.qt.io/qt-6/qobject.html#qobject_cast">stationUrl</a>;</div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>}</div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><a class="code hl_class" href="classStationModel.html">StationModel</a> *StationHandler::stationModel()<span class="keyword"> const </span>{</div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    <span class="keywordflow">return</span> _stationModel;</div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>}</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>}</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><a class="code hl_class" href="classStationModel.html">StationModel</a> *StationHandler::stationModel()<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    <span class="keywordflow">return</span> _stationModel;</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>}</div>
 <div class="ttc" id="aclassApiClient_html"><div class="ttname"><a href="classApiClient.html">ApiClient</a></div><div class="ttdef"><b>Definition</b> <a href="apiclient_8h_source.html#l00016">apiclient.h:17</a></div></div>
 <div class="ttc" id="aclassStationModel_html"><div class="ttname"><a href="classStationModel.html">StationModel</a></div><div class="ttdef"><b>Definition</b> <a href="stationmodel_8h_source.html#l00007">stationmodel.h:8</a></div></div>
 <div class="ttc" id="aqlist_html"><div class="ttname"><a href="https://doc.qt.io/qt-6/qlist.html">QList</a></div></div>
