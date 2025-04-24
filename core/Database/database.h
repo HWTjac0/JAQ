@@ -19,8 +19,6 @@ public:
     static void addCity(int cityId, City *city);
     static void addIndicator(int indicatorId, Indicator indicator);
     static City* getCity(int city_id);
-public slots:
-    void init();
 signals:
     void dbReady();
 private:
