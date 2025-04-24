@@ -7,7 +7,7 @@ int StationModel::rowCount(const QModelIndex &parent) const {
 }
 
 QVariant StationModel::data(const QModelIndex &index, int role) const {
-    if (!index.isValid() || index.row() >= _stations.size())
+    if (!index.isValid() or index.row() >= _stations.size())
         return QVariant();
 
     const Station& station = _stations.at(index.row());

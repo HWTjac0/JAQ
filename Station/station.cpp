@@ -53,8 +53,17 @@ QString Station::getTypeString() const {
     }
 }
 
-QVector<Sensor> Station::getSensors() const {
+QList<Sensor> Station::getSensors() const {
     return _sensors;
+}
+
+Sensor Station::getSensorById(int sensorId) const {
+    for(const auto &sensor : _sensors) {
+        if(sensor.id() == sensorId) {
+            return sensor;
+        }
+    }
+    return Sensor();
 }
 
 void Station::setSensors(const QVector<Sensor> &sensors){

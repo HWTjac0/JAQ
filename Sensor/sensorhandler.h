@@ -2,14 +2,22 @@
 #define SENSORHANDLER_H
 
 #include <QObject>
+#include "../core/apiclient.h"
+#include "sensormodel.h"
 
-class sensorHandler : public QObject
+class SensorHandler : public QObject
 {
     Q_OBJECT
 public:
-    explicit sensorHandler(QObject *parent = nullptr);
-
-signals:
+    static Sensor currentSensor;
+    explicit SensorHandler(QObject *parent = nullptr, ApiClient *client = nullptr);
+    Q_INVOKABLE SensorModel* sensorModel() const;
+    void loadSensorsForStation();
+public slots:
+    void sensorSelected(int sensorId);
+private:
+    ApiClient *_client;
+    SensorModel *_sensorModel;
 };
 
 #endif // SENSORHANDLER_H

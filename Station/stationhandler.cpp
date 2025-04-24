@@ -1,5 +1,4 @@
 #include "stationhandler.h"
-#include "../core/Database/database.h"
 #include "../City/cityhandler.h"
 
 Station StationHandler::currentStation;
@@ -7,21 +6,23 @@ StationHandler::StationHandler(ApiClient *apiClient, QObject *parent) : QObject(
     _stationModel = new StationModel(this);
     currentStation = Station();
     _apiClient = apiClient;
+    _sensorHandler = new SensorHandler(this, apiClient);
 }
 
-void StationHandler::loadStationsForCity(int cityId) {
-    QList<Station> stations = Database::getCity(cityId)->getStations();
+void StationHandler::loadStationsForCity() {
+    QList<Station> stations = CityHandler::currentCity->getStations();
     _stationModel->setStations(stations);
 }
 
 void StationHandler::stationSelected(int stationId) {
     currentStation = CityHandler::currentCity->getStationById(stationId);
-    for(auto sensor : currentStation.getSensors()) {
-        Indicator currentIndicator = Database::getIndicator(sensor.indicatorId());
-        qDebug() << sensor.id() << " " << currentIndicator.name << " " << currentIndicator.code;
-    }
+    _sensorHandler->loadSensorsForStation();
 }
 
 StationModel* StationHandler::stationModel() const {
     return _stationModel;
+}
+
+SensorHandler* StationHandler::sensorHandler() {
+    return _sensorHandler;
 }

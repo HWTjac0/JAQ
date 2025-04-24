@@ -14,6 +14,7 @@ public:
     Sensor(int id, int indicatorId);
     int id() const;
     int indicatorId() const;
+    Indicator getIndicator() const;
 private:
     int _id;
     int _indicatorId;

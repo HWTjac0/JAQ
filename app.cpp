@@ -13,11 +13,13 @@ int App::init(int argc, char *argv[])
     ApiClient client;
 
     Database db(&client);
-    CityHandler handler(&client);
-
+    CityHandler cityHandler(&client);
+    StationHandler *stationHandler = cityHandler.stationHandler();
+    SensorHandler *sensorHandler = stationHandler->sensorHandler();
     QQmlApplicationEngine engine;
-    engine.rootContext()->setContextProperty("stationHandler", handler.stationHandler());
-    engine.rootContext()->setContextProperty("cityHandler", &handler);
+    engine.rootContext()->setContextProperty("stationHandler", stationHandler);
+    engine.rootContext()->setContextProperty("sensorHandler", sensorHandler);
+    engine.rootContext()->setContextProperty("cityHandler", &cityHandler);
     QObject::connect(
         &engine,
         &QQmlApplicationEngine::objectCreationFailed,

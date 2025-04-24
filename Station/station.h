@@ -24,7 +24,8 @@ public:
     void setType(Type type);
     Type getType() const;
     QString getTypeString() const;
-    QVector<Sensor> getSensors() const;
+    QList<Sensor> getSensors() const;
+    Sensor getSensorById(int sensorId) const;
     void setSensors(const QVector<Sensor> &sensors);
     static Station fromJson(const QJsonObject &obj)
     {

@@ -33,7 +33,9 @@ Window {
         border.color: "black"
         width: parent.width
         Column {
+            id: stationList
             width: 220
+            height: 300
             Text {
                 id: stationsTitle
                 text: "Dostępne stacje pomiarowe"
@@ -52,6 +54,29 @@ Window {
                     font.pixelSize: 14
                     width: parent.width
                     onClicked: stationHandler.stationSelected(stationId)
+                }
+            }
+        }
+        Column {
+            id: sensorList
+            anchors.top: stationList.bottom
+            width: 220
+            Text {
+                id: sensorsTitle
+                text: "Dostępne stanowiska dla stacji"
+                font.bold: true;
+                font.pixelSize: 16
+            }
+            ListView {
+                anchors.top: sensorsTitle.bottom
+                width: parent.width
+                height: 200
+                interactive: false
+                model: sensorHandler.sensorModel()
+                delegate: ItemDelegate {
+                    text: display
+                    width: parent.width
+                    font.pixelSize: 14
                 }
             }
         }
