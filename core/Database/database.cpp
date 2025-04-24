@@ -31,6 +31,10 @@ void Database::addIndicator(int indicatorId, Indicator indicator){
     indicatorIndex.insert(indicatorId, indicator);
 }
 
+Indicator Database::getIndicator(int indicatorId){
+    return indicatorIndex.value(indicatorId);
+}
+
 City* Database::getCity(int city_id) {
     auto city_it = Database::index.find(city_id);
     if(city_it == Database::index.end()) {

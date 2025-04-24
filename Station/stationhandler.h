@@ -8,13 +8,14 @@ class StationHandler : public QObject
 {
     Q_OBJECT
 public:
+    static Station currentStation;
     explicit StationHandler(ApiClient *apiClient, QObject *parent = nullptr);
     void loadStationsForCity(int cityId);
-    Q_INVOKABLE void getStationUrl(int stationId);
     Q_INVOKABLE StationModel* stationModel() const;
+public slots:
+    void stationSelected(int stationId);
 private:
     StationModel *_stationModel;
-    Station *_currentStation;
     ApiClient *_apiClient;
 };
 

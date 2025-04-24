@@ -18,6 +18,7 @@ public:
     Database(ApiClient *client, QObject* parent = nullptr);
     static void addCity(int cityId, City *city);
     static void addIndicator(int indicatorId, Indicator indicator);
+    static Indicator getIndicator(int indicatorId);
     static City* getCity(int city_id);
 signals:
     void dbReady();

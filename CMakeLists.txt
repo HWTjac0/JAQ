@@ -31,6 +31,8 @@ qt_add_qml_module(appairQuality
         SOURCES Sensor/sensor.h Sensor/sensor.cpp
         SOURCES core/Database/databasereader.h core/Database/databasereader.cpp
         SOURCES core/Database/databasewriter.h core/Database/databasewriter.cpp
+        SOURCES Sensor/sensormodel.h Sensor/sensormodel.cpp
+        SOURCES Sensor/sensorhandler.h Sensor/sensorhandler.cpp
 )
 
 # Qt for iOS sets MACOSX_BUNDLE_GUI_IDENTIFIER automatically since Qt 6.1.

@@ -11,6 +11,7 @@ class CityHandler : public QObject
 {
     Q_OBJECT
 public:
+    static City* currentCity;
     CityHandler(ApiClient *client, QObject *parent = nullptr);
     Q_INVOKABLE CitySortProxyModel* getCities() const;
     Q_INVOKABLE int getCityId(int comboBoxIndex);
@@ -22,7 +23,6 @@ private:
     ApiClient *_client;
     CityIndexModel  *_baseModel;
     CitySortProxyModel *_proxyModel;
-    City* _currentCity;
     StationHandler *_stationHandler;
 };
 

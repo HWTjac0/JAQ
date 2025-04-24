@@ -16,7 +16,7 @@ int App::init(int argc, char *argv[])
     CityHandler handler(&client);
 
     QQmlApplicationEngine engine;
-    engine.rootContext()->setContextProperty("database", &db);
+    engine.rootContext()->setContextProperty("stationHandler", handler.stationHandler());
     engine.rootContext()->setContextProperty("cityHandler", &handler);
     QObject::connect(
         &engine,

@@ -3,6 +3,8 @@
 #include <QStringList>
 #include "../core/Database/database.h"
 
+City *CityHandler::currentCity = nullptr;
+
 CityHandler::CityHandler(ApiClient *client, QObject *parent)
     : _client(client), QObject(parent)
 {
@@ -29,5 +31,6 @@ StationHandler* CityHandler::stationHandler() const{
 }
 void CityHandler::citySelected(int comboBoxIndex) {
     int cityId = getCityId(comboBoxIndex);
+    currentCity = Database::getCity(cityId);
     _stationHandler->loadStationsForCity(cityId);
 }

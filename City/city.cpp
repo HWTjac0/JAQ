@@ -36,6 +36,15 @@ QJsonObject City::toIndexEntry() const {
 }
 void City::addStation(const Station &station) { _stations.push_back(station); }
 
+Station City::getStationById(int stationId) const {
+    for(const auto &station : _stations) {
+        if(station.id() == stationId) {
+            return station;
+        }
+    }
+    return Station();
+}
+
 void City::setStationsSensors(int stationId, const QVector<Sensor> &sensors) {
     for(auto& station : _stations) {
         if(station.id() == stationId) {
