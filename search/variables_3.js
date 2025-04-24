@@ -156,7 +156,7 @@ var searchData=
   ['dirrle_153',['DirRLE',['https://doc.qt.io/qt-6/qchar.html#Direction-enum',1,'QChar']]],
   ['dirrli_154',['DirRLI',['https://doc.qt.io/qt-6/qchar.html#Direction-enum',1,'QChar']]],
   ['dirrlo_155',['DirRLO',['https://doc.qt.io/qt-6/qchar.html#Direction-enum',1,'QChar']]],
-  ['dirs_156',['dirs',['https://doc.qt.io/qt-6/qdir.html#Filter-enum',1,'QDir::Dirs'],['https://doc.qt.io/qt-6/qchar.html#Direction-enum',1,'QChar::DirS']]],
+  ['dirs_156',['dirs',['https://doc.qt.io/qt-6/qchar.html#Direction-enum',1,'QChar::DirS'],['https://doc.qt.io/qt-6/qdir.html#Filter-enum',1,'QDir::Dirs']]],
   ['dirsfirst_157',['DirsFirst',['https://doc.qt.io/qt-6/qdir.html#SortFlag-enum',1,'QDir']]],
   ['dirslast_158',['DirsLast',['https://doc.qt.io/qt-6/qdir.html#SortFlag-enum',1,'QDir']]],
   ['dirsonly_159',['DirsOnly',['https://doc.qt.io/qt-6/qdirlisting.html#IteratorFlag-enum',1,'QDirListing']]],
