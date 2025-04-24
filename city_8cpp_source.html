@@ -75,7 +75,7 @@ $(document).ready(function() { init_codefold(0); });
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_131fe0404e67025f7d37922b59223903.html">City</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_fb98a335056844cc70184bfa5e357d17.html">Entities</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -105,34 +105,34 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>}</div>
 <div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
 <div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><a class="code hl_classRef" href="https://doc.qt.io/qt-6/qjsonobject.html">QJsonObject</a> City::toIndexEntry()<span class="keyword"> const </span>{</div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    <a class="code hl_classRef" href="https://doc.qt.io/qt-6/qjsonobject.html">QJsonObject</a> obj;</div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    <a class="code hl_classRef" href="https://doc.qt.io/qt-6/qjsonarray.html">QJsonArray</a> stations_json;</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    <span class="keywordflow">foreach</span> (<span class="keyword">const</span> <a class="code hl_class" href="classStation.html">Station</a> &amp;station, _stations) {</div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>        stations_json.<a class="code hl_functionRef" href="https://doc.qt.io/qt-6/qjsonarray.html#append">append</a>(station.toIndexEntry());</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    <a class="code hl_classRef" href="https://doc.qt.io/qt-6/qjsonobject.html">QJsonObject</a> <a class="code hl_functionRef" href="https://doc.qt.io/qt-6/qobject.html#qobject_cast">obj</a>;</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    <a class="code hl_classRef" href="https://doc.qt.io/qt-6/qjsonarray.html">QJsonArray</a> <a class="code hl_functionRef" href="https://doc.qt.io/qt-6/qobject.html#qobject_cast">stations_json</a>;</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    <span class="keywordflow">foreach</span> (<span class="keyword">const</span> <a class="code hl_class" href="classStation.html">Station</a> &amp;<a class="code hl_functionRef" href="https://doc.qt.io/qt-6/qobject.html#qobject_cast">station</a>, _stations) {</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>        <a class="code hl_functionRef" href="https://doc.qt.io/qt-6/qobject.html#qobject_cast">stations_json</a>.<a class="code hl_functionRef" href="https://doc.qt.io/qt-6/qjsonarray.html#append">append</a>(<a class="code hl_functionRef" href="https://doc.qt.io/qt-6/qobject.html#qobject_cast">station</a>.toIndexEntry());</div>
 <div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    }</div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    <a class="code hl_classRef" href="https://doc.qt.io/qt-6/qstring.html">QString</a> vship = voivodeship().<a class="code hl_functionRef" href="https://doc.qt.io/qt-6/qstring.html#toLower">toLower</a>();</div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    vship.<a class="code hl_functionRef" href="https://doc.qt.io/qt-6/qstring.html#front">front</a>() = vship.<a class="code hl_functionRef" href="https://doc.qt.io/qt-6/qstring.html#front">front</a>().<a class="code hl_functionRef" href="https://doc.qt.io/qt-6/qchar.html#toUpper-1">toUpper</a>();</div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    obj.<a class="code hl_functionRef" href="https://doc.qt.io/qt-6/qjsonobject.html#insert-1">insert</a>(<span class="stringliteral">&quot;name&quot;</span>, name());</div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    obj.<a class="code hl_functionRef" href="https://doc.qt.io/qt-6/qjsonobject.html#insert-1">insert</a>(<span class="stringliteral">&quot;stations&quot;</span>, stations_json);</div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    obj.<a class="code hl_functionRef" href="https://doc.qt.io/qt-6/qjsonobject.html#insert-1">insert</a>(<span class="stringliteral">&quot;voivodeship&quot;</span>, vship);</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    <a class="code hl_classRef" href="https://doc.qt.io/qt-6/qstring.html">QString</a> <a class="code hl_functionRef" href="https://doc.qt.io/qt-6/qobject.html#qobject_cast">vship</a> = voivodeship().<a class="code hl_functionRef" href="https://doc.qt.io/qt-6/qstring.html#toLower">toLower</a>();</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    <a class="code hl_functionRef" href="https://doc.qt.io/qt-6/qobject.html#qobject_cast">vship</a>.<a class="code hl_functionRef" href="https://doc.qt.io/qt-6/qstring.html#front">front</a>() = <a class="code hl_functionRef" href="https://doc.qt.io/qt-6/qobject.html#qobject_cast">vship</a>.front().<a class="code hl_functionRef" href="https://doc.qt.io/qt-6/qchar.html#toUpper-1">toUpper</a>();</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    <a class="code hl_functionRef" href="https://doc.qt.io/qt-6/qobject.html#qobject_cast">obj</a>.insert(<span class="stringliteral">&quot;name&quot;</span>, name());</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    <a class="code hl_functionRef" href="https://doc.qt.io/qt-6/qobject.html#qobject_cast">obj</a>.insert(<span class="stringliteral">&quot;stations&quot;</span>, <a class="code hl_functionRef" href="https://doc.qt.io/qt-6/qobject.html#qobject_cast">stations_json</a>);</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    <a class="code hl_functionRef" href="https://doc.qt.io/qt-6/qobject.html#qobject_cast">obj</a>.insert(<span class="stringliteral">&quot;voivodeship&quot;</span>, <a class="code hl_functionRef" href="https://doc.qt.io/qt-6/qobject.html#qobject_cast">vship</a>);</div>
 <div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    <span class="keywordflow">return</span> obj;</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    <span class="keywordflow">return</span> <a class="code hl_functionRef" href="https://doc.qt.io/qt-6/qobject.html#qobject_cast">obj</a>;</div>
 <div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>}</div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="keywordtype">void</span> City::addStation(<span class="keyword">const</span> <a class="code hl_class" href="classStation.html">Station</a> &amp;station) { _stations.push_back(station); }</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="keywordtype">void</span> City::addStation(<span class="keyword">const</span> <a class="code hl_class" href="classStation.html">Station</a> &amp;station) { _stations.push_back(<a class="code hl_functionRef" href="https://doc.qt.io/qt-6/qobject.html#qobject_cast">station</a>); }</div>
 <div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
 <div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><a class="code hl_class" href="classStation.html">Station</a> City::getStationById(<span class="keywordtype">int</span> stationId)<span class="keyword"> const </span>{</div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    <span class="keywordflow">for</span>(<span class="keyword">const</span> <span class="keyword">auto</span> &amp;station : _stations) {</div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>        <span class="keywordflow">if</span>(station.id() == stationId) {</div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>            <span class="keywordflow">return</span> station;</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    <span class="keywordflow">for</span>(<span class="keyword">const</span> <span class="keyword">auto</span> &amp;<a class="code hl_functionRef" href="https://doc.qt.io/qt-6/qobject.html#qobject_cast">station</a> : _stations) {</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>        <span class="keywordflow">if</span>(<a class="code hl_functionRef" href="https://doc.qt.io/qt-6/qobject.html#qobject_cast">station</a>.id() == <a class="code hl_functionRef" href="https://doc.qt.io/qt-6/qobject.html#qobject_cast">stationId</a>) {</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>            <span class="keywordflow">return</span> <a class="code hl_functionRef" href="https://doc.qt.io/qt-6/qobject.html#qobject_cast">station</a>;</div>
 <div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>        }</div>
 <div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    }</div>
 <div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    <span class="keywordflow">return</span> <a class="code hl_class" href="classStation.html">Station</a>();</div>
 <div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>}</div>
 <div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
 <div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span><span class="keywordtype">void</span> City::setStationsSensors(<span class="keywordtype">int</span> stationId, <span class="keyword">const</span> <a class="code hl_classRef" href="https://doc.qt.io/qt-6/qvector.html">QVector&lt;Sensor&gt;</a> &amp;sensors) {</div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    <span class="keywordflow">for</span>(<span class="keyword">auto</span>&amp; station : _stations) {</div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>        <span class="keywordflow">if</span>(station.id() == stationId) {</div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>            station.setSensors(sensors);</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    <span class="keywordflow">for</span>(<span class="keyword">auto</span>&amp; <a class="code hl_functionRef" href="https://doc.qt.io/qt-6/qobject.html#qobject_cast">station</a> : _stations) {</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>        <span class="keywordflow">if</span>(<a class="code hl_functionRef" href="https://doc.qt.io/qt-6/qobject.html#qobject_cast">station</a>.id() == <a class="code hl_functionRef" href="https://doc.qt.io/qt-6/qobject.html#qobject_cast">stationId</a>) {</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>            <a class="code hl_functionRef" href="https://doc.qt.io/qt-6/qobject.html#qobject_cast">station</a>.setSensors(<a class="code hl_functionRef" href="https://doc.qt.io/qt-6/qobject.html#qobject_cast">sensors</a>);</div>
 <div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>            <span class="keywordflow">break</span>;</div>
 <div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>        }</div>
 <div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    }</div>
@@ -144,9 +144,9 @@ $(document).ready(function() { init_codefold(0); });
 <div class="ttc" id="aqjsonarray_html"><div class="ttname"><a href="https://doc.qt.io/qt-6/qjsonarray.html">QJsonArray</a></div></div>
 <div class="ttc" id="aqjsonarray_html_append"><div class="ttname"><a href="https://doc.qt.io/qt-6/qjsonarray.html#append">QJsonArray::append</a></div><div class="ttdeci">void append(const QJsonValue &amp;value)</div></div>
 <div class="ttc" id="aqjsonobject_html"><div class="ttname"><a href="https://doc.qt.io/qt-6/qjsonobject.html">QJsonObject</a></div></div>
-<div class="ttc" id="aqjsonobject_html_insert-1"><div class="ttname"><a href="https://doc.qt.io/qt-6/qjsonobject.html#insert-1">QJsonObject::insert</a></div><div class="ttdeci">QJsonObject::iterator insert(QLatin1StringView key, const QJsonValue &amp;value)</div></div>
 <div class="ttc" id="aqjsonvalue_html"><div class="ttname"><a href="https://doc.qt.io/qt-6/qjsonvalue.html">QJsonValue</a></div></div>
 <div class="ttc" id="aqjsonvalue_html_toInt"><div class="ttname"><a href="https://doc.qt.io/qt-6/qjsonvalue.html#toInt">QJsonValue::toInt</a></div><div class="ttdeci">int toInt(int defaultValue) const const</div></div>
+<div class="ttc" id="aqobject_html_qobject_cast"><div class="ttname"><a href="https://doc.qt.io/qt-6/qobject.html#qobject_cast">QObject::qobject_cast</a></div><div class="ttdeci">T qobject_cast(QObject *object)</div></div>
 <div class="ttc" id="aqstring_html"><div class="ttname"><a href="https://doc.qt.io/qt-6/qstring.html">QString</a></div></div>
 <div class="ttc" id="aqstring_html_front"><div class="ttname"><a href="https://doc.qt.io/qt-6/qstring.html#front">QString::front</a></div><div class="ttdeci">QChar &amp; front()</div></div>
 <div class="ttc" id="aqstring_html_toLower"><div class="ttname"><a href="https://doc.qt.io/qt-6/qstring.html#toLower">QString::toLower</a></div><div class="ttdeci">QString toLower() const const</div></div>
