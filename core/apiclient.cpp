@@ -1,7 +1,7 @@
 #include "apiclient.h"
-#include "../Station/station.h"
-#include "../City/city.h"
-#include "../Sensor/sensor.h"
+#include "../Entities/station.h"
+#include "../Entities/city.h"
+#include "../Entities/sensor.h"
 
 ApiClient::ApiClient(QObject *parent)
     : QObject(parent)

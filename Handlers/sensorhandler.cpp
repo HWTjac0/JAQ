@@ -1,5 +1,5 @@
-#include "sensorhandler.h"
-#include "Station/stationhandler.h"
+#include "../Sensor/../Handlers/../Sensor/../Handlers/sensorhandler.h"
+#include "stationhandler.h"
 Sensor SensorHandler::currentSensor;
 SensorHandler::SensorHandler(QObject *parent, ApiClient *client)
     : QObject{parent}, _client(client) {

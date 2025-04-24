@@ -3,7 +3,7 @@
 
 #include <QObject>
 #include <QAbstractListModel>
-#include "sensor.h"
+#include "../Entities/sensor.h"
 
 class SensorModel : public QAbstractListModel
 {

@@ -19,20 +19,20 @@ qt_add_qml_module(appairQuality
         Main.qml
         SOURCES app.h app.cpp
         SOURCES core/apiclient.h core/apiclient.cpp
-        SOURCES City/cityhandler.h City/cityhandler.cpp
+        SOURCES Handlers/cityhandler.h Handlers/cityhandler.cpp
         SOURCES core/Database/database.h core/Database/database.cpp
-        SOURCES City/city.h City/city.cpp
-        SOURCES Station/station.h Station/station.cpp
-        SOURCES City/cityindexmodel.h City/cityindexmodel.cpp
+        SOURCES Entities/city.h Entities/city.cpp
+        SOURCES Entities/station.h Entities/station.cpp
+        SOURCES Models/cityindexmodel.h Models/cityindexmodel.cpp
         QML_FILES Components/SearchCity.qml
-        SOURCES City/citysortproxymodel.h City/citysortproxymodel.cpp
-        SOURCES Station/stationmodel.h Station/stationmodel.cpp
-        SOURCES Station/stationhandler.h Station/stationhandler.cpp
-        SOURCES Sensor/sensor.h Sensor/sensor.cpp
+        SOURCES Models/citysortproxymodel.h Models/citysortproxymodel.cpp
+        SOURCES Models/stationmodel.h Models/stationmodel.cpp
+        SOURCES Handlers/stationhandler.h Handlers/stationhandler.cpp
+        SOURCES Entities/sensor.h Entities/sensor.cpp
         SOURCES core/Database/databasereader.h core/Database/databasereader.cpp
         SOURCES core/Database/databasewriter.h core/Database/databasewriter.cpp
-        SOURCES Sensor/sensormodel.h Sensor/sensormodel.cpp
-        SOURCES Sensor/sensorhandler.h Sensor/sensorhandler.cpp
+        SOURCES Models/sensormodel.h Models/sensormodel.cpp
+        SOURCES Handlers/sensorhandler.h Handlers/sensorhandler.cpp
 )
 
 # Qt for iOS sets MACOSX_BUNDLE_GUI_IDENTIFIER automatically since Qt 6.1.

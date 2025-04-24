@@ -10,7 +10,7 @@ Window {
     Rectangle {
         id: topBar
         width: parent.width
-        height: 100
+        height: 120
         color: "#5999cf"
         ColumnLayout {
             anchors.top: topBar.top
@@ -74,8 +74,7 @@ Window {
                 interactive: false
                 model: sensorHandler.sensorModel()
                 delegate: ItemDelegate {
-                    text: display
-                    width: parent.width
+                    text: sensorDisplay
                     font.pixelSize: 14
                 }
             }

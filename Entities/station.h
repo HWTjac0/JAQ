@@ -2,7 +2,7 @@
 #define STATION_H
 #include <QJsonObject>
 #include <QString>
-#include "../Sensor/sensor.h"
+#include "sensor.h"
 
 class Station
 {

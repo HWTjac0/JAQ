@@ -3,7 +3,7 @@
 #include "../apiclient.h"
 #include "databasewriter.h"
 #include "databasereader.h"
-#include "../../Sensor/sensor.h"
+#include "../../Entities/sensor.h"
 #include <QFile>
 #include <QJsonDocument>
 #include <QMutex>

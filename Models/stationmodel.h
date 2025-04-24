@@ -2,7 +2,7 @@
 #define STATIONMODEL_H
 #include <QObject>
 #include <QAbstractListModel>
-#include "station.h"
+#include "../Entities/station.h"
 
 class StationModel : public QAbstractListModel
 {

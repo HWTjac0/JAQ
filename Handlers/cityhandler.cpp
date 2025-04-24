@@ -1,5 +1,5 @@
 #include "cityhandler.h"
-#include "citysortproxymodel.h"
+#include "../Models/citysortproxymodel.h"
 #include <QStringList>
 #include "../core/Database/database.h"
 

@@ -1,7 +1,7 @@
 #include "app.h"
 #include <QQmlContext>
 #include "core/apiclient.h"
-#include "City/cityhandler.h"
+#include "Handlers/cityhandler.h"
 #include "core/Database/database.h"
 #include <QDir>
 

@@ -1,9 +1,9 @@
 #ifndef STATIONHANDLER_H
 #define STATIONHANDLER_H
-#include "stationmodel.h"
-#include "station.h"
+#include "../Models/stationmodel.h"
+#include "../Entities/station.h"
 #include "../core/apiclient.h"
-#include "Sensor/sensorhandler.h"
+#include "sensorhandler.h"
 class StationHandler : public QObject
 {
     Q_OBJECT

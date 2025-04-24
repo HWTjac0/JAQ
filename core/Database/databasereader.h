@@ -2,8 +2,8 @@
 #define DATABASEREADER_H
 
 #include <QObject>
-#include "../../City/city.h"
-#include "../../Sensor/sensor.h"
+#include "../../Entities/city.h"
+#include "../../Entities/sensor.h"
 
 class DatabaseReader : public QObject
 {

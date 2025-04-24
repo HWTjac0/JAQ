@@ -3,7 +3,7 @@
 #include <QAbstractListModel>
 #include <QSortFilterProxyModel>
 
-#include "city.h"
+#include "../Entities/city.h"
 
 class CityIndexModel : public QAbstractListModel
 {

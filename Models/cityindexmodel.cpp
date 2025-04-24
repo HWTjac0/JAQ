@@ -1,4 +1,4 @@
-#include "cityindexmodel.h"
+#include "../City/../Models/../City/../Models/cityindexmodel.h"
 
 CityIndexModel::CityIndexModel(QObject *parent)
     : QAbstractListModel(parent) {}

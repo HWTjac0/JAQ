@@ -3,7 +3,7 @@
 
 #include <QObject>
 #include "../core/apiclient.h"
-#include "sensormodel.h"
+#include "../Models/sensormodel.h"
 
 class SensorHandler : public QObject
 {

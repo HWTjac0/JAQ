@@ -26,9 +26,9 @@ QVariant SensorModel::data(const QModelIndex &index, int role) const {
 
 QHash<int, QByteArray> SensorModel::roleNames() const {
     return {
-        {IdRole, "id"},
-        {IndicatorRole, "indicator"},
-        {DisplayRole, "display"}
+        {IdRole, "sensorId"},
+        {IndicatorRole, "sensorIndicator"},
+        {DisplayRole, "sensorDisplay"}
     };
 }
 

@@ -3,9 +3,9 @@
 #include <QDebug>
 #include <QObject>
 #include "../core/apiclient.h"
-#include "cityindexmodel.h"
-#include "citysortproxymodel.h"
-#include "../Station/stationhandler.h"
+#include "../Models/cityindexmodel.h"
+#include "../Models/citysortproxymodel.h"
+#include "stationhandler.h"
 
 class CityHandler : public QObject
 {

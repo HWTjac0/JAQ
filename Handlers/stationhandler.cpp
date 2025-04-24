@@ -1,5 +1,5 @@
 #include "stationhandler.h"
-#include "../City/cityhandler.h"
+#include "cityhandler.h"
 
 Station StationHandler::currentStation;
 StationHandler::StationHandler(ApiClient *apiClient, QObject *parent) : QObject(parent) {
