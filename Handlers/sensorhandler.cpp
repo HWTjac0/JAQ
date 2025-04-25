@@ -1,4 +1,4 @@
-#include "../Sensor/../Handlers/../Sensor/../Handlers/sensorhandler.h"
+#include "sensorhandler.h"
 #include "stationhandler.h"
 Sensor SensorHandler::currentSensor;
 SensorHandler::SensorHandler(QObject *parent, ApiClient *client)

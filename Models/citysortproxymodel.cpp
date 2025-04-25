@@ -1,5 +1,5 @@
 #include "citysortproxymodel.h"
-#include "../City/../Models/cityindexmodel.h"
+#include "cityindexmodel.h"
 
 CitySortProxyModel::CitySortProxyModel(QObject *parent)
     : QSortFilterProxyModel(parent) {
