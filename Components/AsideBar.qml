@@ -24,15 +24,22 @@ Rectangle {
             border.width: 1
             radius: 20
             ColumnLayout {
+                width: parent.width
                 anchors.fill: parent
                 anchors.margins: 10
-                spacing: 10
+                spacing: 8
                 Text {
                     Layout.alignment: Qt.AlignHCenter
                     text: "Stacje dla miasta"
                     font.bold: true
                     font.pixelSize: 14
                     color: "#636b72"
+                }
+                Rectangle {
+                    height: 2
+                    width: 100
+                    Layout.alignment: Qt.AlignHCenter
+                    color: "#b8ccd2"
                 }
                 Rectangle {
                     Layout.fillWidth: true
@@ -62,6 +69,12 @@ Rectangle {
                     font.bold: true
                     font.pixelSize: 14
                     color: "#636b72"
+                }
+                Rectangle {
+                    height: 2
+                    width: 100
+                    Layout.alignment: Qt.AlignHCenter
+                    color: "#b8ccd2"
                 }
                 Rectangle {
                     Layout.fillWidth: true
