@@ -4,11 +4,12 @@ import QtQuick.Layouts
 Rectangle {
     Layout.preferredWidth: 240
     Layout.fillHeight: true
-    Layout.leftMargin: 10
-    Layout.bottomMargin: 10
+    Layout.leftMargin: 0
+    Layout.bottomMargin: 0
     radius: 25
-    topLeftRadius: 5
-    topRightRadius: 5
+    topLeftRadius: 0
+    topRightRadius: 0
+    bottomLeftRadius: 0
     border.width: 1
     border.color: "#bdbdbd"
     color: "#d6e6fa"

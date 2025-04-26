@@ -21,7 +21,7 @@ Window {
             columns: 2
             rows: 2
             columnSpacing: 10
-            rowSpacing: 10
+            rowSpacing: 0
             TopBar {}
             AsideBar {}
             Rectangle {

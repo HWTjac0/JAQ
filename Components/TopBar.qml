@@ -2,7 +2,7 @@ import QtQuick
 import QtQuick.Controls
 import QtQuick.Layouts
 Rectangle {
-    Layout.margins: 10
+    Layout.margins: 0
     Layout.bottomMargin: 0
     Layout.columnSpan: 2
     Layout.fillWidth: true
@@ -10,8 +10,7 @@ Rectangle {
     color: "#e9f1fd"
     border.width: 1
     border.color: "#bdbdbd"
-    radius: 25
-    bottomLeftRadius: 5
+    radius: 0
     RowLayout {
         anchors.fill: parent
         anchors.margins: 5
