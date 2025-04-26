@@ -24,7 +24,6 @@ Rectangle {
             border.width: 1
             radius: 20
             ColumnLayout {
-                width: parent.width
                 anchors.fill: parent
                 anchors.margins: 10
                 spacing: 8
