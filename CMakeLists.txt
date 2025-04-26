@@ -25,6 +25,8 @@ qt_add_qml_module(appairQuality
         SOURCES Entities/station.h Entities/station.cpp
         SOURCES Models/cityindexmodel.h Models/cityindexmodel.cpp
         QML_FILES Components/SearchCity.qml
+        QML_FILES Components/TopBar.qml
+        QML_FILES Components/AsideBar.qml
         SOURCES Models/citysortproxymodel.h Models/citysortproxymodel.cpp
         SOURCES Models/stationmodel.h Models/stationmodel.cpp
         SOURCES Handlers/stationhandler.h Handlers/stationhandler.cpp

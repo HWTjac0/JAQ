@@ -4,6 +4,7 @@ import QtQuick.Layouts
 import "./Components"
 
 Window {
+    id: window
     visible: true
     width: 600
     height: 480
@@ -13,26 +14,22 @@ Window {
         width: parent.width
         height: parent.height
         anchors.fill: parent
-        color: "#599468"
-        Column {
-            width: parent.width
-            height: parent.height
-            Item {
-                id: topBarWrapper
-                width: parent.width
-                height: 120
-                anchors.top: wrapper.top
-                Rectangle {
-                    id: topBar
-                    anchors.fill: parent
-                    width: parent.width - 30
-                    height: parent.height - 10
-                    anchors.margins: 10
-                    color: "#b1e3c2"
-                    radius: 5
-                    border.width: 1
-                    border.color: "#eeeeee"
-                }
+        color: "#a1c4fd"
+        GridLayout {
+            id: mainLayout
+            anchors.fill: parent
+            columns: 2
+            rows: 2
+            columnSpacing: 10
+            rowSpacing: 10
+            TopBar {}
+            AsideBar {}
+            Rectangle {
+                Layout.fillWidth: true
+                Layout.fillHeight: true
+                Layout.leftMargin: 20
+                Layout.topMargin: 17
+                topLeftRadius: 50
             }
         }
     }

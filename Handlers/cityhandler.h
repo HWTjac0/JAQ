@@ -14,11 +14,11 @@ public:
     static City* currentCity;
     CityHandler(ApiClient *client, QObject *parent = nullptr);
     Q_INVOKABLE CitySortProxyModel* getCities() const;
-    Q_INVOKABLE int getCityId(int comboBoxIndex);
+    Q_INVOKABLE int getCityId(int comboBoxIndex) const;
     Q_SIGNAL void cityChanged(const QString &city_name);
     Q_INVOKABLE StationHandler* stationHandler() const;
 public slots:
-    void citySelected(int comboBoxIndex);
+    void citySelected(int comboBoxIndex) const;
 private:
     ApiClient *_client;
     CityIndexModel  *_baseModel;
