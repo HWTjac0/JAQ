@@ -10,10 +10,10 @@ int CityIndexModel::rowCount(const QModelIndex &parent) const{
 
 QHash<int, QByteArray> CityIndexModel::roleNames() const {
     return {
-            {DisplayRole, "display"},
-            {IdRole, "id"},
-            {CityNameRole, "name"},
-            {VoivodeshipRole, "voivodeship"}
+            {DisplayRole, "cityDisplay"},
+            {IdRole, "cityId"},
+            {CityNameRole, "cityName"},
+            {VoivodeshipRole, "cityVoivodeship"}
         };
 }
 

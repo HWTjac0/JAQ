@@ -4,6 +4,7 @@
 #include "Handlers/cityhandler.h"
 #include "core/Database/database.h"
 #include <QDir>
+#include <QStringList>
 
 App::App() {}
 int App::init(int argc, char *argv[])
@@ -16,7 +17,11 @@ int App::init(int argc, char *argv[])
     CityHandler cityHandler(&client);
     StationHandler *stationHandler = cityHandler.stationHandler();
     SensorHandler *sensorHandler = stationHandler->sensorHandler();
+
+    QStringList voivodeships = {"Dolnośląskie", "Kujawsko-pomorskie", "Lubelskie", "Lubuskie", "Łódzkie", "Małopolskie", "Mazowieckie", "Opolskie", "Podkarpackie", "Podlaskie", "Pomorskie", "Śląskie", "Świętokrzyskie", "Warmińsko-mazurskie", "Wielkopolskie", "Zachodniopomorskie"};
+
     QQmlApplicationEngine engine;
+    engine.rootContext()->setContextProperty("voivodeshipsModel", voivodeships);
     engine.rootContext()->setContextProperty("stationHandler", stationHandler);
     engine.rootContext()->setContextProperty("sensorHandler", sensorHandler);
     engine.rootContext()->setContextProperty("cityHandler", &cityHandler);
