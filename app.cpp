@@ -6,10 +6,10 @@
 #include <QDir>
 #include <QStringList>
 
-App::App() {}
+App::App() = default;
 int App::init(int argc, char *argv[])
 {
-    QGuiApplication app(argc, argv);
+    const QGuiApplication app(argc, argv);
 
     ApiClient client;
 

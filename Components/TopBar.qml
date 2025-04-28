@@ -6,7 +6,7 @@ Rectangle {
     Layout.bottomMargin: 0
     Layout.columnSpan: 2
     Layout.fillWidth: true
-    Layout.preferredHeight: 140
+    Layout.preferredHeight: 150
     color: "#d6e6fa"
     border.width: 1
     border.color: "#bdbdbd"
@@ -42,26 +42,25 @@ Rectangle {
                     radius: 15
                     border.width: 2
                     border.color: "#dddddd"
-                    Item {
-                        id: voivodeshipInputWrapper
+                    GridLayout {
+                        height: parent.height
+                        anchors.margins: 20
+                        columns: 2
+                        rows: 2
+                        columnSpacing: 5
+                        rowSpacing: 5
                         Label {
                             id: voivodeshipLabel
                             text: "Województwo"
                         }
                         ComboBox {
-                            anchors.left: voivodeshipLabel.right
                             model: voivodeshipsModel
                         }
-                    }
-                    Item {
-                        id: cityInputWrapper
-                        anchors.top: voivodeshipInputWrapper.bottom
                         Label {
                             id: cityLabel
                             text: "Miasto"
                         }
                         ComboBox {
-                            anchors.left: voivodeshipLabel.right
                             model: cityHandler.getCities()
                             textRole: "cityName"
                         }

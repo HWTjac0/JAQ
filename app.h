@@ -7,7 +7,7 @@ class App : public QObject
     Q_OBJECT
 public:
     App();
-    int init(int argc, char *argv[]);
+    static int init(int argc, char *argv[]);
 };
 
 #endif // APP_H
