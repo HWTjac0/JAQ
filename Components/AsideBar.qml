@@ -1,5 +1,6 @@
 import QtQuick
 import QtQuick.Layouts
+import QtQuick.Controls
 
 Rectangle {
     Layout.preferredWidth: 240
@@ -48,6 +49,18 @@ Rectangle {
                     radius: 15
                     border.width: 2
                     border.color: "#dddddd"
+                    ListView {
+                        width: parent.width
+                        height: parent.height
+                        interactive: false
+                        model: stationHandler.stationModel()
+                        delegate: ItemDelegate {
+                            text: stationAddress
+                            font.pixelSize: 14
+                            width: parent.width
+                            onClicked: stationHandler.stationSelected(stationId)
+                        }
+                    }
                 }
             }
         }
@@ -83,6 +96,16 @@ Rectangle {
                     radius: 15
                     border.width: 2
                     border.color: "#dddddd"
+                    ListView {
+                        width: parent.width
+                        height: parent.height
+                        interactive: false
+                        model: sensorHandler.sensorModel()
+                        delegate: ItemDelegate {
+                            text: sensorDisplay
+                            font.pixelSize: 14
+                        }
+                    }
                 }
             }
         }

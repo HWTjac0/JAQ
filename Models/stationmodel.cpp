@@ -21,7 +21,7 @@ QVariant StationModel::data(const QModelIndex &index, int role) const {
 QHash<int, QByteArray> StationModel::roleNames() const {
     return {
         {IdRole, "stationId"},
-        {AddressRole, "address"}
+        {AddressRole, "stationAddress"}
     };
 }
 

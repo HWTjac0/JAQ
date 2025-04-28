@@ -63,6 +63,7 @@ Rectangle {
                         ComboBox {
                             model: cityHandler.getCities()
                             textRole: "cityName"
+                            onActivated: cityHandler.citySelected(currentIndex)
                         }
                     }
                 }
