@@ -13,6 +13,6 @@ var searchData=
   ['xheight_10',['xheight',['https://doc.qt.io/qt-6/qrawfont.html#xHeight',1,'QRawFont::xHeight()'],['https://doc.qt.io/qt-6/qfontmetricsf.html#xHeight',1,'QFontMetricsF::xHeight()'],['https://doc.qt.io/qt-6/qfontmetrics.html#xHeight',1,'QFontMetrics::xHeight()']]],
   ['xhosa_11',['Xhosa',['https://doc.qt.io/qt-6/qlocale.html#Language-enum',1,'QLocale']]],
   ['xored_12',['xored',['https://doc.qt.io/qt-6/qregion.html#xored',1,'QRegion']]],
-  ['xtilt_13',['xtilt',['https://doc.qt.io/qt-6/qinputdevice.html#Capability-enum',1,'QInputDevice::XTilt'],['https://doc.qt.io/qt-6/qtabletevent.html#xTilt',1,'QTabletEvent::xTilt()']]],
+  ['xtilt_13',['xtilt',['https://doc.qt.io/qt-6/qtabletevent.html#xTilt',1,'QTabletEvent::xTilt()'],['https://doc.qt.io/qt-6/qinputdevice.html#Capability-enum',1,'QInputDevice::XTilt']]],
   ['xtocursor_14',['xToCursor',['https://doc.qt.io/qt-6/qtextline.html#xToCursor',1,'QTextLine']]]
 ];

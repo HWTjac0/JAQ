@@ -28,7 +28,7 @@ var searchData=
   ['yuv420sp_25',['YUV420SP',['https://doc.qt.io/qt-6/qpixelformat.html#YUVLayout-enum',1,'QPixelFormat']]],
   ['yuv422_26',['YUV422',['https://doc.qt.io/qt-6/qpixelformat.html#YUVLayout-enum',1,'QPixelFormat']]],
   ['yuv444_27',['YUV444',['https://doc.qt.io/qt-6/qpixelformat.html#YUVLayout-enum',1,'QPixelFormat']]],
-  ['yuvlayout_28',['yuvlayout',['https://doc.qt.io/qt-6/qpixelformat.html#yuvLayout',1,'QPixelFormat::yuvLayout() const const'],['https://doc.qt.io/qt-6/qpixelformat.html#YUVLayout-enum',1,'QPixelFormat::YUVLayout']]],
+  ['yuvlayout_28',['yuvlayout',['https://doc.qt.io/qt-6/qpixelformat.html#YUVLayout-enum',1,'QPixelFormat::YUVLayout'],['https://doc.qt.io/qt-6/qpixelformat.html#yuvLayout',1,'QPixelFormat::yuvLayout() const const']]],
   ['yuyv_29',['YUYV',['https://doc.qt.io/qt-6/qpixelformat.html#YUVLayout-enum',1,'QPixelFormat']]],
   ['yv12_30',['YV12',['https://doc.qt.io/qt-6/qpixelformat.html#YUVLayout-enum',1,'QPixelFormat']]]
 ];
