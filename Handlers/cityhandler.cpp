@@ -33,8 +33,9 @@ int CityHandler::getCityId(int comboBoxIndex) const {
 StationHandler* CityHandler::stationHandler() const{
     return _stationHandler;
 }
-void CityHandler::citySelected(int comboBoxIndex) const {
+void CityHandler::citySelected(int comboBoxIndex)  {
     int cityId = getCityId(comboBoxIndex);
     currentCity = Database::getCity(cityId);
     _stationHandler->loadStationsForCity();
+    emit cityChanged();
 }

@@ -31,8 +31,19 @@ Window {
                 Layout.topMargin: 17
                 topLeftRadius: 50
                 Text {
+                    id: mainCityName
                     anchors.fill: parent
-                    text: cityHandler.currentCityName
+                    text: "Miasto: <wybierz z listy>"
+                    font {
+                        pixelSize: 20
+                    }
+                }
+                Connections {
+                    target: cityHandler
+                    function onCityChanged() {
+                        var title = "Miasto: %1"
+                        mainCityName.text = title.arg(cityHandler.currentCityName)
+                    }
                 }
             }
         }

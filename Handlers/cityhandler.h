@@ -17,10 +17,11 @@ public:
     QString currentCityName();
     Q_INVOKABLE CitySortProxyModel* getCities() const;
     Q_INVOKABLE int getCityId(int comboBoxIndex) const;
-    Q_SIGNAL void cityChanged(const QString &city_name);
     Q_INVOKABLE StationHandler* stationHandler() const;
 public slots:
-    void citySelected(int comboBoxIndex) const;
+    void citySelected(int comboBoxIndex);
+signals:
+    void cityChanged();
 private:
     ApiClient *_client;
     CityIndexModel  *_baseModel;
