@@ -18,3 +18,7 @@ void SensorHandler::loadSensorsForStation() {
 void SensorHandler::sensorSelected(int sensorId) {
     currentSensor = StationHandler::currentStation.getSensorById(sensorId);
 }
+
+void SensorHandler::onCityChanged() {
+    _sensorModel->clear();
+}

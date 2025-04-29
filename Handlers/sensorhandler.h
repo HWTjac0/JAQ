@@ -15,6 +15,7 @@ public:
     void loadSensorsForStation();
 public slots:
     void sensorSelected(int sensorId);
+    void onCityChanged();
 private:
     ApiClient *_client;
     SensorModel *_sensorModel;

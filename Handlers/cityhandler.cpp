@@ -6,7 +6,7 @@
 City *CityHandler::currentCity = nullptr;
 
 CityHandler::CityHandler(ApiClient *client, QObject *parent)
-    : _client(client), QObject(parent)
+    : QObject(parent), _client(client)
 {
     _baseModel = new CityIndexModel(this);
     _proxyModel = new CitySortProxyModel(this);
@@ -14,6 +14,8 @@ CityHandler::CityHandler(ApiClient *client, QObject *parent)
 
     _baseModel->addCities(Database::index.values());
     _proxyModel->setSourceModel(_baseModel);
+
+    connect(this, &CityHandler::cityChanged, _stationHandler->sensorHandler(), &SensorHandler::onCityChanged);
 }
 
 QString CityHandler::currentCityName() {

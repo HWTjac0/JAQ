@@ -34,21 +34,25 @@ Window {
                     anchors.fill: parent
                     anchors.margins: 20
                     spacing: 5
-                    Text {
+                    Item {
                         Layout.fillWidth: true
-                        id: mainCityName
-                        text: "Miasto: <wybierz z listy>"
-                        font {
-                            pixelSize: 30
-                            bold: true
+                        Text {
+                            id: mainCityName
+                            text: "Miasto: <wybierz z listy>"
+                            font {
+                                pixelSize: 30
+                                bold: true
+                            }
                         }
-                    }
-                    Text {
-                        id: mainStationName
-                        text: "Stacja: <wybierz z listy>"
-                        font {
-                            pixelSize: 20
-                            bold: true
+                        Text {
+                            anchors.top: mainCityName.bottom
+                            anchors.margins: 5
+                            id: mainStationName
+                            text: "Stacja: <wybierz z listy>"
+                            font {
+                                pixelSize: 20
+                                bold: true
+                            }
                         }
                     }
                     Connections {
