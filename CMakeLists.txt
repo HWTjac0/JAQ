@@ -20,6 +20,7 @@ qt_add_qml_module(appairQuality
         QML_FILES Components/SearchCity.qml
         QML_FILES Components/TopBar.qml
         QML_FILES Components/AsideBar.qml
+        QML_FILES Components/MainSection.qml
         SOURCES app.h app.cpp
         SOURCES core/apiclient.h core/apiclient.cpp
         SOURCES Handlers/cityhandler.h Handlers/cityhandler.cpp

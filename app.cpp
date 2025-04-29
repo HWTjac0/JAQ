@@ -20,6 +20,10 @@ int App::init(int argc, char *argv[])
 
     QStringList voivodeships = {"Dolnośląskie", "Kujawsko-pomorskie", "Lubelskie", "Lubuskie", "Łódzkie", "Małopolskie", "Mazowieckie", "Opolskie", "Podkarpackie", "Podlaskie", "Pomorskie", "Śląskie", "Świętokrzyskie", "Warmińsko-mazurskie", "Wielkopolskie", "Zachodniopomorskie"};
 
+    QCoreApplication::setApplicationName("Jacs Air Quality");
+    QCoreApplication::setOrganizationName("hwtjac0");
+    QCoreApplication::setApplicationVersion("2025.04");
+
     QQmlApplicationEngine engine;
     engine.rootContext()->setContextProperty("voivodeshipsModel", voivodeships);
     engine.rootContext()->setContextProperty("stationHandler", stationHandler);
