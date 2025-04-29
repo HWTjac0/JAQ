@@ -41,8 +41,5 @@ void SensorModel::clear() {
 void SensorModel::setSensors(const QList<Sensor> &sensors) {
     beginResetModel();
     _sensors = sensors;
-    for(auto s : _sensors) {
-        qDebug() << s.getIndicator().code;
-    }
     endResetModel();
 }

@@ -30,19 +30,41 @@ Window {
                 Layout.leftMargin: 20
                 Layout.topMargin: 17
                 topLeftRadius: 50
-                Text {
-                    id: mainCityName
+                ColumnLayout {
                     anchors.fill: parent
-                    text: "Miasto: <wybierz z listy>"
-                    font {
-                        pixelSize: 20
+                    anchors.margins: 20
+                    spacing: 5
+                    Text {
+                        Layout.fillWidth: true
+                        id: mainCityName
+                        text: "Miasto: <wybierz z listy>"
+                        font {
+                            pixelSize: 30
+                            bold: true
+                        }
                     }
-                }
-                Connections {
-                    target: cityHandler
-                    function onCityChanged() {
-                        var title = "Miasto: %1"
-                        mainCityName.text = title.arg(cityHandler.currentCityName)
+                    Text {
+                        id: mainStationName
+                        text: "Stacja: <wybierz z listy>"
+                        font {
+                            pixelSize: 20
+                            bold: true
+                        }
+                    }
+                    Connections {
+                        target: cityHandler
+                        function onCityChanged() {
+                            var title = "Miasto: %1"
+                            mainCityName.text = title.arg(cityHandler.currentCityName)
+                            mainStationName.text = "Stacja: <wybierz z listy>"
+                        }
+                    }
+                    Connections {
+                        target: stationHandler
+                        function onStationChanged() {
+                            var title = "Stacja: %1"
+                            mainStationName.text = title.arg(stationHandler.currentStationName)
+                        }
                     }
                 }
             }

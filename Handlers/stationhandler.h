@@ -7,14 +7,18 @@
 class StationHandler : public QObject
 {
     Q_OBJECT
+    Q_PROPERTY(QString currentStationName READ currentStationName CONSTANT);
 public:
     static Station currentStation;
     explicit StationHandler(ApiClient *apiClient, QObject *parent = nullptr);
     void loadStationsForCity();
     Q_INVOKABLE StationModel* stationModel() const;
     SensorHandler * sensorHandler();
+    QString currentStationName() const;
 public slots:
     void stationSelected(int stationId);
+signals:
+    void stationChanged();
 private:
     StationModel *_stationModel;
     SensorHandler *_sensorHandler;

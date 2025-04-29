@@ -103,6 +103,7 @@ Rectangle {
                     border.width: 2
                     border.color: "#dddddd"
                     ListView {
+                        id: sensorsList
                         width: parent.width
                         height: parent.height
                         interactive: false
@@ -114,7 +115,7 @@ Rectangle {
                     }
                     Text {
                         anchors.centerIn: parent
-                        visible: stationList.count === 0
+                        visible: sensorsList.count === 0
                         text: "Wybierz stacje"
                         font.pixelSize: 16
                         color: "#838383"

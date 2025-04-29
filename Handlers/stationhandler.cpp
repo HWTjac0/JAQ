@@ -17,6 +17,7 @@ void StationHandler::loadStationsForCity() {
 void StationHandler::stationSelected(int stationId) {
     currentStation = CityHandler::currentCity->getStationById(stationId);
     _sensorHandler->loadSensorsForStation();
+    emit stationChanged();
 }
 
 StationModel* StationHandler::stationModel() const {
@@ -25,4 +26,8 @@ StationModel* StationHandler::stationModel() const {
 
 SensorHandler* StationHandler::sensorHandler() {
     return _sensorHandler;
+}
+
+QString StationHandler::currentStationName() const {
+    return currentStation.address();
 }
