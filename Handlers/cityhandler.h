@@ -10,9 +10,11 @@
 class CityHandler : public QObject
 {
     Q_OBJECT
+    Q_PROPERTY(QString currentCityName READ currentCityName CONSTANT)
 public:
     static City* currentCity;
     CityHandler(ApiClient *client, QObject *parent = nullptr);
+    QString currentCityName();
     Q_INVOKABLE CitySortProxyModel* getCities() const;
     Q_INVOKABLE int getCityId(int comboBoxIndex) const;
     Q_SIGNAL void cityChanged(const QString &city_name);

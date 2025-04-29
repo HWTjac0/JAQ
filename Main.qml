@@ -30,6 +30,10 @@ Window {
                 Layout.leftMargin: 20
                 Layout.topMargin: 17
                 topLeftRadius: 50
+                Text {
+                    anchors.fill: parent
+                    text: cityHandler.currentCityName
+                }
             }
         }
     }

@@ -16,6 +16,10 @@ CityHandler::CityHandler(ApiClient *client, QObject *parent)
     _proxyModel->setSourceModel(_baseModel);
 }
 
+QString CityHandler::currentCityName() {
+    return currentCity ? currentCity->name() : QString();
+}
+
 CitySortProxyModel* CityHandler::getCities() const {
     return _proxyModel;
 }

@@ -50,16 +50,22 @@ Rectangle {
                     border.width: 2
                     border.color: "#dddddd"
                     ListView {
-                        width: parent.width
+                        id: stationList
                         height: parent.height
                         interactive: false
                         model: stationHandler.stationModel()
                         delegate: ItemDelegate {
                             text: stationAddress
                             font.pixelSize: 14
-                            width: parent.width
                             onClicked: stationHandler.stationSelected(stationId)
                         }
+                    }
+                    Text {
+                        anchors.centerIn: parent
+                        visible: stationList.count === 0
+                        text: "Wybierz miasto"
+                        font.pixelSize: 16
+                        color: "#838383"
                     }
                 }
             }
@@ -105,6 +111,13 @@ Rectangle {
                             text: sensorDisplay
                             font.pixelSize: 14
                         }
+                    }
+                    Text {
+                        anchors.centerIn: parent
+                        visible: stationList.count === 0
+                        text: "Wybierz stacje"
+                        font.pixelSize: 16
+                        color: "#838383"
                     }
                 }
             }
