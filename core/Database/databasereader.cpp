@@ -53,6 +53,8 @@ City *DatabaseReader::parseCity(const QJsonObject &cityObj, int cityId) const {
     return new City(
         cityObj.value("name").toString(),
         cityObj.value("voivodeship").toString(),
+        cityObj.value("county").toString(),
+        cityObj.value("commune").toString(),
         cityId
         );
 }

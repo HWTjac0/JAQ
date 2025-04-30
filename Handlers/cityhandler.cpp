@@ -18,8 +18,8 @@ CityHandler::CityHandler(ApiClient *client, QObject *parent)
     connect(this, &CityHandler::cityChanged, _stationHandler->sensorHandler(), &SensorHandler::onCityChanged);
 }
 
-QString CityHandler::currentCityName() {
-    return currentCity ? currentCity->name() : QString();
+City* CityHandler::getCurrentCity() {
+    return currentCity;
 }
 
 CitySortProxyModel* CityHandler::getCities() const {

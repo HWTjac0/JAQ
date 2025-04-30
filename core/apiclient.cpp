@@ -99,7 +99,13 @@ void ApiClient::handleStations()
         auto cityIt = cities.find(city_id);
         if (cityIt == cities.end()) {
             QString station_cityName = station_json.value("Nazwa miasta").toString();
-            City *city = new City(station_cityName, station_json.value("Województwo").toString(), city_id);
+            QString voivodeship = station_json.value("Województwo").toString();
+            QString commune = station_json.value("Gmina").toString();
+
+            QString county = station_json.value("Powiat").toString();
+            county.front() = county.front().toUpper();
+
+            City *city = new City(station_cityName, voivodeship, county, commune , city_id);
             cityIt = cities.insert(city_id, city);
         }
         cityIt.value()->addStation(station);

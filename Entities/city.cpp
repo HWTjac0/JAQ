@@ -5,11 +5,15 @@ City::City(const QString &name) { _name = name; }
 
 QString City::name() const { return _name; }
 QString City::voivodeship() const { return _voivodeship; }
+QString City::county() const { return _county; }
+QString City::commune() const { return _commune; }
 int City::id() const { return _id; }
 
-City::City(const QString &name, const QString &voivodeship, int id)
+City::City(const QString &name, const QString &voivodeship, const QString &county, const QString &commune, int id)
     : City(name)
 {
+    _commune = commune;
+    _county = county;
     _voivodeship = voivodeship;
     _id = id;
 }
@@ -31,6 +35,8 @@ QJsonObject City::toIndexEntry() const {
     obj.insert("name", name());
     obj.insert("stations", stations_json);
     obj.insert("voivodeship", vship);
+    obj.insert("county", county());
+    obj.insert("commune", commune());
 
     return obj;
 }

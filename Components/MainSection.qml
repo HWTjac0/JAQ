@@ -22,29 +22,70 @@ Rectangle {
                 }
             }
             Text {
+                id: mainCityVoivodeship
                 anchors.top: mainCityName.bottom
                 anchors.margins: 5
-                id: mainStationName
-                text: "Stacja: <wybierz z listy>"
+                text: "Województwo: <po wybraniu miasta>"
                 font {
                     pixelSize: 20
+                }
+            }
+            Text {
+                id: mainCityCounty
+                anchors.top: mainCityVoivodeship.bottom
+                anchors.margins: 5
+                text: "Powiat: <po wybraniu miasta>"
+                font {
+                    pixelSize: 20
+                }
+            }
+            Text {
+                id: mainCityCommune
+                anchors.top: mainCityCounty.bottom
+                anchors.margins: 5
+                text: "Gmina: <po wybraniu miasta>"
+                font {
+                    pixelSize: 20
+                }
+            }
+        }
+        Rectangle {
+            Layout.alignment: Qt.AlignHCenter
+            Layout.preferredWidth: parent.width * 0.8
+            height: 2
+            color: "black"
+        }
+        Item {
+            Text {
+                id: mainStationAddress
+                text: "Adres stacji: <wybierz stacje z listy>"
+                font {
+                    pixelSize: 17
                     bold: true
                 }
+            }
+            Text {
+                anchors.top: mainStationAddress.bottom
+                id: mainStationId
+                text: "ID stacji: <po wybraniu stacji>"
+                font.pixelSize: 15
             }
         }
         Connections {
             target: cityHandler
             function onCityChanged() {
-                var title = "Miasto: %1"
-                mainCityName.text = title.arg(cityHandler.currentCityName)
-                mainStationName.text = "Stacja: <wybierz z listy>"
+                mainCityName.text           = "Miasto: %1".arg(cityHandler.currentCity.name)
+                mainCityVoivodeship.text    = "Województwo: %1".arg(cityHandler.currentCity.voivodeship)
+                mainCityCounty.text         = "Powiat: %1".arg(cityHandler.currentCity.county)
+                mainCityCommune.text        = "Gmina: %1".arg(cityHandler.currentCity.commune)
+                mainStationAddress.text     = "Adres stacji: <wybierz stacje z listy>"
             }
         }
         Connections {
             target: stationHandler
             function onStationChanged() {
-                var title = "Stacja: %1"
-                mainStationName.text = title.arg(stationHandler.currentStationName)
+                mainStationAddress.text = "Adres stacji: %1".arg(stationHandler.currentStationAddress)
+                mainStationId.text = "ID stacji: %1".arg(stationHandler.currentStationId)
             }
         }
     }

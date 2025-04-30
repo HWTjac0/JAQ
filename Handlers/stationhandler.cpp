@@ -28,6 +28,10 @@ SensorHandler* StationHandler::sensorHandler() {
     return _sensorHandler;
 }
 
-QString StationHandler::currentStationName() const {
+QString StationHandler::currentStationAddress() const {
     return currentStation.address();
+}
+
+int StationHandler::currentStationId() const {
+    return currentStation.id();
 }
