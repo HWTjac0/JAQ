@@ -88,6 +88,7 @@ void ApiClient::handleStationAQI() {
 void ApiClient::handleSensorData() {
     QJsonObject data = getJsonFromReply(qobject_cast<QNetworkReply *>(sender())).object();
     QJsonArray measurments = data["Lista danych pomiarowych"].toArray();
+    qDebug() << measurments;
 }
 
 void ApiClient::handleStations()
