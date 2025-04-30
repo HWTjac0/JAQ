@@ -19,13 +19,15 @@ Rectangle {
         delegate: ItemDelegate {
             width: parent.width
 
+            property bool isSelected: stationList.currentIndex === index
+
             background: Rectangle {
                 radius: 6
                 border {
                     width: 1
                     color: mouse.hovered ? "#d0d0d0" : "#e2e2e2"
                 }
-                color: mouse.hovered ? "#f8f8f8" : "white"
+                color: isSelected ? "#e3f2fd" : (mouse.hovered ? "#f8f8f8" : "white")
 
                 Rectangle {
                     anchors.fill: parent
@@ -50,7 +52,17 @@ Rectangle {
                 cursorShape: Qt.PointingHandCursor
             }
 
-            onClicked: stationHandler.stationSelected(stationId)
+            onClicked: {
+                stationHandler.stationSelected(stationId)
+                stationList.currentIndex = index;
+            }
+
+            Connections {
+                target: cityHandler
+                function onCityChanged() {
+                    stationList.currentIndex = -1
+                }
+            }
         }
     }
     Text {
