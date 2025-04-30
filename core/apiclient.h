@@ -23,11 +23,13 @@ public:
     void fetchStationAQI(int station_id);
     void fetchStationAQI(Station &station);
     void fetchSensors(int stationId);
+    void fetchSensorData(int sensorId, int hours);
     QJsonDocument getJsonFromReply(QNetworkReply *reply);
 public slots:
     void handleStations();
     void handleSensors();
     void handleStationAQI();
+    void handleSensorData();
 signals:
     void stationsFinished(QMap<int, City*> cities);
     void stationAQIFinished(const QJsonDocument &doc);

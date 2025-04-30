@@ -53,7 +53,7 @@ Rectangle {
             Layout.alignment: Qt.AlignHCenter
             Layout.preferredWidth: parent.width * 0.8
             height: 2
-            color: "black"
+            color: "#dfdfdf"
         }
         Item {
             Text {
@@ -70,22 +70,43 @@ Rectangle {
                 text: "ID stacji: <po wybraniu stacji>"
                 font.pixelSize: 15
             }
+            Text {
+                anchors.top: mainStationId.bottom
+                id: mainStationAQI
+                text: "Ogólny stan powietrza: <po wybraniu stacji>"
+                font.pixelSize: 15
+            }
         }
         Connections {
             target: cityHandler
             function onCityChanged() {
-                mainCityName.text           = "Miasto: %1".arg(cityHandler.currentCity.name)
-                mainCityVoivodeship.text    = "Województwo: %1".arg(cityHandler.currentCity.voivodeship)
-                mainCityCounty.text         = "Powiat: %1".arg(cityHandler.currentCity.county)
-                mainCityCommune.text        = "Gmina: %1".arg(cityHandler.currentCity.commune)
+                mainCityName.text           = `Miasto: ${cityHandler.currentCity.name}`
+                mainCityVoivodeship.text    = `Województwo: ${cityHandler.currentCity.voivodeship}`
+                mainCityCounty.text         = `Powiat: ${cityHandler.currentCity.county}`
+                mainCityCommune.text        = `Gmina: ${cityHandler.currentCity.commune}`
+
                 mainStationAddress.text     = "Adres stacji: <wybierz stacje z listy>"
+                mainStationId.text     = "ID stacji: <po wybraniu stacji>"
+                mainStationAQI.text     = "Ogólny stan powietrza: <po wybraniu stacji>"
             }
         }
         Connections {
             target: stationHandler
             function onStationChanged() {
-                mainStationAddress.text = "Adres stacji: %1".arg(stationHandler.currentStationAddress)
-                mainStationId.text = "ID stacji: %1".arg(stationHandler.currentStationId)
+                mainStationAddress.text = `Adres stacji: ${stationHandler.currentStationAddress}`
+                mainStationId.text = `ID stacji: ${stationHandler.currentStationId}`
+                mainStationAQI.text = "Ogólny stan powietrza: Ładowanie..."
+            }
+            function  onStationAQIAcquired(aqiStatus) {
+                try {
+                    if (!mainStationAQI) {
+                        console.error("mainStationAQI is null!")
+                        return
+                    }
+                    mainStationAQI.text = `Ogólny stan powietrza: ${aqiStatus}`
+                } catch(e) {
+                    console.error("Error updating AQI:", e)
+                }
             }
         }
     }

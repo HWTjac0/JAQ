@@ -51,7 +51,9 @@ Rectangle {
                 cursorShape: Qt.PointingHandCursor
             }
 
-            onClicked: stationHandler.stationSelected(stationId)
+            onClicked: {
+                sensorHandler.sensorSelected(sensorId)
+            }
         }
     }
     Text {

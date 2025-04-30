@@ -26,12 +26,19 @@ QUrl ApiClient::buildUrl(const QString &endpoint,
 }
 
 void ApiClient::fetchSensors(int stationId) {
-    QMap<QString, QString> params;
-    params.insert("size", "20");
+    QMap<QString, QString> params {{"size", "20"}};
     QUrl url = buildUrl("/station/sensors/" + QString::number(stationId), params);
     QNetworkRequest req(url);
     QNetworkReply *reply = _manager->get(req);
     connect(reply, &QNetworkReply::finished, this, &ApiClient::handleSensors);
+}
+
+void ApiClient::fetchSensorData(int sensorId, int hours) {
+    QMap<QString, QString> params {{"size", QString::number(hours)}};
+    QUrl url = buildUrl("/data/getData/" + QString::number(sensorId), params);
+    QNetworkRequest req(url);
+    QNetworkReply *reply = _manager->get(req);
+    connect(reply, &QNetworkReply::finished, this, &ApiClient::handleSensorData);
 }
 
 void ApiClient::handleSensors() {
@@ -66,13 +73,8 @@ void ApiClient::fetchStationAQI(int station_id) {
     QNetworkRequest req(url);
     QNetworkReply *reply = _manager->get(req);
     connect(reply, &QNetworkReply::finished, this, &ApiClient::handleStationAQI);
-    connect(this, &ApiClient::stationAQIFinished, this, [](const QJsonDocument& doc) mutable {
-        QVariantMap obj = doc.object().value("AqIndex").toObject().toVariantMap();
-        for(auto [key, value] : obj.asKeyValueRange()) {
-            qDebug() << key << "\t" << value;
-        }
-    });
 }
+
 QJsonDocument ApiClient::getJsonFromReply(QNetworkReply *reply) {
     reply->deleteLater();
     return QJsonDocument::fromJson(reply->readAll());
@@ -81,6 +83,11 @@ QJsonDocument ApiClient::getJsonFromReply(QNetworkReply *reply) {
 void ApiClient::handleStationAQI() {
     QJsonDocument doc = getJsonFromReply(qobject_cast<QNetworkReply *>(sender()));
     emit stationAQIFinished(doc);
+}
+
+void ApiClient::handleSensorData() {
+    QJsonObject data = getJsonFromReply(qobject_cast<QNetworkReply *>(sender())).object();
+    QJsonArray measurments = data["Lista danych pomiarowych"].toArray();
 }
 
 void ApiClient::handleStations()

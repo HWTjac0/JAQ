@@ -7,6 +7,9 @@ StationHandler::StationHandler(ApiClient *apiClient, QObject *parent) : QObject(
     currentStation = Station();
     _apiClient = apiClient;
     _sensorHandler = new SensorHandler(this, apiClient);
+
+    // SIGNAL HANDLERS
+    connect(_apiClient, &ApiClient::stationAQIFinished, this, &StationHandler::processAQI);
 }
 
 void StationHandler::loadStationsForCity() {
@@ -18,6 +21,7 @@ void StationHandler::stationSelected(int stationId) {
     currentStation = CityHandler::currentCity->getStationById(stationId);
     _sensorHandler->loadSensorsForStation();
     emit stationChanged();
+    _apiClient->fetchStationAQI(currentStationId());
 }
 
 StationModel* StationHandler::stationModel() const {
@@ -34,4 +38,10 @@ QString StationHandler::currentStationAddress() const {
 
 int StationHandler::currentStationId() const {
     return currentStation.id();
+}
+
+void StationHandler::processAQI(QJsonDocument aqiDoc) {
+    QJsonObject aqiRoot = aqiDoc.object().value("AqIndex").toObject();
+    QString aqiStatus = aqiRoot.value("Nazwa kategorii indeksu").toString();
+    emit stationAQIAcquired(aqiStatus);
 }

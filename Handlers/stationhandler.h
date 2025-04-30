@@ -17,10 +17,13 @@ public:
     SensorHandler * sensorHandler();
     QString currentStationAddress() const;
     int currentStationId() const;
+
 public slots:
+    void processAQI(QJsonDocument aqiDoc);
     void stationSelected(int stationId);
 signals:
     void stationChanged();
+    void stationAQIAcquired(QString aqiStatus);
 private:
     StationModel *_stationModel;
     SensorHandler *_sensorHandler;
