@@ -17,6 +17,12 @@ QJsonObject Station::toIndexEntry() const {
     QJsonObject obj;
     obj.insert("id", _id);
     obj.insert("address", _address);
+
+    QJsonObject coords;
+    coords.insert("x", _coord.x);
+    coords.insert("y", _coord.y);
+    obj.insert("coordinate", coords);
+
     QJsonArray sensors;
     for(auto s : _sensors) {
         QJsonObject sensor_obj;
@@ -70,5 +76,20 @@ void Station::setSensors(const QVector<Sensor> &sensors){
     for(auto s : sensors) {
         _sensors.append(s);
     }
+}
+
+void Station::setCoords(double x, double y) {
+    _coord = Coordinate {.x = x, .y = y};
+}
+
+Station Station::fromJson(const QJsonObject &obj) {
+    Station station;
+    station.setAddress(obj.value("Ulica").toString());
+    station.setId(obj.value("Identyfikator stacji").toInt());
+    station.setCoords(
+        obj.value("WGS84 φ N").toString().toDouble(),
+        obj.value("WGS84 λ E").toString().toDouble()
+    );
+    return station;
 }
 

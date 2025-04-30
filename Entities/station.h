@@ -4,6 +4,11 @@
 #include <QString>
 #include "sensor.h"
 
+struct Coordinate {
+    double x;
+    double y;
+};
+
 class Station
 {
 public:
@@ -27,17 +32,14 @@ public:
     QList<Sensor> getSensors() const;
     Sensor getSensorById(int sensorId) const;
     void setSensors(const QVector<Sensor> &sensors);
-    static Station fromJson(const QJsonObject &obj)
-    {
-        Station station;
-        station.setAddress(obj.value("Ulica").toString());
-        station.setId(obj.value("Identyfikator stacji").toInt());
 
-        return station;
-    }
+    void setCoords(double x, double y);
+
+    static Station fromJson(const QJsonObject &obj);
 private:
     int _id;
     QString _address;
+    Coordinate _coord;
     QVector<Sensor> _sensors;
     Type _type;
 };

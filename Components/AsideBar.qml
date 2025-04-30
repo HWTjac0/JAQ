@@ -42,32 +42,7 @@ Rectangle {
                     Layout.alignment: Qt.AlignHCenter
                     color: "#b8ccd2"
                 }
-                Rectangle {
-                    Layout.fillWidth: true
-                    Layout.fillHeight: true
-                    color: "#f1f0f0"
-                    radius: 15
-                    border.width: 2
-                    border.color: "#dddddd"
-                    ListView {
-                        id: stationList
-                        height: parent.height
-                        interactive: false
-                        model: stationHandler.stationModel()
-                        delegate: ItemDelegate {
-                            text: stationAddress
-                            font.pixelSize: 14
-                            onClicked: stationHandler.stationSelected(stationId)
-                        }
-                    }
-                    Text {
-                        anchors.centerIn: parent
-                        visible: stationList.count === 0
-                        text: "Wybierz miasto"
-                        font.pixelSize: 16
-                        color: "#838383"
-                    }
-                }
+                StationSelectList {}
             }
         }
         Rectangle {
@@ -95,32 +70,7 @@ Rectangle {
                     Layout.alignment: Qt.AlignHCenter
                     color: "#b8ccd2"
                 }
-                Rectangle {
-                    Layout.fillWidth: true
-                    Layout.fillHeight: true
-                    color: "#f1f0f0"
-                    radius: 15
-                    border.width: 2
-                    border.color: "#dddddd"
-                    ListView {
-                        id: sensorsList
-                        width: parent.width
-                        height: parent.height
-                        interactive: false
-                        model: sensorHandler.sensorModel()
-                        delegate: ItemDelegate {
-                            text: sensorDisplay
-                            font.pixelSize: 14
-                        }
-                    }
-                    Text {
-                        anchors.centerIn: parent
-                        visible: sensorsList.count === 0
-                        text: "Wybierz stacje"
-                        font.pixelSize: 16
-                        color: "#838383"
-                    }
-                }
+                SensorSelectList {}
             }
         }
     }
