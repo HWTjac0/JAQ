@@ -11,10 +11,10 @@ Rectangle {
     ColumnLayout {
         anchors.fill: parent
         anchors.margins: 20
-        spacing: 5
+        spacing: 20
         Item {
             Layout.fillWidth: true
-            Layout.preferredHeight: parent.height * 0.2
+            Layout.preferredHeight: childrenRect.height
             Text {
                 id: mainCityName
                 text: "Miasto: <wybierz z listy>"
@@ -59,7 +59,7 @@ Rectangle {
         }
         Item {
             Layout.fillWidth: true
-            Layout.preferredHeight: parent.height * 0.2
+            Layout.preferredHeight: childrenRect.height
             Text {
                 id: mainStationAddress
                 text: "Adres stacji: <wybierz stacje z listy>"
@@ -80,6 +80,12 @@ Rectangle {
                 text: "Ogólny stan powietrza: <po wybraniu stacji>"
                 font.pixelSize: 15
             }
+        }
+        Rectangle {
+            Layout.alignment: Qt.AlignHCenter
+            Layout.preferredWidth: parent.width * 0.8
+            height: 2
+            color: "#dfdfdf"
         }
         TableView {
             id: sensorData
