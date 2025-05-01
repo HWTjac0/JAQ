@@ -1,5 +1,6 @@
 import QtQuick
 import QtQuick.Layouts
+import QtQuick.Controls
 
 Rectangle {
     Layout.fillWidth: true
@@ -13,6 +14,7 @@ Rectangle {
         spacing: 5
         Item {
             Layout.fillWidth: true
+            Layout.preferredHeight: parent.height * 0.2
             Text {
                 id: mainCityName
                 text: "Miasto: <wybierz z listy>"
@@ -56,6 +58,8 @@ Rectangle {
             color: "#dfdfdf"
         }
         Item {
+            Layout.fillWidth: true
+            Layout.preferredHeight: parent.height * 0.2
             Text {
                 id: mainStationAddress
                 text: "Adres stacji: <wybierz stacje z listy>"
@@ -76,6 +80,37 @@ Rectangle {
                 text: "Ogólny stan powietrza: <po wybraniu stacji>"
                 font.pixelSize: 15
             }
+        }
+        TableView {
+            id: sensorData
+            Layout.fillWidth: true
+            Layout.fillHeight: true
+            model: sensorDataHandler.getSensorDataModel()
+
+            columnWidthProvider: function(column) { return 150 }
+            rowHeightProvider: function(row) { return 40 }
+
+            delegate: Rectangle {
+                implicitWidth: 150
+                implicitHeight: 40
+                border.width: 1
+
+                Text {
+                    anchors.fill: parent
+                    anchors.margins: 5
+                    text: {
+                        if (column === 0) {
+                            return Qt.formatDateTime(sensordataTimestamp, "yyyy-MM-dd hh:mm")
+                        } else {
+                            return sensordataValue.toFixed(2)
+                        }
+                    }
+                    verticalAlignment: Text.AlignVCenter
+                }
+            }
+
+            ScrollBar.horizontal: ScrollBar {}
+            ScrollBar.vertical: ScrollBar {}
         }
         Connections {
             target: cityHandler

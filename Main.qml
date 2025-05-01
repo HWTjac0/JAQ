@@ -15,6 +15,7 @@ Window {
     property var cityHandler: context.cityHandler
     property var stationHandler: context.stationHandler
     property var sensorHandler: context.sensorHandler
+    property var sensorDataHandler: context.sensorDataHandler
 
     Rectangle {
         id: wrapper

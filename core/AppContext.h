@@ -17,6 +17,7 @@ class AppContext : public QObject {
     Q_PROPERTY(CityHandler* cityHandler READ getCityHandler CONSTANT);
     Q_PROPERTY(StationHandler* stationHandler READ getStationHandler CONSTANT);
     Q_PROPERTY(SensorHandler* sensorHandler READ getSensorHandler CONSTANT);
+    Q_PROPERTY(SensorDataHandler* sensorDataHandler READ getSensorDataHandler CONSTANT);
 public:
     void initialize();
     static AppContext& getInstance();
