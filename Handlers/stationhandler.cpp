@@ -1,12 +1,13 @@
 #include "stationhandler.h"
 #include "cityhandler.h"
+#include "core/AppContext.h"
 
 Station StationHandler::currentStation;
-StationHandler::StationHandler(ApiClient *apiClient, QObject *parent) : QObject(parent) {
+StationHandler::StationHandler(QObject *parent) : QObject(parent) {
     _stationModel = new StationModel(this);
     currentStation = Station();
-    _apiClient = apiClient;
-    _sensorHandler = new SensorHandler(this, apiClient);
+    _apiClient = AppContext::getInstance().getApiClient();
+    _sensorHandler = AppContext::getInstance().getSensorHandler();
 
     // SIGNAL HANDLERS
     connect(_apiClient, &ApiClient::stationAQIFinished, this, &StationHandler::processAQI);

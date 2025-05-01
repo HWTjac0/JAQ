@@ -2,20 +2,22 @@
 #include "../Models/citysortproxymodel.h"
 #include <QStringList>
 #include "../core/Database/database.h"
+#include "core/AppContext.h"
 
 City *CityHandler::currentCity = nullptr;
 
-CityHandler::CityHandler(ApiClient *client, QObject *parent)
-    : QObject(parent), _client(client)
+CityHandler::CityHandler(QObject *parent)
+    : QObject(parent)
 {
+    _client = AppContext::getInstance().getApiClient();
+    _stationHandler = AppContext::getInstance().getStationHandler();
+
     _baseModel = new CityIndexModel(this);
     _proxyModel = new CitySortProxyModel(this);
-    _stationHandler = new StationHandler(client, this);
 
     _baseModel->addCities(Database::index.values());
     _proxyModel->setSourceModel(_baseModel);
 
-    connect(this, &CityHandler::cityChanged, _stationHandler->sensorHandler(), &SensorHandler::onCityChanged);
 }
 
 City* CityHandler::getCurrentCity() {

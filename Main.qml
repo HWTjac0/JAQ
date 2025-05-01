@@ -9,6 +9,13 @@ Window {
     width: 600
     height: 480
     title: qsTr("JAirQuality")
+    property var context: appContext
+
+    // Convenience aliases
+    property var cityHandler: context.cityHandler
+    property var stationHandler: context.stationHandler
+    property var sensorHandler: context.sensorHandler
+
     Rectangle {
         id: wrapper
         width: parent.width

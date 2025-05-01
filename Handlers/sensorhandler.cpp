@@ -1,10 +1,12 @@
 #include "sensorhandler.h"
 #include "stationhandler.h"
+#include "core/AppContext.h"
 Sensor SensorHandler::currentSensor;
-SensorHandler::SensorHandler(QObject *parent, ApiClient *client)
-    : QObject{parent}, _client(client) {
-    currentSensor = Sensor();
+SensorHandler::SensorHandler(QObject *parent)
+    : QObject{parent} {
+    _client = AppContext::getInstance().getApiClient();
     _sensorModel = new SensorModel(this);
+    currentSensor = Sensor();
 }
 
 SensorModel* SensorHandler::sensorModel() const {

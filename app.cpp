@@ -6,17 +6,15 @@
 #include <QDir>
 #include <QStringList>
 
+#include "core/AppContext.h"
+
 App::App() = default;
 int App::init(int argc, char *argv[])
 {
     const QGuiApplication app(argc, argv);
 
-    ApiClient client;
-
-    Database db(&client);
-    CityHandler cityHandler(&client);
-    StationHandler *stationHandler = cityHandler.stationHandler();
-    SensorHandler *sensorHandler = stationHandler->sensorHandler();
+    AppContext& context = AppContext::getInstance();
+    context.initialize();
 
     QStringList voivodeships = {"Dolnośląskie", "Kujawsko-pomorskie", "Lubelskie", "Lubuskie", "Łódzkie", "Małopolskie", "Mazowieckie", "Opolskie", "Podkarpackie", "Podlaskie", "Pomorskie", "Śląskie", "Świętokrzyskie", "Warmińsko-mazurskie", "Wielkopolskie", "Zachodniopomorskie"};
 
@@ -26,9 +24,7 @@ int App::init(int argc, char *argv[])
 
     QQmlApplicationEngine engine;
     engine.rootContext()->setContextProperty("voivodeshipsModel", voivodeships);
-    engine.rootContext()->setContextProperty("stationHandler", stationHandler);
-    engine.rootContext()->setContextProperty("sensorHandler", sensorHandler);
-    engine.rootContext()->setContextProperty("cityHandler", &cityHandler);
+    engine.rootContext()->setContextProperty("appContext", &context);
     QObject::connect(
         &engine,
         &QQmlApplicationEngine::objectCreationFailed,

@@ -10,6 +10,8 @@ qt_standard_project_setup(REQUIRES 6.8)
 
 qt_add_executable(appairQuality
     main.cpp
+        core/AppContext.cpp
+        core/AppContext.h
 )
 
 qt_add_qml_module(appairQuality

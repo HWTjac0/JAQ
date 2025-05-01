@@ -5,7 +5,6 @@
 #include "databasereader.h"
 #include "../../Entities/sensor.h"
 #include <QFile>
-#include <QJsonDocument>
 #include <QMutex>
 
 class Database : public QObject
@@ -15,7 +14,7 @@ public:
     static QMap<int, City*> index;
     static QMap<int, Indicator> indicatorIndex;
     Database() = default;
-    Database(ApiClient *client, QObject* parent = nullptr);
+    Database(QObject* parent = nullptr);
     static void addCity(int cityId, City *city);
     static void addIndicator(int indicatorId, Indicator indicator);
     static Indicator getIndicator(int indicatorId);

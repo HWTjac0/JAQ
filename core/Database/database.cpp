@@ -5,13 +5,15 @@
 #include <QJsonObject>
 #include "../../Entities/city.h"
 #include "../apiclient.h"
+#include "core/AppContext.h"
 
 QMap<int, City*> Database::index;
 QMap<int, Indicator> Database::indicatorIndex;
 
-Database::Database(ApiClient *client, QObject* parent)
-    : _client(client), _indexPath("db.json")
+Database::Database(QObject* parent)
+    : _indexPath("db.json")
 {
+    _client = AppContext::getInstance().getApiClient();
     _writer = new DatabaseWriter(this, _client);
     _reader = new DatabaseReader(this);
     if(!QFile::exists("indexCities.json")){
