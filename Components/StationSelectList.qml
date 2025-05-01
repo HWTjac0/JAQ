@@ -56,19 +56,13 @@ Rectangle {
                 stationHandler.stationSelected(stationId)
                 stationList.currentIndex = index;
             }
-
-            Connections {
-                target: cityHandler
-                function onCityChanged() {
-                    stationList.currentIndex = -1
-                }
-            }
         }
     }
     Connections {
         target: cityHandler
         function onCityChanged() {
             stationList.model = stationHandler.stationModel
+            stationList.currentIndex = -1
         }
     }
     Text {

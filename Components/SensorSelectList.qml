@@ -62,6 +62,13 @@ Rectangle {
             sensorsList.model = sensorHandler.sensorModel
         }
     }
+    Connections {
+        target: cityHandler
+        function onCityChanged() {
+            sensorsList.model.clear()
+        }
+    }
+
     Text {
         anchors.centerIn: parent
         visible: sensorsList.count === 0

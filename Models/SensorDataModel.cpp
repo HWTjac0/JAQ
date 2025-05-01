@@ -6,6 +6,10 @@
 
 
 SensorDataModel::SensorDataModel(QObject *parent) : QAbstractTableModel(parent){
+    _minValue = 0;
+    _maxValue = 0;
+    _timerangeStart = QDateTime::currentDateTime();
+    _timerangeEnd = QDateTime::currentDateTime();
 }
 
 int SensorDataModel::rowCount(const QModelIndex &parent) const {
@@ -61,6 +65,15 @@ QHash<int, QByteArray> SensorDataModel::roleNames() const {
 void SensorDataModel::setData(const QVector<QPair<QDateTime, double>> &data) {
     beginResetModel();
     _data = data;
+
+    _timerangeStart = _data.back().first;
+    _timerangeEnd = _data.front().first;
+    auto mm = std::minmax_element(_data.begin(), _data.end(), [](const QPair<QDateTime, double> &a, const QPair<QDateTime, double> &b) {
+        return a.second < b.second;
+    });
+    _minValue = (*mm.first).second;
+    _maxValue = (*mm.second).second;
+
     endResetModel();
 }
 
@@ -68,6 +81,29 @@ void SensorDataModel::clear() {
     beginResetModel();
     _data.clear();
     endResetModel();
+}
+
+double SensorDataModel::minValue() const {
+    return _minValue;
+}
+
+double SensorDataModel::maxValue() const {
+    return _maxValue;
+}
+
+QDateTime SensorDataModel::timerangeStart() const {
+    return _timerangeStart;
+}
+
+QDateTime SensorDataModel::timerangeEnd() const {
+    return _timerangeEnd;
+}
+
+void SensorDataModel::fillSeries(QLineSeries *series) {
+    series->clear();
+    for (const auto& [timestamp, value] : _data) {
+        series->append(timestamp.toMSecsSinceEpoch(), value);
+    }
 }
 
 

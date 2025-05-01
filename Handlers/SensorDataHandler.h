@@ -9,7 +9,7 @@
 #include "core/apiclient.h"
 #include "Entities/sensor.h"
 #include "Models/SensorDataModel.h"
-
+#include <QDateTime>
 
 class SensorDataHandler : public QObject {
     Q_OBJECT
@@ -23,6 +23,7 @@ public slots:
     void onCurrentSensorChanged(Sensor* sensor) const;
 signals:
     void dataLoaded(const QJsonDocument &doc);
+    void dataChanged();
 private:
     ApiClient* _apiClient;
     SensorDataModel* _sensorDataModel;

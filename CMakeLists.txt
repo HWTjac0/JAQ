@@ -4,7 +4,7 @@ project(airQuality VERSION 0.1 LANGUAGES CXX)
 
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-find_package(Qt6 REQUIRED COMPONENTS Quick)
+find_package(Qt6 REQUIRED COMPONENTS Core Quick Charts Widgets)
 
 qt_standard_project_setup(REQUIRES 6.8)
 
@@ -32,6 +32,7 @@ qt_add_qml_module(appairQuality
         QML_FILES Components/CitySelection.qml
         QML_FILES Components/CityInfo.qml
         QML_FILES Components/StationInfo.qml
+        QML_FILES Components/SensorInfo.qml
         QML_FILES Components/DividerHorizontal.qml
         QML_FILES Components/SensorDataTable.qml
         SOURCES app.h app.cpp
@@ -63,7 +64,7 @@ set_target_properties(appairQuality PROPERTIES
 )
 
 target_link_libraries(appairQuality
-    PRIVATE Qt6::Quick
+    PRIVATE Qt6::Quick Qt6::Charts Qt6::Widgets
 )
 
 include(GNUInstallDirs)

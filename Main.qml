@@ -16,7 +16,7 @@ Window {
     property var stationHandler: context.stationHandler
     property var sensorHandler: context.sensorHandler
     property var sensorDataHandler: context.sensorDataHandler
-
+    property var sensorDataModel: sensorDataHandler.sensordataModel
     Rectangle {
         id: wrapper
         width: parent.width

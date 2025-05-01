@@ -1,12 +1,21 @@
 #include "sensorhandler.h"
 #include "stationhandler.h"
 #include "core/AppContext.h"
-Sensor SensorHandler::currentSensor;
+
+QString SensorHandler::currentSensorIndicator() const {
+    Indicator currentIndicator = _currentSensor.getIndicator();
+    return QString("%1 (%2)").arg(currentIndicator.name, currentIndicator.code);
+}
+
+int SensorHandler::currentSensorId() const {
+    return _currentSensor.id();
+}
+
 SensorHandler::SensorHandler(ApiClient* apiClient, QObject *parent)
     : QObject{parent} {
     _client = apiClient;
     _sensorModel = new SensorModel(this);
-    currentSensor = Sensor();
+    _currentSensor = Sensor();
 }
 
 SensorModel* SensorHandler::sensorModel() const {
@@ -18,8 +27,8 @@ void SensorHandler::loadSensorsForStation() {
 }
 
 void SensorHandler::sensorSelected(int sensorId) {
-    currentSensor = StationHandler::currentStation.getSensorById(sensorId);
-   emit currentSensorChanged(&currentSensor);
+    _currentSensor = StationHandler::currentStation.getSensorById(sensorId);
+   emit currentSensorChanged(&_currentSensor);
 }
 
 void SensorHandler::onCityChanged() {

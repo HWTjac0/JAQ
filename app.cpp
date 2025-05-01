@@ -1,5 +1,6 @@
 #include "app.h"
 #include <QQmlContext>
+#include <QApplication>
 #include "core/apiclient.h"
 #include "Handlers/cityhandler.h"
 #include "core/Database/database.h"
@@ -15,7 +16,7 @@ void App::initAppMetadata() {
 }
 int App::init(int argc, char *argv[])
 {
-    const QGuiApplication app(argc, argv);
+    const QApplication app(argc, argv);
 
     AppContext& context = AppContext::getInstance();
     context.initialize();

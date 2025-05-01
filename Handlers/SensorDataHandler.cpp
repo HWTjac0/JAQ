@@ -20,6 +20,8 @@ SensorDataModel * SensorDataHandler::getSensorDataModel() const {
 
 void SensorDataHandler::onDataLoaded(const QJsonArray &data) {
     QVector<QPair<QDateTime, double>> measurements;
+    double min = 9999999;
+    double max = 0;
     for (auto d : data) {
         QJsonObject mobj = d.toObject();
         QDateTime timestamp = QDateTime::fromString(
@@ -27,9 +29,14 @@ void SensorDataHandler::onDataLoaded(const QJsonArray &data) {
             "yyyy-MM-dd HH:mm:ss"
             );
         double value = mobj.value("Wartość").toDouble();
+        min = min < value ? min : value;
+        max = max > value ? max : value;
+
         measurements.emplace_back(timestamp, value);
     }
     _sensorDataModel->setData(measurements);
+    emit dataChanged();
+
 }
 
 void SensorDataHandler::onCurrentSensorChanged(Sensor *sensor) const {

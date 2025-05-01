@@ -19,7 +19,7 @@ public:
     QVariant data(const QModelIndex &index, int role) const override;
     QHash<int, QByteArray> roleNames() const override;
 
-    void clear();
+    Q_INVOKABLE void clear();
     void setSensors(const QList<Sensor> &sensors);
 private:
     QList<Sensor> _sensors;
