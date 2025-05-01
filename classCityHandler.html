@@ -120,8 +120,8 @@ Signals</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ac49827d1b779f639b986634f886a86e2" id="r_ac49827d1b779f639b986634f886a86e2"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCityHandler.html#ac49827d1b779f639b986634f886a86e2">CityHandler</a> (<a class="el" href="classApiClient.html">ApiClient</a> *<a class="elRef" href="https://doc.qt.io/qt-6/qobject.html#qobject_cast">client</a>, <a class="elRef" href="https://doc.qt.io/qt-6/qobject.html">QObject</a> *<a class="elRef" href="https://doc.qt.io/qt-6/qobject.html#parent">parent</a>=<a class="elRef" href="https://doc.qt.io/qt-6/qobject.html#qobject_cast">nullptr</a>)</td></tr>
-<tr class="separator:ac49827d1b779f639b986634f886a86e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2ee8db5acad017b092c533bfa1eee701" id="r_a2ee8db5acad017b092c533bfa1eee701"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCityHandler.html#a2ee8db5acad017b092c533bfa1eee701">CityHandler</a> (<a class="el" href="classApiClient.html">ApiClient</a> *<a class="elRef" href="https://doc.qt.io/qt-6/qobject.html#qobject_cast">apiClient</a>, <a class="el" href="classStationHandler.html">StationHandler</a> *stationHandler, <a class="elRef" href="https://doc.qt.io/qt-6/qobject.html">QObject</a> *<a class="elRef" href="https://doc.qt.io/qt-6/qobject.html#parent">parent</a>=<a class="elRef" href="https://doc.qt.io/qt-6/qobject.html#qobject_cast">nullptr</a>)</td></tr>
+<tr class="separator:a2ee8db5acad017b092c533bfa1eee701"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a29ee66bc1bd8fbfd1cd37d5142796475" id="r_a29ee66bc1bd8fbfd1cd37d5142796475"><td class="memItemLeft" align="right" valign="top"><a class="elRef" href="https://doc.qt.io/qt-6/qobject.html#Q_INVOKABLE">Q_INVOKABLE</a> <a class="el" href="classCitySortProxyModel.html">CitySortProxyModel</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCityHandler.html#a29ee66bc1bd8fbfd1cd37d5142796475">getCities</a> () <a class="elRef" href="https://doc.qt.io/qt-6/qobject.html#qobject_cast">const</a></td></tr>
 <tr class="separator:a29ee66bc1bd8fbfd1cd37d5142796475"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a864df863d7cb3e5a39432769908c57b1" id="r_a864df863d7cb3e5a39432769908c57b1"><td class="memItemLeft" align="right" valign="top"><a class="elRef" href="https://doc.qt.io/qt-6/qobject.html#Q_INVOKABLE">Q_INVOKABLE</a> <a class="elRef" href="https://doc.qt.io/qt-6/qobject.html#qobject_cast">int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCityHandler.html#a864df863d7cb3e5a39432769908c57b1">getCityId</a> (<a class="elRef" href="https://doc.qt.io/qt-6/qobject.html#qobject_cast">int</a> <a class="elRef" href="https://doc.qt.io/qt-6/qobject.html#qobject_cast">comboBoxIndex</a>) <a class="elRef" href="https://doc.qt.io/qt-6/qobject.html#qobject_cast">const</a></td></tr>
@@ -422,8 +422,8 @@ Additional Inherited Members</h2></td></tr>
 <div class="textblock">
 <p class="definition">Definition at line <a class="el" href="cityhandler_8h_source.html#l00010">10</a> of file <a class="el" href="cityhandler_8h_source.html">cityhandler.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="ac49827d1b779f639b986634f886a86e2" name="ac49827d1b779f639b986634f886a86e2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac49827d1b779f639b986634f886a86e2">&#9670;&#160;</a></span>CityHandler()</h2>
+<a id="a2ee8db5acad017b092c533bfa1eee701" name="a2ee8db5acad017b092c533bfa1eee701"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2ee8db5acad017b092c533bfa1eee701">&#9670;&#160;</a></span>CityHandler()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -432,7 +432,13 @@ Additional Inherited Members</h2></td></tr>
           <td class="memname">CityHandler::CityHandler </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="classApiClient.html">ApiClient</a> *&#160;</td>
-          <td class="paramname"><em>client</em>, </td>
+          <td class="paramname"><em>apiClient</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classStationHandler.html">StationHandler</a> *&#160;</td>
+          <td class="paramname"><em>stationHandler</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -448,7 +454,7 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="cityhandler_8cpp_source.html#l00008">8</a> of file <a class="el" href="cityhandler_8cpp_source.html">cityhandler.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="cityhandler_8cpp_source.html#l00009">9</a> of file <a class="el" href="cityhandler_8cpp_source.html">cityhandler.cpp</a>.</p>
 
 </div>
 </div>
@@ -477,7 +483,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="cityhandler_8cpp_source.html#l00038">38</a> of file <a class="el" href="cityhandler_8cpp_source.html">cityhandler.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="cityhandler_8cpp_source.html#l00040">40</a> of file <a class="el" href="cityhandler_8cpp_source.html">cityhandler.cpp</a>.</p>
 
 </div>
 </div>
@@ -496,7 +502,7 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="cityhandler_8cpp_source.html#l00025">25</a> of file <a class="el" href="cityhandler_8cpp_source.html">cityhandler.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="cityhandler_8cpp_source.html#l00027">27</a> of file <a class="el" href="cityhandler_8cpp_source.html">cityhandler.cpp</a>.</p>
 
 </div>
 </div>
@@ -516,7 +522,7 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="cityhandler_8cpp_source.html#l00028">28</a> of file <a class="el" href="cityhandler_8cpp_source.html">cityhandler.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="cityhandler_8cpp_source.html#l00030">30</a> of file <a class="el" href="cityhandler_8cpp_source.html">cityhandler.cpp</a>.</p>
 
 </div>
 </div>
@@ -535,7 +541,7 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="cityhandler_8cpp_source.html#l00021">21</a> of file <a class="el" href="cityhandler_8cpp_source.html">cityhandler.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="cityhandler_8cpp_source.html#l00023">23</a> of file <a class="el" href="cityhandler_8cpp_source.html">cityhandler.cpp</a>.</p>
 
 </div>
 </div>
@@ -554,7 +560,7 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="cityhandler_8cpp_source.html#l00035">35</a> of file <a class="el" href="cityhandler_8cpp_source.html">cityhandler.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="cityhandler_8cpp_source.html#l00037">37</a> of file <a class="el" href="cityhandler_8cpp_source.html">cityhandler.cpp</a>.</p>
 
 </div>
 </div>
