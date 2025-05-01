@@ -5,7 +5,7 @@ var searchData=
   ['zarma_2',['Zarma',['https://doc.qt.io/qt-6/qlocale.html#Language-enum',1,'QLocale']]],
   ['zaxis_3',['ZAxis',['https://doc.qt.io/qt-6/qt.html#Axis-enum',1,'Qt']]],
   ['zchanged_4',['zChanged',['https://doc.qt.io/qt-6/qquickitem.html#z-prop',1,'QQuickItem']]],
-  ['zero_5',['zero',['https://doc.qt.io/qt-6/qtyperevision.html#zero',1,'QTypeRevision::zero()'],['https://doc.qt.io/qt-6/qrhigraphicspipeline.html#BlendFactor-enum',1,'QRhiGraphicsPipeline::Zero'],['https://doc.qt.io/qt-6/qsgmaterialshader-graphicspipelinestate.html#BlendFactor-enum',1,'QSGMaterialShader::GraphicsPipelineState::Zero']]],
+  ['zero_5',['zero',['https://doc.qt.io/qt-6/qrhigraphicspipeline.html#BlendFactor-enum',1,'QRhiGraphicsPipeline::Zero'],['https://doc.qt.io/qt-6/qsgmaterialshader-graphicspipelinestate.html#BlendFactor-enum',1,'QSGMaterialShader::GraphicsPipelineState::Zero'],['https://doc.qt.io/qt-6/qtyperevision.html#zero',1,'QTypeRevision::zero()']]],
   ['zerodigit_6',['zeroDigit',['https://doc.qt.io/qt-6/qlocale.html#zeroDigit',1,'QLocale']]],
   ['zerotimerevent_7',['ZeroTimerEvent',['https://doc.qt.io/qt-6/qevent.html#Type-enum',1,'QEvent']]],
   ['zeusmiracle_8',['ZeusMiracle',['https://doc.qt.io/qt-6/qgradient.html#Preset-enum',1,'QGradient']]],
