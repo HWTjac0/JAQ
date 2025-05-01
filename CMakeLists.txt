@@ -30,6 +30,10 @@ qt_add_qml_module(appairQuality
         QML_FILES Components/StationSelectList.qml
         QML_FILES Components/SensorSelectList.qml
         QML_FILES Components/CitySelection.qml
+        QML_FILES Components/CityInfo.qml
+        QML_FILES Components/StationInfo.qml
+        QML_FILES Components/DividerHorizontal.qml
+        QML_FILES Components/SensorDataTable.qml
         SOURCES app.h app.cpp
         SOURCES core/apiclient.h core/apiclient.cpp
         SOURCES Handlers/cityhandler.h Handlers/cityhandler.cpp

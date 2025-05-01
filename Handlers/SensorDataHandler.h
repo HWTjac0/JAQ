@@ -13,7 +13,7 @@
 
 class SensorDataHandler : public QObject {
     Q_OBJECT
-    Q_PROPERTY(SensorDataModel* model READ getSensorDataModel CONSTANT);
+    Q_PROPERTY(SensorDataModel* sensordataModel READ getSensorDataModel CONSTANT);
 public:
     explicit SensorDataHandler(ApiClient* apiClient, QObject *parent = nullptr);
     void loadData(int sensorId) const;

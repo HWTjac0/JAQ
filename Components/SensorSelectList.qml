@@ -16,7 +16,7 @@ Rectangle {
         width: parent.width
         height: parent.height
         interactive: false
-        model: sensorHandler.sensorModel()
+        model: sensorHandler.sensorModel
         delegate: ItemDelegate {
             width: parent.width
 
@@ -54,6 +54,12 @@ Rectangle {
             onClicked: {
                 sensorHandler.sensorSelected(sensorId)
             }
+        }
+    }
+    Connections {
+        target: stationHandler
+        function onStationChanged() {
+            sensorsList.model = sensorHandler.sensorModel
         }
     }
     Text {

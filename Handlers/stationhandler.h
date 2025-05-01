@@ -9,6 +9,7 @@ class StationHandler : public QObject
     Q_OBJECT
     Q_PROPERTY(QString currentStationAddress READ currentStationAddress CONSTANT);
     Q_PROPERTY(int currentStationId READ currentStationId CONSTANT);
+    Q_PROPERTY(StationModel* stationModel READ stationModel CONSTANT);
 public:
     static Station currentStation;
     explicit StationHandler(ApiClient* apiClient, SensorHandler* sensorHandler, QObject *parent = nullptr);

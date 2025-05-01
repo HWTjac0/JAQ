@@ -15,7 +15,7 @@ Rectangle {
         height: parent.height
         width: parent.width
         interactive: false
-        model: stationHandler.stationModel()
+        model: stationHandler.stationModel
         delegate: ItemDelegate {
             width: parent.width
 
@@ -63,6 +63,12 @@ Rectangle {
                     stationList.currentIndex = -1
                 }
             }
+        }
+    }
+    Connections {
+        target: cityHandler
+        function onCityChanged() {
+            stationList.model = stationHandler.stationModel
         }
     }
     Text {

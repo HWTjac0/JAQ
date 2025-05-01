@@ -8,6 +8,7 @@
 class SensorHandler : public QObject
 {
     Q_OBJECT
+    Q_PROPERTY(SensorModel* sensorModel READ sensorModel CONSTANT);
 public:
     static Sensor currentSensor;
     explicit SensorHandler(ApiClient* apiClient, QObject *parent = nullptr);
