@@ -2,9 +2,9 @@
 #include "stationhandler.h"
 #include "core/AppContext.h"
 Sensor SensorHandler::currentSensor;
-SensorHandler::SensorHandler(QObject *parent)
+SensorHandler::SensorHandler(ApiClient* apiClient, QObject *parent)
     : QObject{parent} {
-    _client = AppContext::getInstance().getApiClient();
+    _client = apiClient;
     _sensorModel = new SensorModel(this);
     currentSensor = Sensor();
 }
@@ -19,7 +19,7 @@ void SensorHandler::loadSensorsForStation() {
 
 void SensorHandler::sensorSelected(int sensorId) {
     currentSensor = StationHandler::currentStation.getSensorById(sensorId);
-    _client->fetchSensorData(currentSensor.id(), 24);
+   emit currentSensorChanged(&currentSensor);
 }
 
 void SensorHandler::onCityChanged() {

@@ -8,6 +8,8 @@ class App : public QObject
 public:
     App();
     static int init(int argc, char *argv[]);
+
+    static void initAppMetadata();
 };
 
 #endif // APP_H

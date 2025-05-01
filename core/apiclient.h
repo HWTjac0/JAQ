@@ -31,6 +31,7 @@ public slots:
     void handleStationAQI();
     void handleSensorData();
 signals:
+    void sensorDataFinished(const QJsonArray &measurments);
     void stationsFinished(QMap<int, City*> cities);
     void stationAQIFinished(const QJsonDocument &doc);
     void sensorsFinished(QVector<Sensor> sensors, QVector<QPair<int, Indicator>> indicators);

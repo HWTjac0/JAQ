@@ -13,7 +13,7 @@ class CityHandler : public QObject
     Q_PROPERTY(City* currentCity READ getCurrentCity CONSTANT)
 public:
     static City* currentCity;
-    CityHandler(QObject *parent = nullptr);
+    CityHandler(ApiClient* apiClient, StationHandler* stationHandler, QObject *parent = nullptr);
     City* getCurrentCity();
     Q_INVOKABLE CitySortProxyModel* getCities() const;
     Q_INVOKABLE int getCityId(int comboBoxIndex) const;

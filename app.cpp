@@ -4,11 +4,15 @@
 #include "Handlers/cityhandler.h"
 #include "core/Database/database.h"
 #include <QDir>
-#include <QStringList>
 
 #include "core/AppContext.h"
 
 App::App() = default;
+void App::initAppMetadata() {
+    QCoreApplication::setApplicationName("Jacs Air Quality");
+    QCoreApplication::setOrganizationName("hwtjac0");
+    QCoreApplication::setApplicationVersion("2025.04");
+}
 int App::init(int argc, char *argv[])
 {
     const QGuiApplication app(argc, argv);
@@ -18,9 +22,7 @@ int App::init(int argc, char *argv[])
 
     QStringList voivodeships = {"Dolnośląskie", "Kujawsko-pomorskie", "Lubelskie", "Lubuskie", "Łódzkie", "Małopolskie", "Mazowieckie", "Opolskie", "Podkarpackie", "Podlaskie", "Pomorskie", "Śląskie", "Świętokrzyskie", "Warmińsko-mazurskie", "Wielkopolskie", "Zachodniopomorskie"};
 
-    QCoreApplication::setApplicationName("Jacs Air Quality");
-    QCoreApplication::setOrganizationName("hwtjac0");
-    QCoreApplication::setApplicationVersion("2025.04");
+    initAppMetadata();
 
     QQmlApplicationEngine engine;
     engine.rootContext()->setContextProperty("voivodeshipsModel", voivodeships);

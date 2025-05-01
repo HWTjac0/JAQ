@@ -6,11 +6,11 @@
 
 City *CityHandler::currentCity = nullptr;
 
-CityHandler::CityHandler(QObject *parent)
+CityHandler::CityHandler(ApiClient* apiClient, StationHandler* stationHandler, QObject *parent)
     : QObject(parent)
 {
-    _client = AppContext::getInstance().getApiClient();
-    _stationHandler = AppContext::getInstance().getStationHandler();
+    _client = apiClient;
+    _stationHandler = stationHandler;
 
     _baseModel = new CityIndexModel(this);
     _proxyModel = new CitySortProxyModel(this);

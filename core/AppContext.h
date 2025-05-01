@@ -10,6 +10,7 @@
 #include "Handlers/stationhandler.h"
 #include "Handlers/sensorhandler.h"
 #include "apiclient.h"
+#include "Handlers/SensorDataHandler.h"
 
 class AppContext : public QObject {
     Q_OBJECT
@@ -22,6 +23,7 @@ public:
     [[nodiscard]] CityHandler* getCityHandler() const;
     [[nodiscard]] StationHandler* getStationHandler() const;
     [[nodiscard]] SensorHandler* getSensorHandler() const;
+    [[nodiscard]] SensorDataHandler* getSensorDataHandler() const;
     [[nodiscard]] ApiClient* getApiClient() const;
 private:
     explicit AppContext(QObject* parent = nullptr);
@@ -30,6 +32,7 @@ private:
     QScopedPointer<CityHandler> _cityHandler;
     QScopedPointer<StationHandler> _stationHandler;
     QScopedPointer<SensorHandler> _sensorHandler;
+    QScopedPointer<SensorDataHandler> _sensorDataHandler;
     QScopedPointer<ApiClient> _apiClient;
 };
 

@@ -18,16 +18,26 @@ AppContext::AppContext(QObject *parent)
 
 void AppContext::initialize() {
     _apiClient.reset(new ApiClient(this));
-    Database db(this);
+    Database db(_apiClient.get(), this);
+    /**
+     * I am passing api client, handlers etc. explicitly because I think
+     * implicit access to them is kind of convoluted for this init usage
+     */
+    _sensorHandler.reset(new SensorHandler(_apiClient.get(), this));
+    _sensorDataHandler.reset(new SensorDataHandler(_apiClient.get(), this));
+    _stationHandler.reset(new StationHandler(_apiClient.get(),_sensorHandler.get(),this));
+    _cityHandler.reset(new CityHandler(_apiClient.get(), _stationHandler.get(), this));
 
-    _sensorHandler.reset(new SensorHandler(this));
-    _stationHandler.reset(new StationHandler(this));
-    _cityHandler.reset(new CityHandler(this));
-
+    // Here will be connections between handlers
     connect(_cityHandler.get(),
         &CityHandler::cityChanged,
         _sensorHandler.get(),
         &SensorHandler::onCityChanged
+        );
+    connect(_sensorHandler.get(),
+        &SensorHandler::currentSensorChanged,
+        _sensorDataHandler.get(),
+        &SensorDataHandler::onCurrentSensorChanged
         );
 }
 
@@ -42,6 +52,10 @@ StationHandler* AppContext::getStationHandler() const {
 
 SensorHandler* AppContext::getSensorHandler() const {
     return _sensorHandler.get();
+}
+
+SensorDataHandler* AppContext::getSensorDataHandler() const {
+    return _sensorDataHandler.get();
 }
 
 ApiClient* AppContext::getApiClient() const {

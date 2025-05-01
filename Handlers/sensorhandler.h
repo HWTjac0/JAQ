@@ -10,12 +10,15 @@ class SensorHandler : public QObject
     Q_OBJECT
 public:
     static Sensor currentSensor;
-    explicit SensorHandler(QObject *parent = nullptr);
+    explicit SensorHandler(ApiClient* apiClient, QObject *parent = nullptr);
     Q_INVOKABLE SensorModel* sensorModel() const;
     void loadSensorsForStation();
 public slots:
     void sensorSelected(int sensorId);
     void onCityChanged();
+signals:
+    void currentSensorChanged(Sensor *sensor);
+
 private:
     ApiClient *_client;
     SensorModel *_sensorModel;

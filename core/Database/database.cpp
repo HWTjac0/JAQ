@@ -10,10 +10,10 @@
 QMap<int, City*> Database::index;
 QMap<int, Indicator> Database::indicatorIndex;
 
-Database::Database(QObject* parent)
+Database::Database(ApiClient* apiClient, QObject* parent)
     : _indexPath("db.json")
 {
-    _client = AppContext::getInstance().getApiClient();
+    _client = apiClient;
     _writer = new DatabaseWriter(this, _client);
     _reader = new DatabaseReader(this);
     if(!QFile::exists("indexCities.json")){

@@ -12,6 +12,10 @@ qt_add_executable(appairQuality
     main.cpp
         core/AppContext.cpp
         core/AppContext.h
+        Handlers/SensorDataHandler.cpp
+        Handlers/SensorDataHandler.h
+        Models/SensorDataModel.cpp
+        Models/SensorDataModel.h
 )
 
 qt_add_qml_module(appairQuality

@@ -3,11 +3,11 @@
 #include "core/AppContext.h"
 
 Station StationHandler::currentStation;
-StationHandler::StationHandler(QObject *parent) : QObject(parent) {
+StationHandler::StationHandler(ApiClient* apiClient, SensorHandler* sensorHandler, QObject *parent) : QObject(parent) {
     _stationModel = new StationModel(this);
     currentStation = Station();
-    _apiClient = AppContext::getInstance().getApiClient();
-    _sensorHandler = AppContext::getInstance().getSensorHandler();
+    _apiClient = apiClient;
+    _sensorHandler = sensorHandler;
 
     // SIGNAL HANDLERS
     connect(_apiClient, &ApiClient::stationAQIFinished, this, &StationHandler::processAQI);
