@@ -46,5 +46,12 @@ Rectangle {
                 }
             }
         }
+        Connections {
+            target: cityHandler
+            function onCityCoordinatesChanged(latitude, longitude) {
+                console.log(latitude, longitude)
+                map.center = QtPositioning.coordinate(latitude, longitude)
+            }
+        }
     }
 }

@@ -10,6 +10,7 @@ CityHandler::CityHandler(ApiClient* apiClient, StationHandler* stationHandler, Q
     : QObject(parent)
 {
     _client = apiClient;
+    _geoLocator = new GeoLocator(this);
     _stationHandler = stationHandler;
 
     _baseModel = new CityIndexModel(this);
@@ -18,10 +19,14 @@ CityHandler::CityHandler(ApiClient* apiClient, StationHandler* stationHandler, Q
     _baseModel->addCities(Database::index.values());
     _proxyModel->setSourceModel(_baseModel);
 
+    connect(_geoLocator, &GeoLocator::coordinatesAcquired, this, &CityHandler::handleCityCoordinates);
 }
-
 City* CityHandler::getCurrentCity() {
     return currentCity;
+}
+
+void CityHandler::getCurrentCityCoordinates() {
+    _geoLocator->getCoordinates(currentCity->name(), currentCity->voivodeship());
 }
 
 CitySortProxyModel* CityHandler::getCities() const {
@@ -41,5 +46,10 @@ void CityHandler::citySelected(int comboBoxIndex)  {
     int cityId = getCityId(comboBoxIndex);
     currentCity = Database::getCity(cityId);
     _stationHandler->loadStationsForCity();
+    getCurrentCityCoordinates();
     emit cityChanged();
+}
+
+void CityHandler::handleCityCoordinates(QGeoCoordinate &coordinate) {
+    emit cityCoordinatesChanged(coordinate.latitude(), coordinate.longitude());
 }

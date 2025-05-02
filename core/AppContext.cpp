@@ -3,7 +3,9 @@
 //
 
 #include "AppContext.h"
+#include "GeoLocator.h"
 #include "Database/database.h"
+
 AppContext* AppContext::_instance = nullptr;
 
 AppContext& AppContext::getInstance() {
@@ -14,7 +16,8 @@ AppContext& AppContext::getInstance() {
 }
 
 AppContext::AppContext(QObject *parent)
-    : QObject(parent){}
+    : QObject(parent) {
+}
 
 void AppContext::initialize() {
     _apiClient.reset(new ApiClient(this));
