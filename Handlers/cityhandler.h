@@ -14,9 +14,13 @@ class CityHandler : public QObject
     Q_OBJECT
     Q_PROPERTY(City* currentCity READ getCurrentCity CONSTANT)
     Q_PROPERTY(StationCoordinateModel* stationMarkers READ getStationMarkers CONSTANT);
+    Q_PROPERTY(QVector<QString> voivodeshipModel READ voivodeshipModel CONSTANT);
 public:
     static City* currentCity;
     CityHandler(ApiClient* apiClient, StationHandler* stationHandler, QObject *parent = nullptr);
+
+    QList<QString> getVoivodeships();
+    QList<QString> voivodeshipModel();
     City* getCurrentCity();
     void getCurrentCityCoordinates();
     StationCoordinateModel* getStationMarkers() const;
@@ -34,6 +38,7 @@ private:
     ApiClient *_client;
     CityIndexModel  *_baseModel;
     CitySortProxyModel *_proxyModel;
+    QList<QString> _voivodeshipModel;
     StationHandler *_stationHandler;
     GeoLocator *_geoLocator;
     StationCoordinateModel *_stationMarkers;

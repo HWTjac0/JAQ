@@ -32,16 +32,30 @@ ColumnLayout {
                 text: "Województwo"
             }
             ComboBox {
-                model: voivodeshipsModel
+                model: cityHandler.voivodeshipModel
+                onActivated: cityHandler.getCities().filterVoivodeship = currentText
+                Component.onCompleted: {
+                    cityHandler.getCities().filterVoivodeship = currentText
+                }
             }
             Label {
                 id: cityLabel
                 text: "Miasto"
             }
             ComboBox {
+                id: cityCombo
                 model: cityHandler.getCities()
                 textRole: "cityName"
-                onActivated: cityHandler.citySelected(currentIndex)
+                onActivated: {
+                    cityHandler.citySelected(currentIndex)
+                }
+                Connections {
+                    target: cityHandler.getCities()
+                    function onFilterVoivodeshipChanged() {
+                        cityCombo.currentIndex = 0
+                    }
+                }
+
             }
         }
     }

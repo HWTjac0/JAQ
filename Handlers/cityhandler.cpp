@@ -17,12 +17,27 @@ CityHandler::CityHandler(ApiClient* apiClient, StationHandler* stationHandler, Q
     _stationMarkers = new StationCoordinateModel(this);
     _baseModel = new CityIndexModel(this);
     _proxyModel = new CitySortProxyModel(this);
-
+    _voivodeshipModel = getVoivodeships();
     _baseModel->addCities(Database::index.values());
     _proxyModel->setSourceModel(_baseModel);
 
     connect(_geoLocator, &GeoLocator::coordinatesAcquired, this, &CityHandler::handleCityCoordinates);
 }
+QList<QString> CityHandler::getVoivodeships() {
+    QSet<QString> voivodeshipsSet;
+    for (const auto& city : Database::index.values()) {
+        voivodeshipsSet.insert(city->voivodeship());
+    }
+    QList<QString> v(voivodeshipsSet.begin(), voivodeshipsSet.end());
+    std::sort(v.begin(), v.end());
+
+    return v;
+}
+
+QList<QString> CityHandler::voivodeshipModel() {
+    return _voivodeshipModel;
+}
+
 City* CityHandler::getCurrentCity() {
     return currentCity;
 }

@@ -33,7 +33,6 @@ int App::init(int argc, char *argv[])
 
     connect(context, &AppContext::initialized, this, [&engine, voivodeships, context]() {
             qDebug() << "App initialized";
-            engine.rootContext()->setContextProperty("voivodeshipsModel", voivodeships);
             engine.rootContext()->setContextProperty("appContext", context);
             engine.loadFromModule("airQuality", "Main");
         });

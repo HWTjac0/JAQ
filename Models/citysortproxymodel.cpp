@@ -20,15 +20,18 @@ bool CitySortProxyModel::lessThan(const QModelIndex &left, const QModelIndex &ri
 }
 
 bool CitySortProxyModel::filterAcceptsRow(int source_row, const QModelIndex &source_parent) const {
-    if(_filterString.isEmpty()){
-        return true;
-    }
+    bool containsName = true;
     QModelIndex index = sourceModel()->index(source_row, 0, source_parent);
     QString name = sourceModel()->data(index, CityIndexModel::CityNameRole).toString();
     QString voivodeship = sourceModel()->data(index, CityIndexModel::VoivodeshipRole).toString();
+    if(_filterString.isEmpty()){
+        containsName = true;
+    } else {
+        containsName = name.contains(_filterString, Qt::CaseInsensitive);
+    }
+    bool voivodeshipMatch = _filterVoivodeship == voivodeship;
 
-    return name.contains(_filterString, Qt::CaseInsensitive)
-           or voivodeship.contains(_filterString, Qt::CaseInsensitive);
+    return voivodeshipMatch and containsName;
 }
 
 QString CitySortProxyModel::filterString() const { return _filterString; }
@@ -38,5 +41,15 @@ void CitySortProxyModel::setFilterString(const QString &filterString){
         invalidateFilter();
         emit filterStringChanged();
     }
+}
+
+QString CitySortProxyModel::filterVoivodeship() const {
+    return _filterVoivodeship;
+}
+
+void CitySortProxyModel::setFilterVoivodeship(const QString &filterVoivodeship) {
+    _filterVoivodeship = filterVoivodeship;
+    invalidateFilter();
+    emit filterVoivodeshipChanged();
 }
 
