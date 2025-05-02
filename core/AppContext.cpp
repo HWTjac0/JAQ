@@ -8,11 +8,11 @@
 
 AppContext* AppContext::_instance = nullptr;
 
-AppContext& AppContext::getInstance() {
+AppContext* AppContext::getInstance() {
     if (_instance == nullptr) {
         _instance = new AppContext();
     }
-    return *_instance;
+    return _instance;
 }
 
 AppContext::AppContext(QObject *parent)
@@ -21,7 +21,17 @@ AppContext::AppContext(QObject *parent)
 
 void AppContext::initialize() {
     _apiClient.reset(new ApiClient(this));
-    Database db(_apiClient.get(), this);
+    _database.reset(new Database(_apiClient.get(), this));
+    connect(_database.get(), &Database::databaseReady, this, [=]() {
+        qDebug() << "AppContext::initialize";
+        setupHandlers();
+        emit initialized();
+    });
+    _database.get()->init();
+
+}
+
+void AppContext::setupHandlers() {
     /**
      * I am passing api client, handlers etc. explicitly because I think
      * implicit access to them is kind of convoluted for this init usage
@@ -43,7 +53,6 @@ void AppContext::initialize() {
         &SensorDataHandler::onCurrentSensorChanged
         );
 }
-
 
 CityHandler* AppContext::getCityHandler() const{
     return _cityHandler.get();

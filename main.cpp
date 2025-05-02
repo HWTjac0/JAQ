@@ -3,5 +3,5 @@
 
 int main(int argc, char *argv[])
 {
-    return App::init(argc, argv);
+    return App::instance()->init(argc, argv);
 }

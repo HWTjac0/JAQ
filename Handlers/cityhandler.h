@@ -7,16 +7,20 @@
 #include "../Models/citysortproxymodel.h"
 #include "stationhandler.h"
 #include "core/GeoLocator.h"
+#include "Models/StationCoordinateModel.h"
 
 class CityHandler : public QObject
 {
     Q_OBJECT
     Q_PROPERTY(City* currentCity READ getCurrentCity CONSTANT)
+    Q_PROPERTY(StationCoordinateModel* stationMarkers READ getStationMarkers CONSTANT);
 public:
     static City* currentCity;
     CityHandler(ApiClient* apiClient, StationHandler* stationHandler, QObject *parent = nullptr);
     City* getCurrentCity();
     void getCurrentCityCoordinates();
+    StationCoordinateModel* getStationMarkers() const;
+    void updateStationMarkers();
     Q_INVOKABLE CitySortProxyModel* getCities() const;
     Q_INVOKABLE int getCityId(int comboBoxIndex) const;
     Q_INVOKABLE StationHandler* stationHandler() const;
@@ -32,6 +36,7 @@ private:
     CitySortProxyModel *_proxyModel;
     StationHandler *_stationHandler;
     GeoLocator *_geoLocator;
+    StationCoordinateModel *_stationMarkers;
 };
 
 #endif // CITYHANDLER_H

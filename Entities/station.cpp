@@ -82,6 +82,10 @@ void Station::setCoords(double x, double y) {
     _coord = Coordinate {.x = x, .y = y};
 }
 
+Coordinate Station::getCoords() const {
+    return _coord;
+}
+
 Station Station::fromJson(const QJsonObject &obj) {
     Station station;
     station.setAddress(obj.value("Ulica").toString());

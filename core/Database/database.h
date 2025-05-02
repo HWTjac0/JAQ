@@ -15,12 +15,14 @@ public:
     static QMap<int, Indicator> indicatorIndex;
     Database() = default;
     Database(ApiClient* apiClient, QObject* parent = nullptr);
+    void init();
+    bool exists();
     static void addCity(int cityId, City *city);
     static void addIndicator(int indicatorId, Indicator indicator);
     static Indicator getIndicator(int indicatorId);
     static City* getCity(int city_id);
 signals:
-    void dbReady();
+    void databaseReady();
 private:
     QString _indexPath;
     DatabaseWriter *_writer;

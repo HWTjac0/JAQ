@@ -3,6 +3,7 @@
 #include <QStringList>
 #include "../core/Database/database.h"
 #include "core/AppContext.h"
+#include "Entities/station.h"
 
 City *CityHandler::currentCity = nullptr;
 
@@ -13,6 +14,7 @@ CityHandler::CityHandler(ApiClient* apiClient, StationHandler* stationHandler, Q
     _geoLocator = new GeoLocator(this);
     _stationHandler = stationHandler;
 
+    _stationMarkers = new StationCoordinateModel(this);
     _baseModel = new CityIndexModel(this);
     _proxyModel = new CitySortProxyModel(this);
 
@@ -29,6 +31,18 @@ void CityHandler::getCurrentCityCoordinates() {
     _geoLocator->getCoordinates(currentCity->name(), currentCity->voivodeship());
 }
 
+StationCoordinateModel* CityHandler::getStationMarkers() const {
+    return _stationMarkers;
+}
+
+void CityHandler::updateStationMarkers() {
+    _stationMarkers->clear();
+    for (const auto& station : currentCity->getStations()) {
+        Coordinate coordinate = station.getCoords();
+        _stationMarkers->addMarker(QGeoCoordinate(coordinate.x, coordinate.y), false);
+    }
+}
+
 CitySortProxyModel* CityHandler::getCities() const {
     return _proxyModel;
 }
@@ -42,11 +56,13 @@ int CityHandler::getCityId(int comboBoxIndex) const {
 StationHandler* CityHandler::stationHandler() const{
     return _stationHandler;
 }
+
 void CityHandler::citySelected(int comboBoxIndex)  {
     int cityId = getCityId(comboBoxIndex);
     currentCity = Database::getCity(cityId);
-    _stationHandler->loadStationsForCity();
     getCurrentCityCoordinates();
+    updateStationMarkers();
+    _stationHandler->loadStationsForCity();
     emit cityChanged();
 }
 

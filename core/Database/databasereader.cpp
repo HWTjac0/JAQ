@@ -61,6 +61,8 @@ City *DatabaseReader::parseCity(const QJsonObject &cityObj, int cityId) const {
 
 Station DatabaseReader::parseStation(const QJsonObject &station) const {
     Station s(station.value("id").toInt(), station.value("address").toString());
+    QJsonObject coordsObj = station.value("coordinate").toObject();
+    s.setCoords(coordsObj.value("x").toDouble(), coordsObj.value("y").toDouble());
     QJsonArray sensors = station.value("sensors").toArray();
     s.setSensors(parseSensors(sensors));
     return s;

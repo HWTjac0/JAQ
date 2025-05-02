@@ -23,6 +23,7 @@ public slots:
     void saveCompleteDatabase();
 signals:
     void allStationsProcessed();
+    void indexesReady();
 private:
     ApiClient *_apiClient;
     QString _rootPath;

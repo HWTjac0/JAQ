@@ -18,6 +18,8 @@ qt_add_executable(appairQuality
         Models/SensorDataModel.h
         core/GeoLocator.cpp
         core/GeoLocator.h
+        Models/StationCoordinateModel.cpp
+        Models/StationCoordinateModel.h
 )
 
 qt_add_qml_module(appairQuality

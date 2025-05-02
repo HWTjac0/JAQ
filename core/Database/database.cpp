@@ -16,12 +16,26 @@ Database::Database(ApiClient* apiClient, QObject* parent)
     _client = apiClient;
     _writer = new DatabaseWriter(this, _client);
     _reader = new DatabaseReader(this);
-    if(!QFile::exists("indexCities.json")){
+}
+bool Database::exists() {
+    return QFile::exists("indexCities.json"); // for now only this
+}
+void Database::init() {
+    if(!exists()){
         _writer->fetchAllData();
-    }
-    _reader->readCityIndex();
-    if(indicatorIndex.size() == 0) {
-        _reader->readIndicators();
+        connect(_writer, &DatabaseWriter::indexesReady, this, [this]() {
+            _reader->readCityIndex();
+             if(indicatorIndex.empty()) {
+                 _reader->readIndicators();
+             }
+            emit databaseReady();
+        });
+    } else {
+        _reader->readCityIndex();
+        if(indicatorIndex.empty()) {
+            _reader->readIndicators();
+        }
+        emit databaseReady();
     }
 }
 

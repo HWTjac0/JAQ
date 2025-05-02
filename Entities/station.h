@@ -34,7 +34,7 @@ public:
     void setSensors(const QVector<Sensor> &sensors);
 
     void setCoords(double x, double y);
-
+    Coordinate getCoords() const;
     static Station fromJson(const QJsonObject &obj);
 private:
     int _id;

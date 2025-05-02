@@ -22,6 +22,7 @@ void GeoLocator::getCoordinates(
 void GeoLocator::handleCityCoordinates() {
     auto *reply = qobject_cast<QGeoCodeReply *>(sender());
     QVector<QGeoLocation> locations = reply->locations();
-    QGeoCoordinate coordinate = locations.first().coordinate();
+    // Last location returned is center of the location for some reason
+    QGeoCoordinate coordinate = locations.last().coordinate();
     emit coordinatesAcquired(coordinate);
 }

@@ -6,10 +6,14 @@ class App : public QObject
 {
     Q_OBJECT
 public:
-    App();
-    static int init(int argc, char *argv[]);
 
-    static void initAppMetadata();
+    App();
+    static App* instance();
+    int init(int argc, char *argv[]);
+    void initAppMetadata();
+private:
+    static App *_instance;
+
 };
 
 #endif // APP_H

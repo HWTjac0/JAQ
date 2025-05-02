@@ -8,13 +8,14 @@ DatabaseWriter::DatabaseWriter(QObject *parent, ApiClient *client, QString rootP
 {
     _apiClient = client;
     _rootPath = rootPath;
+
     connect(this, &DatabaseWriter::allStationsProcessed, this, &DatabaseWriter::saveCompleteDatabase);
     connect(_apiClient, &ApiClient::sensorsFinished, this, &DatabaseWriter::handleFetchedSensors);
+    connect(_apiClient, &ApiClient::stationsFinished, this, &DatabaseWriter::handleFetchedStations);
 }
 
 void DatabaseWriter::fetchAllData(){
     _apiClient->fetchStations();
-    connect(_apiClient, &ApiClient::stationsFinished, this, &DatabaseWriter::handleFetchedStations);
 }
 void DatabaseWriter::processNextStation() {
     if(_pendingStationsQueue.isEmpty() and _isProcessingStations) {
@@ -26,7 +27,7 @@ void DatabaseWriter::processNextStation() {
     }
 }
 void DatabaseWriter::handleFetchedStations(QMap<int, City*> cities) {
-
+    qDebug() << "Processing cities";
     _processingCities = cities;
     for(auto city : std::as_const(cities)) {
         for(auto& station : city->getStations()) {
@@ -79,6 +80,8 @@ void DatabaseWriter::saveCompleteDatabase() {
 
     writeJson(cityIndex, "indexCities.json");
     writeJson(indicatorIndex, "indexIndicators.json");
+    qDebug() << "Indexes written!";
+    emit indexesReady();
 }
 
 // write relative to root path

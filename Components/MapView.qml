@@ -35,8 +35,8 @@ Rectangle {
             id: map
             anchors.fill: parent
             plugin: mapPlugin
-            center: QtPositioning.coordinate(59.91, 10.75) // Oslo
-            zoomLevel: 14
+            center: QtPositioning.coordinate(59.91, 10.75)
+            zoomLevel: 12
             layer.enabled: true
             layer.effect: OpacityMask {
                 maskSource: Rectangle {
@@ -45,12 +45,26 @@ Rectangle {
                     radius: root.radius
                 }
             }
+            MapItemView {
+                id: stationMarkersView
+                model: cityHandler.stationMarkers
+                delegate: MapQuickItem {
+                    coordinate: stationCoordinate
+                    sourceItem: Rectangle {
+                        id: marker
+                        width: 15
+                        height: 15
+                        radius: 10
+                        color: "red"
+                    }
+                }
+            }
         }
         Connections {
             target: cityHandler
             function onCityCoordinatesChanged(latitude, longitude) {
-                console.log(latitude, longitude)
                 map.center = QtPositioning.coordinate(latitude, longitude)
+                stationMarkersView.model = cityHandler.stationMarkers
             }
         }
     }
