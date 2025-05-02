@@ -8,8 +8,6 @@ Item {
     property string county: "Powiat: <po wybraniu miasta>"
     property string commune: "Gmina: <po wybraniu miasta>"
 
-    Layout.fillWidth: true
-    Layout.preferredHeight: childrenRect.height
     Column {
         anchors.top: root.top
         spacing: 5

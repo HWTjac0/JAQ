@@ -13,7 +13,7 @@ Rectangle {
     bottomLeftRadius: 0
     border.width: 1
     border.color: "#bdbdbd"
-    color: "#d6e6fa"
+    color: "#d1e4ff"
     ColumnLayout {
         anchors.fill: parent
         anchors.margins: 10

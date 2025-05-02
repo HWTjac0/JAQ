@@ -3,6 +3,7 @@ import QtQuick.Layouts
 import QtQuick.Controls
 import QtCharts
 
+
 Rectangle {
     Layout.fillWidth: true
     Layout.fillHeight: true
@@ -13,15 +14,36 @@ Rectangle {
         anchors.fill: parent
         anchors.margins: 20
         spacing: 20
-        CityInfo {
-            id: cityInfo
-        }
-        DividerHorizontal {
-            Layout.alignment: Qt.AlignHCenter
-            Layout.preferredWidth: parent.width * 0.8
-        }
-        StationInfo {
-            id: stationInfo
+        RowLayout {
+            Layout.fillHeight: true
+            Layout.fillWidth: true
+            spacing: 10
+            Item {
+                Layout.fillHeight: true
+                Layout.fillWidth: true
+                ColumnLayout {
+                    anchors.fill: parent
+                    anchors.margins: 10
+                    spacing: 20
+                    CityInfo {
+                        id: cityInfo
+                        Layout.alignment: Qt.AlignVCenter
+                        Layout.fillWidth: true
+                        Layout.preferredHeight: 120
+                    }
+                    DividerHorizontal {
+                        Layout.alignment: Qt.AlignHCenter
+                        Layout.preferredWidth: parent.width * 0.8
+                    }
+                    StationInfo {
+                        id: stationInfo
+                        Layout.fillWidth: true
+                        Layout.fillHeight: true
+                        Layout.preferredHeight: 40
+                    }
+                }
+            }
+            MapView { id: map}
         }
         DividerHorizontal {
             Layout.alignment: Qt.AlignHCenter
@@ -35,45 +57,8 @@ Rectangle {
             Layout.fillHeight: true
             RowLayout {
                 anchors.fill: parent
-                SensorDataTable {
-                    id: sensorDataTable
-                    Layout.preferredWidth: childrenRect.width
-                    Layout.fillHeight: true
-                    model: sensorDataHandler.sensordataModel
-                }
-                ChartView {
-                    id: sensordataChart
-                    title: "Dane pomiarowe wskaźnika"
-                    Layout.fillWidth: true
-                    Layout.fillHeight: true
-                    antialiasing: true
-                    animationOptions: ChartView.NoAnimation
-                    visible: false
-                    LineSeries {
-                        id: sensordataSeries
-                        axisX: DateTimeAxis {
-                            id: datetimeAxis
-                            min: sensorDataModel.timerangeStart
-                            max: sensorDataModel.timerangeEnd
-                        }
-                        axisY: ValueAxis {
-                            id: valueAxis
-                            min: sensorDataModel.minValue
-                            max: sensorDataModel.maxValue
-                        }
-                    }
-                    Connections {
-                        target: sensorDataHandler
-                        function onDataChanged() {
-                            sensordataChart.visible = true
-                            datetimeAxis.min    = sensorDataModel.timerangeStart
-                            datetimeAxis.max    = sensorDataModel.timerangeEnd
-                            valueAxis.min       = sensorDataModel.minValue
-                            valueAxis.max       = sensorDataModel.maxValue
-                            sensorDataModel.fillSeries(sensordataSeries)
-                        }
-                    }
-                }
+                SensorDataTableView {}
+                SensorDataChart {}
             }
         }
 

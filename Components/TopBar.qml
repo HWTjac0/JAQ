@@ -7,7 +7,7 @@ Rectangle {
     Layout.columnSpan: 2
     Layout.fillWidth: true
     Layout.preferredHeight: 150
-    color: "#d6e6fa"
+    color: "#d1e4ff"
     border.width: 1
     border.color: "#bdbdbd"
     radius: 0

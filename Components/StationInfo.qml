@@ -6,8 +6,7 @@ Item {
     property string address: "Adres stacji: <wybierz stacje z listy>"
     property string stationId: "ID stacji: <po wybraniu stacji>"
     property string aqiStatus: "Ogólny stan powietrza: <po wybraniu stacji>"
-    Layout.fillWidth: true
-    Layout.preferredHeight: childrenRect.height
+
     Column {
         anchors.top: root.top
         spacing: 5

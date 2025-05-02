@@ -10,8 +10,8 @@ TableView {
         policy: ScrollBar.AsNeeded
     }
 
-    columnWidthProvider: function(column) { return 150 }
-    rowHeightProvider: function(row) { return 40 }
+    columnWidthProvider: function(column) { return 120 }
+    rowHeightProvider: function(row) { return 30 }
 
     delegate: Rectangle {
         implicitWidth: 150

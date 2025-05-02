@@ -49,7 +49,7 @@ QVariant SensorDataModel::headerData(int section, Qt::Orientation orientation, i
         return QVariant();
     }
     if (orientation == Qt::Horizontal) {
-        return section == 0 ? tr("Timestamp") : tr("Value");
+        return section == 0 ? tr("Data pomiaru") : tr("Wartość");
     }
 
     return QVariant();
@@ -57,6 +57,7 @@ QVariant SensorDataModel::headerData(int section, Qt::Orientation orientation, i
 
 QHash<int, QByteArray> SensorDataModel::roleNames() const {
     return {
+        {Qt::DisplayRole, "display"},
         {TimeStampRole, "sensordataTimestamp"},
         {ValueRole, "sensordataValue"},
     };
