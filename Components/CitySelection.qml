@@ -4,8 +4,8 @@ import QtQuick.Controls
 
 ColumnLayout {
     anchors.fill: parent
-    anchors.margins: 5
-    spacing: 5
+    anchors.margins: 2
+    spacing: 3
     Text {
         Layout.leftMargin: 15
         text: "Wybór miasta"
@@ -21,41 +21,90 @@ ColumnLayout {
         border.width: 2
         border.color: "#dddddd"
         GridLayout {
-            height: parent.height
-            anchors.margins: 20
+            anchors.fill: parent
+            anchors.margins: 7
+            anchors.leftMargin: 15
+            anchors.rightMargin: 15
             columns: 2
             rows: 2
-            columnSpacing: 5
-            rowSpacing: 5
-            Label {
-                id: voivodeshipLabel
-                text: "Województwo"
-            }
-            ComboBox {
-                model: cityHandler.voivodeshipModel
-                onActivated: cityHandler.getCities().filterVoivodeship = currentText
-                Component.onCompleted: {
-                    cityHandler.getCities().filterVoivodeship = currentText
+            rowSpacing: 2
+            Item {
+                Layout.fillHeight: true
+                Layout.fillWidth: true
+                Label {
+                    id: voivodeshipLabel
+                    text: "Województwo"
                 }
-            }
-            Label {
-                id: cityLabel
-                text: "Miasto"
-            }
-            ComboBox {
-                id: cityCombo
-                model: cityHandler.getCities()
-                textRole: "cityName"
-                onActivated: {
-                    cityHandler.citySelected(currentIndex)
-                }
-                Connections {
-                    target: cityHandler.getCities()
-                    function onFilterVoivodeshipChanged() {
-                        cityCombo.currentIndex = 0
+                ComboBox {
+                    anchors.top: voivodeshipLabel.bottom
+                    anchors.margins: 3
+                    model: cityHandler.voivodeshipModel
+                    onActivated: cityHandler.getCities().filterVoivodeship = currentText
+                    Component.onCompleted: {
+                        cityHandler.getCities().filterVoivodeship = currentText
                     }
                 }
+            }
+            Item {
+                Layout.fillWidth: true
+                Layout.fillHeight: true
+                Label {
+                    id: cityLabel
+                    text: "Miasto"
+                }
+                ComboBox {
+                    id: cityCombo
+                    anchors.top: cityLabel.bottom
+                    anchors.margins: 3
+                    model: cityHandler.getCities()
+                    textRole: "cityName"
+                    Connections {
+                        target: cityHandler.getCities()
+                        function onFilterVoivodeshipChanged() {
+                            cityCombo.currentIndex = 0
+                        }
+                    }
 
+                }
+            }
+            Item {
+                Layout.fillHeight: true
+                Layout.fillWidth: true
+                Label {
+                    id: citySearchLabel
+                    text: "Wyszukaj miasto"
+                }
+                TextField {
+                    anchors.top: citySearchLabel.bottom
+                    anchors.margins: 3
+                    padding: 7
+                    placeholderText: "Wyyszukaj dla województwa"
+                    background: Rectangle {
+                        implicitWidth: 200
+                        color: "#fafafa"
+                        radius: 5
+                        border {
+                            width: 1
+                            color: "#cccccc"
+                        }
+                    }
+                    onTextChanged: cityHandler.getCities().filterString = text
+                    Connections {
+                        target: cityHandler.getCities()
+                        function onFilterStringChanged() {
+                            cityCombo.currentIndex = 0
+                        }
+                    }
+                }
+            }
+            Item {
+                Layout.fillHeight: true
+                Layout.fillWidth: true
+                Button {
+                    anchors.fill: parent
+                    text: "Sprawdź"
+                    onClicked: cityHandler.citySelected(cityCombo.currentIndex)
+                }
             }
         }
     }

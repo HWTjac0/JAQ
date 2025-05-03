@@ -13,7 +13,8 @@ class StationCoordinateModel : public QAbstractItemModel
 public:
     enum Roles {
         CoordinateRole = Qt::UserRole + 1,
-        IsActiveRole
+        IsActiveRole,
+        IdRole
     };
 
     explicit StationCoordinateModel(QObject *parent = nullptr);
@@ -25,13 +26,14 @@ public:
     QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
     QHash<int, QByteArray> roleNames() const override;
 
-    void addMarker(const QGeoCoordinate &coord, bool isActive = false);
-    void updateMarker(int index, const QGeoCoordinate &coord, bool isActive = false);
+    void addMarker(const QGeoCoordinate &coord, int stationId, bool isActive = false);
+    void updateMarker(int index, const QGeoCoordinate &coord, int stationId, bool isActive = false);
     void setActiveMarker(int index);
     void clear();
 
 private:
     struct MarkerData {
+        int stationId;
         QGeoCoordinate coordinate;
         bool isActive;
     };

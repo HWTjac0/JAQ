@@ -56,6 +56,31 @@ Rectangle {
                         height: 15
                         radius: 10
                         color: "red"
+                        MouseArea {
+                            anchors.fill: parent
+                            hoverEnabled: true
+                            cursorShape: Qt.PointingHandCursor
+
+                            onClicked: {
+                                stationHandler.stationSelected(model.stationId)
+                            }
+
+                            onPressed: {
+                                marker.scale = 0.9;
+                            }
+
+                            onReleased: {
+                                marker.scale = 1.0;
+                            }
+
+                            onEntered: {
+                                marker.border.width = 3;
+                            }
+
+                            onExited: {
+                                marker.border.width = 2;
+                            }
+                        }
                     }
                 }
             }

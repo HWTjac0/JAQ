@@ -19,6 +19,7 @@ public:
     QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
     QHash<int, QByteArray> roleNames() const override;
 
+    Q_INVOKABLE int getId(int i);
     void clear();
     void setStations(const QList<Station> &stations);
     private:

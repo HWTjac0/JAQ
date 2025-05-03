@@ -16,9 +16,19 @@ Rectangle {
         width: parent.width
         interactive: false
         model: stationHandler.stationModel
+        Connections {
+            target: stationHandler
+            function onStationChanged() {
+                for(var i = 0; i < stationHandler.stationModel.rowCount(); ++i) {
+                    if (stationHandler.stationModel.getId(i) === stationHandler.currentStationId) {
+                        stationList.currentIndex = i;
+                        break;
+                    }
+                }
+            }
+        }
         delegate: ItemDelegate {
             width: parent.width
-
             property bool isSelected: stationList.currentIndex === index
 
             background: Rectangle {

@@ -13,7 +13,7 @@ Rectangle {
     radius: 0
     RowLayout {
         anchors.fill: parent
-        anchors.margins: 10
+        anchors.margins: 7
         spacing: 15
         Rectangle {
             Layout.fillWidth: true
@@ -22,8 +22,6 @@ Rectangle {
             border.color: "#cdcdcd"
             border.width: 1
             radius: 20
-            bottomLeftRadius: 4
-            bottomRightRadius: 4
             CitySelection {}
         }
     }

@@ -30,6 +30,7 @@ int StationCoordinateModel::columnCount(const QModelIndex &parent) const {
 QHash<int, QByteArray> StationCoordinateModel::roleNames() const {
     return {
         {CoordinateRole, "stationCoordinate"},
+        {IdRole, "stationId"},
         {IsActiveRole, "stationCoordIsActive"}
     };
 }
@@ -41,6 +42,8 @@ QVariant StationCoordinateModel::data(const QModelIndex &index, int role) const 
     const MarkerData &marker = _markers.at(index.row());
 
     switch (role) {
+        case IdRole:
+            return marker.stationId;
         case CoordinateRole:
             return QVariant::fromValue(marker.coordinate);
         case IsActiveRole:
@@ -54,18 +57,18 @@ QVariant StationCoordinateModel::data(const QModelIndex &index, int role) const 
     }
 }
 
-void StationCoordinateModel::addMarker(const QGeoCoordinate &coord,  bool isActive) {
+void StationCoordinateModel::addMarker(const QGeoCoordinate &coord, int stationId, bool isActive) {
     beginInsertRows(QModelIndex(), rowCount(), rowCount());
-    _markers.append({coord, isActive});
+    _markers.append({stationId, coord, isActive});
     if (isActive) _activeIndex = rowCount();
     endInsertRows();
 }
 
-void StationCoordinateModel::updateMarker(int index, const QGeoCoordinate &coord,  bool isActive) {
+void StationCoordinateModel::updateMarker(int index, const QGeoCoordinate &coord, int stationId,  bool isActive) {
     if (index < 0 || index >= _markers.size())
         return;
 
-    _markers[index] = {coord, isActive};
+    _markers[index] = {stationId, coord, isActive};
     if (isActive) _activeIndex = index;
     Q_EMIT dataChanged(this->index(index, 0), this->index(index, 0));
 }

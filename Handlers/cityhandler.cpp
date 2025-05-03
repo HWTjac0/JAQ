@@ -54,7 +54,7 @@ void CityHandler::updateStationMarkers() {
     _stationMarkers->clear();
     for (const auto& station : currentCity->getStations()) {
         Coordinate coordinate = station.getCoords();
-        _stationMarkers->addMarker(QGeoCoordinate(coordinate.x, coordinate.y), false);
+        _stationMarkers->addMarker(QGeoCoordinate(coordinate.x, coordinate.y), station.id(), false);
     }
 }
 

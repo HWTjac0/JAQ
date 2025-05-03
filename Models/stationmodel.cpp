@@ -25,6 +25,10 @@ QHash<int, QByteArray> StationModel::roleNames() const {
     };
 }
 
+int StationModel::getId(int i) {
+    return _stations.at(i).id();
+}
+
 void StationModel::setStations(const QList<Station>& stations) {
     beginResetModel();
     _stations = stations;
