@@ -24,6 +24,8 @@ qt_add_executable(appairQuality
         core/PathManager.h
         core/NetworkChecker.cpp
         core/NetworkChecker.h
+        core/NetworkWorker.cpp
+        core/NetworkWorker.h
 )
 
 qt_add_qml_module(appairQuality

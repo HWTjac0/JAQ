@@ -20,6 +20,9 @@ AppContext::AppContext(QObject *parent)
 }
 
 void AppContext::initialize() {
+    _networkChecker.reset(new NetworkChecker());
+    connect(_networkChecker.get(), &NetworkChecker::connectionStatusChanged, this, &AppContext::networkStatusChanged, Qt::QueuedConnection);
+    _networkChecker->startChecking(5000);
     _apiClient.reset(new ApiClient(this));
     _database.reset(new Database(_apiClient.get(), this));
     connect(_database.get(), &Database::databaseReady, this, [=]() {
@@ -28,7 +31,6 @@ void AppContext::initialize() {
         emit initialized();
     });
     _database.get()->init();
-
 }
 
 void AppContext::setupHandlers() {
@@ -72,4 +74,12 @@ SensorDataHandler* AppContext::getSensorDataHandler() const {
 
 ApiClient* AppContext::getApiClient() const {
     return _apiClient.get();
+}
+
+NetworkChecker * AppContext::getNetworkChecker() const {
+    return _networkChecker.get();
+}
+
+bool AppContext::isOnline() const {
+    return _networkChecker ? _networkChecker.get()->isOnline() : false;
 }

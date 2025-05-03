@@ -8,28 +8,29 @@
 #include <QThread>
 #include <QTimer>
 #include <QObject>
-
+#include "NetworkWorker.h"
 
 class NetworkChecker : public QObject {
     Q_OBJECT
-    Q_PROPERTY(bool isOnline READ isOnline CONSTANT);
+    Q_PROPERTY(bool isOnline READ isOnline NOTIFY connectionStatusChanged);
 public:
     explicit NetworkChecker(QObject *parent = nullptr);
     ~NetworkChecker();
 
     bool isOnline() const;
-public slots:
     void startChecking(int interval);
-    void checkConnection();
-    void onReplyFinished(QNetworkReply *reply);
+    void stopChecking();
 signals:
+    void initalizeWorkers();
     void connectionStatusChanged(bool isOnline);
+    void operateWorker(int interval);
+    void stopWorker();
+private slots:
+    void onWorkerCheckCompleted(bool isOnline, QNetworkReply::NetworkError error);
 private:
-    QNetworkAccessManager *_manager;
-    QTimer *_timer;
+    NetworkWorker* _networkWorker;
     QThread _thread;
     bool _isOnline;
-    bool _isChecking;
 };
 
 #endif //NETWORKCHECKER_H

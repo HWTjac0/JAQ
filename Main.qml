@@ -17,6 +17,7 @@ Window {
     property var sensorHandler: context.sensorHandler
     property var sensorDataHandler: context.sensorDataHandler
     property var sensorDataModel: sensorDataHandler.sensordataModel
+    property var networkChecker: context.networkChecker
     Rectangle {
         id: wrapper
         width: parent.width
@@ -35,5 +36,10 @@ Window {
             MainSection {}
         }
     }
-
+    Connections {
+        target: networkChecker
+        function onConnectionStatusChanged(isOnline) {
+            console.log(isOnline)
+        }
+    }
 }
