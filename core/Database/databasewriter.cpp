@@ -1,6 +1,7 @@
 #include "databasewriter.h"
 #include <QFile>
 #include "database.h"
+#include "core/PathManager.h"
 
 
 DatabaseWriter::DatabaseWriter(QObject *parent, ApiClient *client, QString rootPath)
@@ -78,8 +79,8 @@ void DatabaseWriter::saveCompleteDatabase() {
     QJsonObject cityIndex = serializeCities(_processingCities);
     QJsonObject indicatorIndex = serializeIndicators(Database::indicatorIndex);
 
-    writeJson(cityIndex, "indexCities.json");
-    writeJson(indicatorIndex, "indexIndicators.json");
+    writeJson(cityIndex, PathManager::cityIndex());
+    writeJson(indicatorIndex, PathManager::indicatorIndex());
     qDebug() << "Indexes written!";
     emit indexesReady();
 }
@@ -87,6 +88,7 @@ void DatabaseWriter::saveCompleteDatabase() {
 // write relative to root path
 void DatabaseWriter::writeJson(const QJsonObject &json, const QString &path) {
     QFile file(path);
+    PathManager::doesPathExist(PathManager::baseDataDirectory());
     try {
         file.open(QIODevice::WriteOnly | QIODevice::Text);
         QJsonDocument doc(json);

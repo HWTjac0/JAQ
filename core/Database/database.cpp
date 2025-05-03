@@ -3,9 +3,12 @@
 #include <QString>
 #include <QJsonDocument>
 #include <QJsonObject>
+#include <qstandardpaths.h>
+
 #include "../../Entities/city.h"
 #include "../apiclient.h"
 #include "core/AppContext.h"
+#include "core/PathManager.h"
 
 QMap<int, City*> Database::index;
 QMap<int, Indicator> Database::indicatorIndex;
@@ -18,7 +21,7 @@ Database::Database(ApiClient* apiClient, QObject* parent)
     _reader = new DatabaseReader(this);
 }
 bool Database::exists() {
-    return QFile::exists("indexCities.json"); // for now only this
+    return PathManager::doesFileExist(PathManager::cityIndex());
 }
 void Database::init() {
     if(!exists()){

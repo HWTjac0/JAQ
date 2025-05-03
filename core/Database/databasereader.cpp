@@ -4,6 +4,7 @@
 #include <QJsonObject>
 #include <QJsonArray>
 #include "database.h"
+#include "core/PathManager.h"
 
 DatabaseReader::DatabaseReader(QObject *parent, QString rootPath)
     : QObject{parent} {
@@ -11,7 +12,7 @@ DatabaseReader::DatabaseReader(QObject *parent, QString rootPath)
 }
 
 void DatabaseReader::readCityIndex() {
-    QJsonObject index = readJson("indexCities.json");
+    QJsonObject index = readJson(PathManager::cityIndex());
     for(auto it = index.constBegin(); it != index.constEnd(); it++) {
         int cityId = it.key().toInt();
         City *city = parseCity(it.value().toObject(), cityId);
@@ -26,7 +27,7 @@ void DatabaseReader::readCityIndex() {
 }
 
 void DatabaseReader::readIndicators() {
-    QJsonObject index = readJson("indexIndicators.json");
+    QJsonObject index = readJson(PathManager::indicatorIndex());
     for(auto it = index.constBegin(); it != index.constEnd(); it++) {
         int indicatorId = it.key().toInt();
         Database::addIndicator(indicatorId, parseIndicator(it.value().toObject()));

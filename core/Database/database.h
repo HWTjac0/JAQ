@@ -28,6 +28,7 @@ private:
     DatabaseWriter *_writer;
     DatabaseReader *_reader;
     ApiClient *_client;
+    QString _standardPath;
 };
 
 #endif // DATABASE_H

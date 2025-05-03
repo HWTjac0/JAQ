@@ -18,12 +18,13 @@ App * App::instance() {
 }
 
 void App::initAppMetadata() {
-    QCoreApplication::setApplicationName("Jacs Air Quality");
+    QCoreApplication::setApplicationName("JacsAirQuality");
     QCoreApplication::setOrganizationName("hwtjac0");
     QCoreApplication::setApplicationVersion("2025.04");
 }
 int App::init(int argc, char *argv[])
 {
+    initAppMetadata();
     const QApplication app(argc, argv);
     QQmlApplicationEngine engine;
     engine.addImportPath(QDir::currentPath() + "/Components");
@@ -37,8 +38,6 @@ int App::init(int argc, char *argv[])
             engine.loadFromModule("airQuality", "Main");
         });
     context->initialize();
-
-    initAppMetadata();
 
     QObject::connect(
         &engine,
