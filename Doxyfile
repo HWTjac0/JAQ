@@ -4,7 +4,7 @@ PROJECT_NUMBER 		= 2025.04.1
 OUTPUT_DIRECTORY 	= docs
 
 INPUT                  = .
-FILE_PATTERNS          = *.cpp *.h *.qml *.qdoc
+FILE_PATTERNS          = *.cpp *.h *.qml *.qdoc *.dox
 RECURSIVE              = YES
 EXCLUDE                = build/ .git/ .github/
 EXCLUDE_PATTERNS       = */build/* */debug/* */release/* moc_*.cpp ui_*.h qrc_*.cpp
