@@ -74,12 +74,9 @@ Rectangle {
                             }
 
                             onEntered: {
-                                marker.border.width = 3;
+                                marker.scale = 1.1;
                             }
 
-                            onExited: {
-                                marker.border.width = 2;
-                            }
                         }
                     }
                 }
