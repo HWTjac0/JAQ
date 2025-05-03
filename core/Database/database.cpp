@@ -4,6 +4,7 @@
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <qstandardpaths.h>
+#include <QTextStream>
 
 #include "../../Entities/city.h"
 #include "../apiclient.h"
@@ -44,6 +45,22 @@ void Database::init() {
 
 void Database::addCity(int cityId, City *city){
     index.insert(cityId, city);
+}
+
+void Database::saveSensorData(int stationId, int sensorId, const QVector<QPair<QDateTime, double>> &values) {
+    QString path = PathManager::sensorDataDirectory(stationId, sensorId);
+    QMap<QString, QVector<QPair<QString, double>>> dates;
+    // There might be data gathered from multiple days
+    for (const auto& value : values) {
+        QString date = value.first.toString("dd_MM_yyyy");
+        if (!dates.contains(date)) {
+            dates.insert(date, QVector<QPair<QString, double>>());
+        }
+        dates[date].push_back({value.first.toString("hh_mm_ss"), value.second});
+    }
+    for (const auto& date : dates.keys()) {
+        DatabaseWriter::saveSensorData(dates.value(date), date, path);
+    }
 }
 
 void Database::addIndicator(int indicatorId, Indicator indicator){

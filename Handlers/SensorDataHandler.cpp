@@ -4,6 +4,9 @@
 
 #include "SensorDataHandler.h"
 
+#include "core/AppContext.h"
+#include "core/PathManager.h"
+
 SensorDataHandler::SensorDataHandler(ApiClient *apiClient, QObject *parent) : QObject(parent) {
     _apiClient = apiClient;
     _sensorDataModel = new SensorDataModel(this);
@@ -14,12 +17,21 @@ void SensorDataHandler::loadData(int sensorId) const {
     _apiClient->fetchSensorData(sensorId, 20);
 }
 
+void SensorDataHandler::saveData() const {
+    auto& context =  *AppContext::getInstance();
+    int currentStationId = context.getStationHandler()->currentStation.id();
+    int currentSensorId = context.getSensorHandler()->currentSensorId();
+    if (currentSensorId and currentStationId) {
+        Database::saveSensorData(currentStationId, currentSensorId, _measurements);
+    }
+}
+
 SensorDataModel * SensorDataHandler::getSensorDataModel() const {
     return _sensorDataModel;
 }
 
 void SensorDataHandler::onDataLoaded(const QJsonArray &data) {
-    QVector<QPair<QDateTime, double>> measurements;
+    _measurements.clear();
     double min = 9999999;
     double max = 0;
     for (auto d : data) {
@@ -32,9 +44,9 @@ void SensorDataHandler::onDataLoaded(const QJsonArray &data) {
         min = min < value ? min : value;
         max = max > value ? max : value;
 
-        measurements.emplace_back(timestamp, value);
+        _measurements.emplace_back(timestamp, value);
     }
-    _sensorDataModel->setData(measurements);
+    _sensorDataModel->setData(_measurements);
     emit dataChanged();
 
 }

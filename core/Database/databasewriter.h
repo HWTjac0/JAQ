@@ -12,11 +12,14 @@ class DatabaseWriter : public QObject
 public:
     explicit DatabaseWriter(QObject *parent = nullptr, ApiClient *client = nullptr, QString rootPath = "");
     void writeJson(const QJsonObject &json, const QString &path);
+    void writeCSV(const QTextStream &data, const QString &path);
     void fetchAllData();
     void fetchStationSensors(Station &station);
     void processNextStation();
     QJsonObject serializeCities(QMap<int, City*> cities);
     QJsonObject serializeIndicators(QMap<int, Indicator> indicators);
+
+    static void saveSensorData(const QVector<QPair<QString, double>> &data, const QString &date, const QString &path);
 public slots:
     void handleFetchedStations(QMap<int, City*> cities);
     void handleFetchedSensors(QVector<Sensor> sensors, QVector<QPair<int, Indicator>> indicators);

@@ -17,7 +17,7 @@ public:
         Manual
     };
     int cityId;
-    Station() = default;
+    Station();
     Station(const int id);
     Station(const int id, const QString &address);
     Station(const int id, const QString &address, Type type);

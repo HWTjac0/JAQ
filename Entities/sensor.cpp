@@ -1,6 +1,8 @@
 #include "sensor.h"
 #include "../core/Database/database.h"
-Sensor::Sensor() {}
+Sensor::Sensor() {
+    _id = 0;
+}
 
 Sensor::Sensor(int id, int indicatorId)
     : _id(id), _indicatorId(indicatorId){}

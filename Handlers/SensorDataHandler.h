@@ -17,6 +17,7 @@ class SensorDataHandler : public QObject {
 public:
     explicit SensorDataHandler(ApiClient* apiClient, QObject *parent = nullptr);
     void loadData(int sensorId) const;
+    Q_INVOKABLE void saveData() const;
     Q_INVOKABLE SensorDataModel* getSensorDataModel() const;
 public slots:
     void onDataLoaded(const QJsonArray &measurments);
@@ -27,6 +28,7 @@ signals:
 private:
     ApiClient* _apiClient;
     SensorDataModel* _sensorDataModel;
+    QVector<QPair<QDateTime, double>> _measurements;
 };
 
 

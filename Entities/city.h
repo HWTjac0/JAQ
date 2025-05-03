@@ -22,7 +22,7 @@ public:
     QString commune() const;
     int id() const;
 
-    City() = default;
+    City();
     City(const QString &name);
     City(const QString &name, const QString &voivodeship, const QString &county, const QString &commune, int id);
     City(const QString &name, const QJsonArray &stations);

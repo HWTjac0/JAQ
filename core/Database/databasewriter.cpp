@@ -1,4 +1,5 @@
 #include "databasewriter.h"
+#include <QTextStream>
 #include <QFile>
 #include "database.h"
 #include "core/PathManager.h"
@@ -73,6 +74,25 @@ QJsonObject DatabaseWriter::serializeIndicators(QMap<int, Indicator> indicators)
     return obj;
 }
 
+void DatabaseWriter::saveSensorData(const QVector<QPair<QString, double>> &data, const QString &date, const QString &path) {
+    QString buffer;
+    QTextStream stream(&buffer);
+    for (const auto &value : data) {
+        stream << value.first << ";" << QString::number(value.second) << "\n";
+    }
+    QString filePath = path + date;// It has trailing '/' character
+    QFile file(filePath);
+    try {
+        file.open(QIODevice::WriteOnly);
+        qint64 bytes_written = file.write(buffer.toStdString().c_str());
+        if (bytes_written == -1) {
+            throw std::runtime_error("Error writing to file");
+        }
+        file.close();
+    } catch (std::exception &e) {
+        qWarning() << e.what();
+    }
+}
 
 
 void DatabaseWriter::saveCompleteDatabase() {

@@ -18,6 +18,7 @@ public:
     void init();
     bool exists();
     static void addCity(int cityId, City *city);
+    static void saveSensorData(int stationId, int sensorId, const QVector<QPair<QDateTime, double>> &values);;
     static void addIndicator(int indicatorId, Indicator indicator);
     static Indicator getIndicator(int indicatorId);
     static City* getCity(int city_id);

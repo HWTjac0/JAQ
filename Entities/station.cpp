@@ -1,7 +1,9 @@
 #include "station.h"
 #include <QJsonObject>
 #include <QJsonArray>
-
+Station::Station() {
+    _id = 0;
+}
 Station::Station(const int id) : _id(id) {}
 Station::Station(const int id, const QString &address)
     : Station(id) {

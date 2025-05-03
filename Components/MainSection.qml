@@ -94,6 +94,19 @@ Rectangle {
                         RowLayout {
                             anchors.fill: parent
                             SensorDataTableView {}
+                            Item {
+                                Layout.fillWidth: true
+                                Layout.fillHeight: true
+                                Label {
+                                    id: saveLabel
+                                    text: "Zapisz pobrane dane"
+                                }
+                                Button {
+                                    anchors.top: saveLabel.bottom
+                                    text: "Zapisz"
+                                    onClicked: sensorDataHandler.saveData()
+                                }
+                            }
                         }
                     }
                     Item {

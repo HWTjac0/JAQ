@@ -9,6 +9,10 @@ QString City::county() const { return _county; }
 QString City::commune() const { return _commune; }
 int City::id() const { return _id; }
 
+City::City() {
+    _id = 0;
+}
+
 City::City(const QString &name, const QString &voivodeship, const QString &county, const QString &commune, int id)
     : City(name)
 {
