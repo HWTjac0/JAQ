@@ -92,5 +92,13 @@ Rectangle {
                 stationMarkersView.model = cityHandler.stationMarkers
             }
         }
+        Connections {
+            target: stationHandler
+            function onStationChanged() {
+                var latitude = stationHandler.currentStationCoordinate.latitude
+                var longitude = stationHandler.currentStationCoordinate.longitude
+                map.center = QtPositioning.coordinate(latitude, longitude)
+            }
+        }
     }
 }

@@ -18,11 +18,13 @@ ChartView {
         id: sensordataSeries
         axisX: DateTimeAxis {
             id: datetimeAxis
+            titleText: "Data pomiaru"
             min: sensorDataModel.timerangeStart
             max: sensorDataModel.timerangeEnd
         }
         axisY: ValueAxis {
             id: valueAxis
+            titleText: "Wartość [µg/m³]"
             min: sensorDataModel.minValue
             max: sensorDataModel.maxValue
         }

@@ -37,6 +37,11 @@ QString StationHandler::currentStationAddress() const {
     return currentStation.address();
 }
 
+QGeoCoordinate StationHandler::currentStationCoordinate() const {
+    QGeoCoordinate stationCoords(currentStation.getCoords().x, currentStation.getCoords().y);
+    return stationCoords;
+}
+
 int StationHandler::currentStationId() const {
     return currentStation.id();
 }

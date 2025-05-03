@@ -7,23 +7,30 @@ import QtCharts
 Rectangle {
     Layout.fillWidth: true
     Layout.fillHeight: true
-    Layout.leftMargin: 20
-    Layout.topMargin: 17
+    Layout.leftMargin: 12
+    Layout.topMargin: 12
     topLeftRadius: 50
+    color: "#ececec"
     ColumnLayout {
         anchors.fill: parent
-        anchors.margins: 20
-        spacing: 20
+        anchors.margins: 15
+        spacing: 10
         RowLayout {
             Layout.fillHeight: true
             Layout.fillWidth: true
             spacing: 10
-            Item {
+            Rectangle {
                 Layout.fillHeight: true
                 Layout.fillWidth: true
+                color: "#fafafa"
+                border {
+                    width: 1
+                    color: "#aaaaaa"
+                }
+                radius: 20
                 ColumnLayout {
                     anchors.fill: parent
-                    anchors.margins: 10
+                    anchors.margins: 20
                     spacing: 20
                     CityInfo {
                         id: cityInfo
@@ -49,16 +56,53 @@ Rectangle {
             Layout.alignment: Qt.AlignHCenter
             Layout.preferredWidth: parent.width * 0.8
         }
-        SensorInfo {
-            id: sensorInfo
-        }
-        Item {
+        Rectangle {
             Layout.fillWidth: true
             Layout.fillHeight: true
-            RowLayout {
+            color: "#fafafa"
+            border {
+                width: 1
+                color: "#aaaaaa"
+            }
+            radius: 20
+            ColumnLayout {
                 anchors.fill: parent
-                SensorDataTableView {}
-                SensorDataChart {}
+                anchors.margins: 20
+                spacing: 15
+                SensorInfo {
+                    id: sensorInfo
+                }
+                TabBar {
+                    id: mainBar
+                    Layout.preferredWidth: parent.width * 0.4
+                    Layout.alignment: Qt.AlignHCenter
+                    TabButton {
+                        text: "Dane"
+                        font.pixelSize: 15
+                        padding: 7
+                    }
+                    TabButton {
+                        text: "Statystyki"
+                        font.pixelSize: 15
+                        padding: 7
+                    }
+                }
+                StackLayout {
+                    Layout.fillWidth: true
+                    currentIndex: mainBar.currentIndex
+                    Item {
+                        RowLayout {
+                            anchors.fill: parent
+                            SensorDataTableView {}
+                        }
+                    }
+                    Item {
+                        RowLayout {
+                            anchors.fill: parent
+                            SensorDataChart {}
+                        }
+                    }
+                }
             }
         }
 
