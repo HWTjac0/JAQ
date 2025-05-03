@@ -72,8 +72,8 @@ Indicator Database::getIndicator(int indicatorId){
 }
 
 City* Database::getCity(int city_id) {
-    auto city_it = Database::index.find(city_id);
-    if(city_it == Database::index.end()) {
+    auto city_it = index.find(city_id);
+    if(city_it == index.end()) {
         return nullptr;
     }
     return city_it.value();

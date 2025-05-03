@@ -22,6 +22,8 @@ qt_add_executable(appairQuality
         Models/StationCoordinateModel.h
         core/PathManager.cpp
         core/PathManager.h
+        core/NetworkChecker.cpp
+        core/NetworkChecker.h
 )
 
 qt_add_qml_module(appairQuality

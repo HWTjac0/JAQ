@@ -94,17 +94,43 @@ Rectangle {
                         RowLayout {
                             anchors.fill: parent
                             SensorDataTableView {}
-                            Item {
+                            ColumnLayout {
                                 Layout.fillWidth: true
                                 Layout.fillHeight: true
-                                Label {
-                                    id: saveLabel
-                                    text: "Zapisz pobrane dane"
+                                Item {
+                                    Layout.fillWidth: true
+                                    Layout.fillHeight: true
+                                    Label {
+                                        id: saveLabel
+                                        text: "Zapisz pobrane dane"
+                                    }
+                                    Button {
+                                        anchors.top: saveLabel.bottom
+                                        text: "Zapisz"
+                                        onClicked: sensorDataHandler.saveData()
+                                    }
                                 }
-                                Button {
-                                    anchors.top: saveLabel.bottom
-                                    text: "Zapisz"
-                                    onClicked: sensorDataHandler.saveData()
+                                Item {
+                                    Layout.fillWidth: true
+                                    Layout.fillHeight: true
+                                    Label {
+                                        id: saveArchiveLabel
+                                        text: "Pobierz archiwalne dane"
+                                    }
+                                    Row {
+                                        id: archiveBeginRange
+                                        anchors.top: saveArchiveLabel.bottom
+                                        Label {
+                                            text: "Od:"
+                                        }
+                                    }
+                                    Row {
+                                        id: archiveEndRange
+                                        anchors.top: archiveBeginRange.bottom
+                                        Label {
+                                            text: "Do:"
+                                        }
+                                    }
                                 }
                             }
                         }
