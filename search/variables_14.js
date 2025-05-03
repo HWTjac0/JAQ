@@ -13,7 +13,7 @@ var searchData=
   ['ui_5fgeneral_10',['UI_General',['https://doc.qt.io/qt-6/qt.html#UIEffect-enum',1,'Qt']]],
   ['uighur_11',['Uighur',['https://doc.qt.io/qt-6/qlocale.html#Language-enum',1,'QLocale']]],
   ['uigur_12',['Uigur',['https://doc.qt.io/qt-6/qlocale.html#Language-enum',1,'QLocale']]],
-  ['uint_13',['uint',['https://doc.qt.io/qt-6/qshaderdescription.html#VariableType-enum',1,'QShaderDescription::Uint'],['https://doc.qt.io/qt-6/qrhivertexinputattribute.html#Format-enum',1,'QRhiVertexInputAttribute::UInt'],['https://doc.qt.io/qt-6/qvariant-obsolete.html#Type-enum',1,'QVariant::UInt'],['https://doc.qt.io/qt-6/qmetatype.html#Type-enum',1,'QMetaType::UInt']]],
+  ['uint_13',['uint',['https://doc.qt.io/qt-6/qmetatype.html#Type-enum',1,'QMetaType::UInt'],['https://doc.qt.io/qt-6/qshaderdescription.html#VariableType-enum',1,'QShaderDescription::Uint'],['https://doc.qt.io/qt-6/qrhivertexinputattribute.html#Format-enum',1,'QRhiVertexInputAttribute::UInt'],['https://doc.qt.io/qt-6/qvariant-obsolete.html#Type-enum',1,'QVariant::UInt']]],
   ['uint128_14',['UInt128',['https://doc.qt.io/qt-6/qmetatype.html#Type-enum',1,'QMetaType']]],
   ['uint16indexedvertexascomputeshader_15',['UInt16IndexedVertexAsComputeShader',['https://doc.qt.io/qt-6/qshader.html#Variant-enum',1,'QShader']]],
   ['uint2_16',['uint2',['https://doc.qt.io/qt-6/qrhivertexinputattribute.html#Format-enum',1,'QRhiVertexInputAttribute::UInt2'],['https://doc.qt.io/qt-6/qshaderdescription.html#VariableType-enum',1,'QShaderDescription::Uint2']]],

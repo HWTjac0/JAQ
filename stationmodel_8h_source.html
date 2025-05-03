@@ -104,14 +104,15 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    <a class="code hl_classRef" href="https://doc.qt.io/qt-6/qvariant.html">QVariant</a> data(<span class="keyword">const</span> <a class="code hl_classRef" href="https://doc.qt.io/qt-6/qmodelindex.html">QModelIndex</a> &amp;<a class="code hl_functionRef" href="https://doc.qt.io/qt-6/qabstractlistmodel.html#index">index</a>, <span class="keywordtype">int</span> role = <a class="code hl_variableRef" href="https://doc.qt.io/qt-6/qt.html#ItemDataRole-enum">Qt::DisplayRole</a>) <span class="keyword">const override</span>;</div>
 <div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    <a class="code hl_classRef" href="https://doc.qt.io/qt-6/qhash.html">QHash&lt;int, QByteArray&gt;</a> roleNames() <span class="keyword">const override</span>;</div>
 <div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    <span class="keywordtype">void</span> clear();</div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    <span class="keywordtype">void</span> setStations(<span class="keyword">const</span> <a class="code hl_classRef" href="https://doc.qt.io/qt-6/qlist.html">QList&lt;Station&gt;</a> &amp;<a class="code hl_functionRef" href="https://doc.qt.io/qt-6/qobject.html#qobject_cast">stations</a>);</div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    <span class="keyword">private</span>:</div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    <a class="code hl_classRef" href="https://doc.qt.io/qt-6/qlist.html">QList&lt;Station&gt;</a> _stations;</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>};</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    <a class="code hl_functionRef" href="https://doc.qt.io/qt-6/qobject.html#Q_INVOKABLE">Q_INVOKABLE</a> <span class="keywordtype">int</span> getId(<span class="keywordtype">int</span> <a class="code hl_functionRef" href="https://doc.qt.io/qt-6/qobject.html#qobject_cast">i</a>);</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    <span class="keywordtype">void</span> clear();</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    <span class="keywordtype">void</span> setStations(<span class="keyword">const</span> <a class="code hl_classRef" href="https://doc.qt.io/qt-6/qlist.html">QList&lt;Station&gt;</a> &amp;<a class="code hl_functionRef" href="https://doc.qt.io/qt-6/qobject.html#qobject_cast">stations</a>);</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    <span class="keyword">private</span>:</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    <a class="code hl_classRef" href="https://doc.qt.io/qt-6/qlist.html">QList&lt;Station&gt;</a> _stations;</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>};</div>
 </div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="preprocessor">#endif </span><span class="comment">// STATIONMODEL_H</span></div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="preprocessor">#endif </span><span class="comment">// STATIONMODEL_H</span></div>
 <div class="ttc" id="aclassStationModel_html"><div class="ttname"><a href="classStationModel.html">StationModel</a></div><div class="ttdef"><b>Definition</b> <a href="stationmodel_8h_source.html#l00007">stationmodel.h:8</a></div></div>
 <div class="ttc" id="aqabstractlistmodel_html"><div class="ttname"><a href="https://doc.qt.io/qt-6/qabstractlistmodel.html">QAbstractListModel</a></div></div>
 <div class="ttc" id="aqabstractlistmodel_html_index"><div class="ttname"><a href="https://doc.qt.io/qt-6/qabstractlistmodel.html#index">QAbstractListModel::index</a></div><div class="ttdeci">virtual QModelIndex index(int row, int column, const QModelIndex &amp;parent) const const override</div></div>
@@ -119,6 +120,7 @@ $(document).ready(function() { init_codefold(0); });
 <div class="ttc" id="aqlist_html"><div class="ttname"><a href="https://doc.qt.io/qt-6/qlist.html">QList</a></div></div>
 <div class="ttc" id="aqmodelindex_html"><div class="ttname"><a href="https://doc.qt.io/qt-6/qmodelindex.html">QModelIndex</a></div></div>
 <div class="ttc" id="aqobject_html"><div class="ttname"><a href="https://doc.qt.io/qt-6/qobject.html">QObject</a></div></div>
+<div class="ttc" id="aqobject_html_Q_INVOKABLE"><div class="ttname"><a href="https://doc.qt.io/qt-6/qobject.html#Q_INVOKABLE">QObject::Q_INVOKABLE</a></div><div class="ttdeci">Q_INVOKABLEQ_INVOKABLE</div></div>
 <div class="ttc" id="aqobject_html_Q_OBJECT"><div class="ttname"><a href="https://doc.qt.io/qt-6/qobject.html#Q_OBJECT">QObject::Q_OBJECT</a></div><div class="ttdeci">Q_OBJECTQ_OBJECT</div></div>
 <div class="ttc" id="aqobject_html_parent"><div class="ttname"><a href="https://doc.qt.io/qt-6/qobject.html#parent">QObject::parent</a></div><div class="ttdeci">QObject * parent() const const</div></div>
 <div class="ttc" id="aqobject_html_qobject_cast"><div class="ttname"><a href="https://doc.qt.io/qt-6/qobject.html#qobject_cast">QObject::qobject_cast</a></div><div class="ttdeci">T qobject_cast(QObject *object)</div></div>

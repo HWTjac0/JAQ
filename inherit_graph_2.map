@@ -1,47 +1,51 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="Node000000" href="/home/runner/work/JAQ/JAQ/qt-tags/qtcore.tags$qobject.html" title=" " alt="" coords="5,301,80,327"/>
+<area shape="rect" id="Node000000" href="/home/runner/work/JAQ/JAQ/qt-tags/qtcore.tags$qobject.html" title=" " alt="" coords="5,327,80,352"/>
 <area shape="rect" id="Node000001" href="$classApiClient.html" title=" " alt="" coords="165,5,247,31"/>
-<area shape="poly" id="edge1_Node000000_Node000001" title=" " alt="" coords="42,287,46,236,59,170,84,101,103,69,126,40,144,28,164,20,166,25,147,32,130,44,107,72,89,103,64,171,51,237,47,288"/>
+<area shape="poly" id="edge1_Node000000_Node000001" title=" " alt="" coords="41,313,44,257,56,184,66,145,81,107,101,72,126,40,144,27,164,20,166,25,146,32,130,44,105,75,86,110,71,147,61,185,49,257,46,313"/>
 <area shape="rect" id="Node000002" href="$classApp.html" title=" " alt="" coords="183,55,229,80"/>
-<area shape="poly" id="edge2_Node000000_Node000002" title=" " alt="" coords="44,287,51,244,66,191,90,137,106,112,126,89,153,73,182,66,183,72,155,78,130,93,111,115,94,139,71,193,56,246,49,288"/>
+<area shape="poly" id="edge2_Node000000_Node000002" title=" " alt="" coords="43,313,49,265,62,205,87,144,104,115,126,89,153,73,182,66,183,72,155,78,130,93,109,118,92,146,67,207,54,266,48,313"/>
 <area shape="rect" id="Node000003" href="$classAppContext.html" title=" " alt="" coords="157,104,255,129"/>
-<area shape="poly" id="edge3_Node000000_Node000003" title=" " alt="" coords="47,287,57,253,73,214,96,173,126,139,155,123,158,128,130,143,100,176,78,216,62,255,52,288"/>
+<area shape="poly" id="edge3_Node000000_Node000003" title=" " alt="" coords="45,312,54,274,69,227,93,180,126,139,155,123,158,127,130,143,97,183,74,229,59,275,51,313"/>
 <area shape="rect" id="Node000004" href="$classCity.html" title=" " alt="" coords="182,153,230,179"/>
-<area shape="poly" id="edge4_Node000000_Node000004" title=" " alt="" coords="53,287,81,237,102,211,126,188,154,174,181,166,182,172,156,179,130,192,106,214,86,240,57,290"/>
+<area shape="poly" id="edge4_Node000000_Node000004" title=" " alt="" coords="49,312,77,250,99,217,126,188,153,173,181,166,182,171,155,178,130,192,103,220,81,253,54,314"/>
 <area shape="rect" id="Node000005" href="$classCityHandler.html" title=" " alt="" coords="157,203,255,228"/>
-<area shape="poly" id="edge5_Node000000_Node000005" title=" " alt="" coords="63,289,91,262,127,237,155,225,157,229,129,242,95,266,66,293"/>
+<area shape="poly" id="edge5_Node000000_Node000005" title=" " alt="" coords="56,314,86,274,105,254,127,237,155,223,158,228,129,242,108,258,90,278,61,317"/>
 <area shape="rect" id="Node000006" href="$classDatabase.html" title=" " alt="" coords="164,252,248,277"/>
-<area shape="poly" id="edge6_Node000000_Node000006" title=" " alt="" coords="92,296,163,275,164,280,94,302"/>
+<area shape="poly" id="edge6_Node000000_Node000006" title=" " alt="" coords="73,316,127,286,163,273,165,278,129,291,75,321"/>
 <area shape="rect" id="Node000007" href="$classDatabaseReader.html" title=" " alt="" coords="141,301,271,327"/>
-<area shape="poly" id="edge7_Node000000_Node000007" title=" " alt="" coords="94,311,140,311,140,317,94,317"/>
+<area shape="poly" id="edge7_Node000000_Node000007" title=" " alt="" coords="93,329,140,322,141,327,94,334"/>
 <area shape="rect" id="Node000008" href="$classDatabaseWriter.html" title=" " alt="" coords="144,351,268,376"/>
-<area shape="poly" id="edge8_Node000000_Node000008" title=" " alt="" coords="94,327,164,348,162,353,93,332"/>
-<area shape="rect" id="Node000009" href="/home/runner/work/JAQ/JAQ/qt-tags/qtcore.tags$qabstractitemmodel.html" title=" " alt="" coords="128,400,284,425"/>
-<area shape="poly" id="edge9_Node000000_Node000009" title=" " alt="" coords="67,335,95,361,129,385,157,398,155,402,127,390,92,365,63,339"/>
-<area shape="rect" id="Node000019" href="$classSensorDataHandler.html" title=" " alt="" coords="132,449,280,475"/>
-<area shape="poly" id="edge19_Node000000_Node000019" title=" " alt="" coords="57,338,86,388,106,414,130,436,150,447,147,452,126,440,102,417,81,391,53,341"/>
-<area shape="rect" id="Node000020" href="$classSensorHandler.html" title=" " alt="" coords="147,499,265,524"/>
-<area shape="poly" id="edge20_Node000000_Node000020" title=" " alt="" coords="52,340,62,373,78,412,100,452,130,485,148,497,146,501,126,489,96,455,73,414,57,375,47,341"/>
-<area shape="rect" id="Node000021" href="$classStationHandler.html" title=" " alt="" coords="147,548,265,573"/>
-<area shape="poly" id="edge21_Node000000_Node000021" title=" " alt="" coords="49,340,56,382,71,435,94,489,111,513,130,535,148,547,145,551,126,539,106,516,90,491,66,437,51,384,44,341"/>
-<area shape="rect" id="Node000022" href="$classTest.html" title=" " alt="" coords="182,597,230,623"/>
-<area shape="poly" id="edge22_Node000000_Node000022" title=" " alt="" coords="47,340,51,391,64,457,89,525,107,556,130,584,155,599,183,606,181,611,153,604,126,588,103,559,84,527,59,458,46,392,42,341"/>
-<area shape="rect" id="Node000010" href="/home/runner/work/JAQ/JAQ/qt-tags/qtcore.tags$qabstractlistmodel.html" title=" " alt="" coords="339,327,488,352"/>
-<area shape="poly" id="edge10_Node000009_Node000010" title=" " alt="" coords="259,393,283,385,378,350,380,355,285,390,260,398"/>
-<area shape="rect" id="Node000014" href="/home/runner/work/JAQ/JAQ/qt-tags/qtcore.tags$qabstractproxymodel.html" title=" " alt="" coords="332,400,495,425"/>
-<area shape="poly" id="edge14_Node000009_Node000014" title=" " alt="" coords="298,410,332,410,332,415,298,415"/>
-<area shape="rect" id="Node000017" href="/home/runner/work/JAQ/JAQ/qt-tags/qtcore.tags$qabstracttablemodel.html" title=" " alt="" coords="333,449,493,475"/>
-<area shape="poly" id="edge17_Node000009_Node000017" title=" " alt="" coords="274,426,360,447,358,452,273,431"/>
-<area shape="rect" id="Node000011" href="$classCityIndexModel.html" title=" " alt="" coords="565,252,689,277"/>
-<area shape="poly" id="edge11_Node000010_Node000011" title=" " alt="" coords="456,319,542,286,578,275,580,280,544,291,458,324"/>
-<area shape="rect" id="Node000012" href="$classSensorModel.html" title=" " alt="" coords="573,301,680,327"/>
-<area shape="poly" id="edge12_Node000010_Node000012" title=" " alt="" coords="501,326,573,318,574,323,502,332"/>
-<area shape="rect" id="Node000013" href="$classStationModel.html" title=" " alt="" coords="573,351,681,376"/>
-<area shape="poly" id="edge13_Node000010_Node000013" title=" " alt="" coords="502,347,573,355,572,360,502,352"/>
-<area shape="rect" id="Node000015" href="/home/runner/work/JAQ/JAQ/qt-tags/qtcore.tags$qsortfilterproxymodel.html" title=" " alt="" coords="543,400,711,425"/>
-<area shape="poly" id="edge15_Node000014_Node000015" title=" " alt="" coords="509,410,543,410,543,415,509,415"/>
-<area shape="rect" id="Node000016" href="$classCitySortProxyModel.html" title=" " alt="" coords="759,400,909,425"/>
-<area shape="poly" id="edge16_Node000015_Node000016" title=" " alt="" coords="725,410,758,410,758,415,725,415"/>
-<area shape="rect" id="Node000018" href="$classSensorDataModel.html" title=" " alt="" coords="558,449,695,475"/>
-<area shape="poly" id="edge18_Node000017_Node000018" title=" " alt="" coords="507,459,558,459,558,465,507,465"/>
+<area shape="poly" id="edge8_Node000000_Node000008" title=" " alt="" coords="94,344,144,352,143,357,93,349"/>
+<area shape="rect" id="Node000009" href="$classGeoLocator.html" title=" " alt="" coords="158,400,254,425"/>
+<area shape="poly" id="edge9_Node000000_Node000009" title=" " alt="" coords="77,357,129,385,162,397,160,402,127,390,74,362"/>
+<area shape="rect" id="Node000010" href="/home/runner/work/JAQ/JAQ/qt-tags/qtcore.tags$qabstractitemmodel.html" title=" " alt="" coords="128,449,284,475"/>
+<area shape="poly" id="edge10_Node000000_Node000010" title=" " alt="" coords="61,362,90,399,130,434,154,447,152,452,126,439,87,403,57,365"/>
+<area shape="rect" id="Node000021" href="$classSensorDataHandler.html" title=" " alt="" coords="132,499,280,524"/>
+<area shape="poly" id="edge21_Node000000_Node000021" title=" " alt="" coords="54,364,82,425,103,458,130,485,148,496,146,501,126,489,99,461,77,428,50,366"/>
+<area shape="rect" id="Node000022" href="$classSensorHandler.html" title=" " alt="" coords="147,548,265,573"/>
+<area shape="poly" id="edge22_Node000000_Node000022" title=" " alt="" coords="51,365,59,403,74,449,97,495,130,535,149,547,146,551,126,539,93,498,69,451,54,404,45,366"/>
+<area shape="rect" id="Node000023" href="$classStationHandler.html" title=" " alt="" coords="147,597,265,623"/>
+<area shape="poly" id="edge23_Node000000_Node000023" title=" " alt="" coords="48,365,54,412,67,471,92,532,109,560,130,584,148,596,145,601,126,588,105,563,87,534,62,473,49,413,43,366"/>
+<area shape="rect" id="Node000024" href="$classTest.html" title=" " alt="" coords="182,647,230,672"/>
+<area shape="poly" id="edge24_Node000000_Node000024" title=" " alt="" coords="46,366,49,421,61,493,71,531,86,568,105,603,130,633,155,649,183,655,181,660,153,654,126,637,101,606,81,570,66,533,56,494,44,422,41,366"/>
+<area shape="rect" id="Node000011" href="/home/runner/work/JAQ/JAQ/qt-tags/qtcore.tags$qabstractlistmodel.html" title=" " alt="" coords="347,352,496,377"/>
+<area shape="poly" id="edge11_Node000010_Node000011" title=" " alt="" coords="262,442,283,434,395,375,398,380,285,439,264,447"/>
+<area shape="rect" id="Node000015" href="/home/runner/work/JAQ/JAQ/qt-tags/qtcore.tags$qabstractproxymodel.html" title=" " alt="" coords="340,425,503,451"/>
+<area shape="poly" id="edge15_Node000010_Node000015" title=" " alt="" coords="297,449,339,444,340,450,298,454"/>
+<area shape="rect" id="Node000018" href="/home/runner/work/JAQ/JAQ/qt-tags/qtcore.tags$qabstracttablemodel.html" title=" " alt="" coords="341,475,501,500"/>
+<area shape="poly" id="edge18_Node000010_Node000018" title=" " alt="" coords="298,470,342,475,341,481,297,475"/>
+<area shape="rect" id="Node000020" href="$classStationCoordinateModel.html" title=" " alt="" coords="332,524,511,549"/>
+<area shape="poly" id="edge20_Node000010_Node000020" title=" " alt="" coords="264,477,285,485,333,510,367,521,365,526,331,515,283,490,262,482"/>
+<area shape="rect" id="Node000012" href="$classCityIndexModel.html" title=" " alt="" coords="581,277,705,303"/>
+<area shape="poly" id="edge12_Node000011_Node000012" title=" " alt="" coords="467,345,558,311,594,300,596,305,560,317,468,350"/>
+<area shape="rect" id="Node000013" href="$classSensorModel.html" title=" " alt="" coords="589,327,696,352"/>
+<area shape="poly" id="edge13_Node000011_Node000013" title=" " alt="" coords="509,352,589,343,589,348,510,357"/>
+<area shape="rect" id="Node000014" href="$classStationModel.html" title=" " alt="" coords="589,376,697,401"/>
+<area shape="poly" id="edge14_Node000011_Node000014" title=" " alt="" coords="510,372,589,380,588,386,509,377"/>
+<area shape="rect" id="Node000016" href="/home/runner/work/JAQ/JAQ/qt-tags/qtcore.tags$qsortfilterproxymodel.html" title=" " alt="" coords="559,425,727,451"/>
+<area shape="poly" id="edge16_Node000015_Node000016" title=" " alt="" coords="516,435,559,435,559,441,516,441"/>
+<area shape="rect" id="Node000017" href="$classCitySortProxyModel.html" title=" " alt="" coords="775,425,925,451"/>
+<area shape="poly" id="edge17_Node000016_Node000017" title=" " alt="" coords="741,435,774,435,774,441,741,441"/>
+<area shape="rect" id="Node000019" href="$classSensorDataModel.html" title=" " alt="" coords="574,475,711,500"/>
+<area shape="poly" id="edge19_Node000018_Node000019" title=" " alt="" coords="515,485,574,485,574,490,515,490"/>
 </map>

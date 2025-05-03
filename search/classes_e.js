@@ -11,11 +11,12 @@ var searchData=
   ['separatetocombinedimagesamplermapping_8',['SeparateToCombinedImageSamplerMapping',['https://doc.qt.io/qt-6/qshader-separatetocombinedimagesamplermapping.html',1,'QShader']]],
   ['state_9',['State',['https://doc.qt.io/qt-6/qaccessible-state.html',1,'QAccessible']]],
   ['station_10',['Station',['../classStation.html',1,'']]],
-  ['stationhandler_11',['StationHandler',['../classStationHandler.html',1,'']]],
-  ['stationmodel_12',['StationModel',['../classStationModel.html',1,'']]],
-  ['stencilopstate_13',['StencilOpState',['https://doc.qt.io/qt-6/qrhigraphicspipeline-stencilopstate.html',1,'QRhiGraphicsPipeline']]],
-  ['storageblock_14',['StorageBlock',['https://doc.qt.io/qt-6/qshaderdescription-storageblock.html',1,'QShaderDescription']]],
-  ['stringresult_15',['StringResult',['https://doc.qt.io/qt-6/qcborstreamreader-stringresult.html',1,'QCborStreamReader']]],
-  ['strong_5fordering_16',['strong_ordering',['https://doc.qt.io/qt-6/qt-strong-ordering.html',1,'Qt']]],
-  ['systemid_17',['SystemId',['https://doc.qt.io/qt-6/qcalendar-systemid.html',1,'QCalendar']]]
+  ['stationcoordinatemodel_11',['StationCoordinateModel',['../classStationCoordinateModel.html',1,'']]],
+  ['stationhandler_12',['StationHandler',['../classStationHandler.html',1,'']]],
+  ['stationmodel_13',['StationModel',['../classStationModel.html',1,'']]],
+  ['stencilopstate_14',['StencilOpState',['https://doc.qt.io/qt-6/qrhigraphicspipeline-stencilopstate.html',1,'QRhiGraphicsPipeline']]],
+  ['storageblock_15',['StorageBlock',['https://doc.qt.io/qt-6/qshaderdescription-storageblock.html',1,'QShaderDescription']]],
+  ['stringresult_16',['StringResult',['https://doc.qt.io/qt-6/qcborstreamreader-stringresult.html',1,'QCborStreamReader']]],
+  ['strong_5fordering_17',['strong_ordering',['https://doc.qt.io/qt-6/qt-strong-ordering.html',1,'Qt']]],
+  ['systemid_18',['SystemId',['https://doc.qt.io/qt-6/qcalendar-systemid.html',1,'QCalendar']]]
 ];

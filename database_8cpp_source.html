@@ -100,44 +100,60 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    _client = apiClient;</div>
 <div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    _writer = <span class="keyword">new</span> <a class="code hl_class" href="classDatabaseWriter.html">DatabaseWriter</a>(<span class="keyword">this</span>, _client);</div>
 <div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    _reader = <span class="keyword">new</span> <a class="code hl_class" href="classDatabaseReader.html">DatabaseReader</a>(<span class="keyword">this</span>);</div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    <span class="keywordflow">if</span>(!<a class="code hl_functionRef" href="https://doc.qt.io/qt-6/qfile.html#exists-2">QFile::exists</a>(<span class="stringliteral">&quot;indexCities.json&quot;</span>)){</div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>        _writer-&gt;fetchAllData();</div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    }</div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    _reader-&gt;readCityIndex();</div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    <span class="keywordflow">if</span>(indicatorIndex.size() == 0) {</div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>        _reader-&gt;readIndicators();</div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    }</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>}</div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="keywordtype">void</span> Database::addCity(<span class="keywordtype">int</span> cityId, <a class="code hl_class" href="classCity.html">City</a> *city){</div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    index.<a class="code hl_functionRef" href="https://doc.qt.io/qt-6/qmap.html#insert-3">insert</a>(cityId, <a class="code hl_functionRef" href="https://doc.qt.io/qt-6/qobject.html#qobject_cast">city</a>);</div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>}</div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="keywordtype">void</span> Database::addIndicator(<span class="keywordtype">int</span> indicatorId, <a class="code hl_struct" href="structIndicator.html">Indicator</a> indicator){</div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    indicatorIndex.<a class="code hl_functionRef" href="https://doc.qt.io/qt-6/qmap.html#insert-3">insert</a>(indicatorId, <a class="code hl_functionRef" href="https://doc.qt.io/qt-6/qobject.html#qobject_cast">indicator</a>);</div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>}</div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><a class="code hl_struct" href="structIndicator.html">Indicator</a> Database::getIndicator(<span class="keywordtype">int</span> indicatorId){</div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    <span class="keywordflow">return</span> indicatorIndex.<a class="code hl_functionRef" href="https://doc.qt.io/qt-6/qmap.html#value">value</a>(indicatorId);</div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>}</div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><a class="code hl_class" href="classCity.html">City</a>* Database::getCity(<span class="keywordtype">int</span> city_id) {</div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    <span class="keyword">auto</span> <a class="code hl_functionRef" href="https://doc.qt.io/qt-6/qobject.html#qobject_cast">city_it</a> = Database::index.<a class="code hl_functionRef" href="https://doc.qt.io/qt-6/qmap.html#find">find</a>(<a class="code hl_functionRef" href="https://doc.qt.io/qt-6/qobject.html#qobject_cast">city_id</a>);</div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    <span class="keywordflow">if</span>(<a class="code hl_functionRef" href="https://doc.qt.io/qt-6/qobject.html#qobject_cast">city_it</a> == Database::index.end()) {</div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>        <span class="keywordflow">return</span> <span class="keyword">nullptr</span>;</div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    }</div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    <span class="keywordflow">return</span> <a class="code hl_functionRef" href="https://doc.qt.io/qt-6/qobject.html#qobject_cast">city_it</a>.value();</div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>}</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>}</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="keywordtype">bool</span> Database::exists() {</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    <span class="keywordflow">return</span> <a class="code hl_functionRef" href="https://doc.qt.io/qt-6/qfile.html#exists-2">QFile::exists</a>(<span class="stringliteral">&quot;indexCities.json&quot;</span>); <span class="comment">// for now only this</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>}</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="keywordtype">void</span> Database::init() {</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    <span class="keywordflow">if</span>(!exists()){</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>        _writer-&gt;fetchAllData();</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>        <a class="code hl_functionRef" href="https://doc.qt.io/qt-6/qobject.html#connect-2">connect</a>(_writer, &amp;DatabaseWriter::indexesReady, <span class="keyword">this</span>, [<span class="keyword">this</span>]() {</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>            _reader-&gt;readCityIndex();</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>             <span class="keywordflow">if</span>(indicatorIndex.<a class="code hl_functionRef" href="https://doc.qt.io/qt-6/qmap.html#empty">empty</a>()) {</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>                 _reader-&gt;readIndicators();</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>             }</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>            <a class="code hl_functionRef" href="https://doc.qt.io/qt-6/qobject.html#qobject_cast">emit</a> databaseReady();</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>        });</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    } <span class="keywordflow">else</span> {</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>        _reader-&gt;readCityIndex();</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>        <span class="keywordflow">if</span>(indicatorIndex.<a class="code hl_functionRef" href="https://doc.qt.io/qt-6/qmap.html#empty">empty</a>()) {</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>            _reader-&gt;readIndicators();</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>        }</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>        <a class="code hl_functionRef" href="https://doc.qt.io/qt-6/qobject.html#qobject_cast">emit</a> databaseReady();</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    }</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>}</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="keywordtype">void</span> Database::addCity(<span class="keywordtype">int</span> cityId, <a class="code hl_class" href="classCity.html">City</a> *city){</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    index.<a class="code hl_functionRef" href="https://doc.qt.io/qt-6/qmap.html#insert-3">insert</a>(cityId, <a class="code hl_functionRef" href="https://doc.qt.io/qt-6/qobject.html#qobject_cast">city</a>);</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>}</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span><span class="keywordtype">void</span> Database::addIndicator(<span class="keywordtype">int</span> indicatorId, <a class="code hl_struct" href="structIndicator.html">Indicator</a> indicator){</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    indicatorIndex.<a class="code hl_functionRef" href="https://doc.qt.io/qt-6/qmap.html#insert-3">insert</a>(indicatorId, <a class="code hl_functionRef" href="https://doc.qt.io/qt-6/qobject.html#qobject_cast">indicator</a>);</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>}</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span><a class="code hl_struct" href="structIndicator.html">Indicator</a> Database::getIndicator(<span class="keywordtype">int</span> indicatorId){</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    <span class="keywordflow">return</span> indicatorIndex.<a class="code hl_functionRef" href="https://doc.qt.io/qt-6/qmap.html#value">value</a>(indicatorId);</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>}</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span> </div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span><a class="code hl_class" href="classCity.html">City</a>* Database::getCity(<span class="keywordtype">int</span> city_id) {</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    <span class="keyword">auto</span> <a class="code hl_functionRef" href="https://doc.qt.io/qt-6/qobject.html#qobject_cast">city_it</a> = Database::index.<a class="code hl_functionRef" href="https://doc.qt.io/qt-6/qmap.html#find">find</a>(<a class="code hl_functionRef" href="https://doc.qt.io/qt-6/qobject.html#qobject_cast">city_id</a>);</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    <span class="keywordflow">if</span>(<a class="code hl_functionRef" href="https://doc.qt.io/qt-6/qobject.html#qobject_cast">city_it</a> == Database::index.end()) {</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>        <span class="keywordflow">return</span> <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    }</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    <span class="keywordflow">return</span> <a class="code hl_functionRef" href="https://doc.qt.io/qt-6/qobject.html#qobject_cast">city_it</a>.value();</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>}</div>
 <div class="ttc" id="aclassApiClient_html"><div class="ttname"><a href="classApiClient.html">ApiClient</a></div><div class="ttdef"><b>Definition</b> <a href="apiclient_8h_source.html#l00016">apiclient.h:17</a></div></div>
 <div class="ttc" id="aclassCity_html"><div class="ttname"><a href="classCity.html">City</a></div><div class="ttdef"><b>Definition</b> <a href="city_8h_source.html#l00008">city.h:9</a></div></div>
 <div class="ttc" id="aclassDatabaseReader_html"><div class="ttname"><a href="classDatabaseReader.html">DatabaseReader</a></div><div class="ttdef"><b>Definition</b> <a href="databasereader_8h_source.html#l00008">databasereader.h:9</a></div></div>
 <div class="ttc" id="aclassDatabaseWriter_html"><div class="ttname"><a href="classDatabaseWriter.html">DatabaseWriter</a></div><div class="ttdef"><b>Definition</b> <a href="databasewriter_8h_source.html#l00009">databasewriter.h:10</a></div></div>
 <div class="ttc" id="aqfile_html_exists-2"><div class="ttname"><a href="https://doc.qt.io/qt-6/qfile.html#exists-2">QFile::exists</a></div><div class="ttdeci">bool exists() const const</div></div>
 <div class="ttc" id="aqmap_html"><div class="ttname"><a href="https://doc.qt.io/qt-6/qmap.html">QMap</a></div></div>
+<div class="ttc" id="aqmap_html_empty"><div class="ttname"><a href="https://doc.qt.io/qt-6/qmap.html#empty">QMap::empty</a></div><div class="ttdeci">bool empty() const const</div></div>
 <div class="ttc" id="aqmap_html_find"><div class="ttname"><a href="https://doc.qt.io/qt-6/qmap.html#find">QMap::find</a></div><div class="ttdeci">QMap&lt; Key, T &gt;::iterator find(const Key &amp;key)</div></div>
 <div class="ttc" id="aqmap_html_insert-3"><div class="ttname"><a href="https://doc.qt.io/qt-6/qmap.html#insert-3">QMap::insert</a></div><div class="ttdeci">QMap&lt; Key, T &gt;::iterator insert(QMap&lt; Key, T &gt;::const_iterator pos, const Key &amp;key, const T &amp;value)</div></div>
 <div class="ttc" id="aqmap_html_value"><div class="ttname"><a href="https://doc.qt.io/qt-6/qmap.html#value">QMap::value</a></div><div class="ttdeci">T value(const Key &amp;key, const T &amp;defaultValue) const const</div></div>
 <div class="ttc" id="aqobject_html"><div class="ttname"><a href="https://doc.qt.io/qt-6/qobject.html">QObject</a></div></div>
+<div class="ttc" id="aqobject_html_connect-2"><div class="ttname"><a href="https://doc.qt.io/qt-6/qobject.html#connect-2">QObject::connect</a></div><div class="ttdeci">QMetaObject::Connection connect(const QObject *sender, PointerToMemberFunction signal, Functor functor)</div></div>
 <div class="ttc" id="aqobject_html_qobject_cast"><div class="ttname"><a href="https://doc.qt.io/qt-6/qobject.html#qobject_cast">QObject::qobject_cast</a></div><div class="ttdeci">T qobject_cast(QObject *object)</div></div>
 <div class="ttc" id="astructIndicator_html"><div class="ttname"><a href="structIndicator.html">Indicator</a></div><div class="ttdef"><b>Definition</b> <a href="sensor_8h_source.html#l00005">sensor.h:5</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
