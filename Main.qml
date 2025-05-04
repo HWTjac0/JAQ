@@ -36,10 +36,4 @@ Window {
             MainSection {}
         }
     }
-    Connections {
-        target: networkChecker
-        function onConnectionStatusChanged(isOnline) {
-            console.log(isOnline)
-        }
-    }
 }
