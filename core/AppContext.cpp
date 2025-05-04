@@ -80,6 +80,10 @@ NetworkChecker * AppContext::getNetworkChecker() const {
     return _networkChecker.get();
 }
 
+Database * AppContext::getDatabase() const {
+    return _database.get();
+}
+
 bool AppContext::isOnline() const {
     return _networkChecker ? _networkChecker.get()->isOnline() : false;
 }

@@ -5,6 +5,7 @@
 #include <QJsonObject>
 #include <qstandardpaths.h>
 #include <QTextStream>
+#include <QDesktopServices>
 
 #include "../../Entities/city.h"
 #include "../apiclient.h"
@@ -77,4 +78,8 @@ City* Database::getCity(int city_id) {
         return nullptr;
     }
     return city_it.value();
+}
+
+void Database::openDatabase() {
+    QDesktopServices::openUrl("file://" + PathManager::baseDataDirectory());
 }

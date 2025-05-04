@@ -22,6 +22,7 @@ public:
     static void addIndicator(int indicatorId, Indicator indicator);
     static Indicator getIndicator(int indicatorId);
     static City* getCity(int city_id);
+    Q_INVOKABLE void openDatabase();
 signals:
     void databaseReady();
 private:

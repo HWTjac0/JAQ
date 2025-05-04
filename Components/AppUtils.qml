@@ -47,6 +47,10 @@ ColumnLayout {
                     }
                 }
             }
+            Button {
+                text: "Otwórz lokalną bazę danych"
+                onClicked: database.openDatabase()
+            }
         }
     }
 }

@@ -4,7 +4,7 @@ project(airQuality VERSION 0.1 LANGUAGES CXX)
 
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-find_package(Qt6 REQUIRED COMPONENTS Core Quick Charts Widgets Location Positioning)
+find_package(Qt6 REQUIRED COMPONENTS Core Gui Quick Charts Widgets Location Positioning)
 
 qt_standard_project_setup(REQUIRES 6.8)
 
@@ -79,7 +79,7 @@ set_target_properties(appairQuality PROPERTIES
 )
 
 target_link_libraries(appairQuality
-    PRIVATE Qt6::Quick Qt6::Charts Qt6::Widgets Qt6::Location Qt6::Positioning
+    PRIVATE Qt6::Quick Qt6::Charts Qt6::Widgets Qt6::Location Qt6::Positioning Qt6::Gui
 )
 
 include(GNUInstallDirs)

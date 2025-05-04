@@ -18,6 +18,7 @@ Window {
     property var sensorDataHandler: context.sensorDataHandler
     property var sensorDataModel: sensorDataHandler.sensordataModel
     property var networkChecker: context.networkChecker
+    property var database: context.database
     Rectangle {
         id: wrapper
         width: parent.width

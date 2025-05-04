@@ -71,7 +71,7 @@ void ApiClient::handleSensors() {
 void ApiClient::fetchStations(int page)
 {
     QMap<QString, QString> params;
-    params.insert("size", "50");
+    params.insert("size", "300");
     QUrl url = buildUrl("/station/findAll", params);
     QNetworkRequest request(url);
     QNetworkReply *reply = _manager->get(request);

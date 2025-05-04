@@ -21,6 +21,7 @@ class AppContext : public QObject {
     Q_PROPERTY(SensorHandler* sensorHandler READ getSensorHandler CONSTANT);
     Q_PROPERTY(SensorDataHandler* sensorDataHandler READ getSensorDataHandler CONSTANT);
     Q_PROPERTY(NetworkChecker* networkChecker READ getNetworkChecker CONSTANT);
+    Q_PROPERTY(Database* database READ getDatabase CONSTANT);
     Q_PROPERTY(bool isOnline READ isOnline CONSTANT);
 public:
     void initialize();
@@ -32,6 +33,7 @@ public:
     [[nodiscard]] SensorDataHandler* getSensorDataHandler() const;
     [[nodiscard]] ApiClient* getApiClient() const;
     [[nodiscard]] NetworkChecker* getNetworkChecker() const;
+    [[nodiscard]] Database* getDatabase() const;
     [[nodiscard]] bool isOnline() const;
 signals:
     void initialized();
