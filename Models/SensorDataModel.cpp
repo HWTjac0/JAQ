@@ -12,6 +12,10 @@ SensorDataModel::SensorDataModel(QObject *parent) : QAbstractTableModel(parent){
     _timerangeEnd = QDateTime::currentDateTime();
 }
 
+int SensorDataModel::size() const {
+    return _data.size();
+}
+
 int SensorDataModel::rowCount(const QModelIndex &parent) const {
     if (parent.isValid()) {
         return 0;

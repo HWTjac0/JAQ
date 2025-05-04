@@ -19,6 +19,7 @@ class SensorDataModel : public QAbstractTableModel {
     Q_PROPERTY(double maxValue READ maxValue CONSTANT)
     Q_PROPERTY(double average READ average CONSTANT)
     Q_PROPERTY(QString trend READ trend CONSTANT)
+    Q_PROPERTY(int size READ size CONSTANT)
 
 public:
     enum Roles {
@@ -26,6 +27,7 @@ public:
         ValueRole,
     };
     explicit SensorDataModel(QObject *parent = nullptr);
+    int size() const;
     int rowCount(const QModelIndex &parent = QModelIndex()) const override;
     int columnCount(const QModelIndex &parent = QModelIndex()) const override;
     QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;

@@ -19,6 +19,7 @@ public:
     void loadData(int sensorId) const;
     Q_INVOKABLE void saveData() const;
     Q_INVOKABLE SensorDataModel* getSensorDataModel() const;
+    Q_INVOKABLE void getArchiveData(const QDateTime &begin, const QDateTime &end) const;
 public slots:
     void onDataLoaded(const QJsonArray &measurments);
     void onCurrentSensorChanged(Sensor* sensor) const;

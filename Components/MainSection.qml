@@ -71,176 +71,207 @@ Rectangle {
                 SensorInfo {
                     id: sensorInfo
                 }
-                TabBar {
-                    id: mainBar
-                    Layout.preferredWidth: parent.width * 0.4
-                    Layout.alignment: Qt.AlignHCenter
-                    TabButton {
-                        text: "Dane"
-                        font.pixelSize: 15
-                        padding: 7
-                    }
-                    TabButton {
-                        text: "Statystyki"
-                        font.pixelSize: 15
-                        padding: 7
+                Rectangle {
+                    id: sensorDataPlaceholder
+                    Layout.fillWidth: true
+                    Layout.fillHeight: true
+                    radius: 15
+                    color: "#cfcfcf"
+                    Text {
+                        anchors.fill: parent
+                        horizontalAlignment: Text.AlignHCenter
+                        verticalAlignment: Text.AlignVCenter
+                        text: "Wybierz odpowiednią stacje"
+                        font.pixelSize: 29
+                        font.bold: true
+                        color: "#afafaf"
                     }
                 }
-                StackLayout {
+                ColumnLayout {
+                    id: sensorDataWrapper
+                    visible: false
                     Layout.fillWidth: true
-                    currentIndex: mainBar.currentIndex
-                    Item {
-                        RowLayout {
-                            anchors.fill: parent
-                            spacing: 100
-                            SensorDataTableView {
-                                Layout.alignment: Qt.AlignRight
-                            }
-                            ColumnLayout {
-                                Layout.fillWidth: true
-                                Layout.fillHeight: true
-                                spacing: 15
-                                ColumnLayout {
-                                    Layout.fillWidth: true
-                                    Layout.fillHeight: true
-                                    spacing: 5
-                                    Label {
-                                        id: saveLabel
-                                        text: "Zapisz pobrane dane"
-                                        font.pixelSize: 17
-                                        font.bold: true
-                                    }
-                                    Button {
-                                        text: "Zapisz"
-                                        onClicked: sensorDataHandler.saveData()
-                                    }
+                    spacing: 15
+                    TabBar {
+                        id: mainBar
+                        Layout.preferredWidth: parent.width * 0.4
+                        Layout.alignment: Qt.AlignHCenter
+                        TabButton {
+                            text: "Dane"
+                            font.pixelSize: 15
+                            padding: 7
+                        }
+                        TabButton {
+                            text: "Statystyki"
+                            font.pixelSize: 15
+                            padding: 7
+                        }
+                    }
+                    StackLayout {
+
+                        Layout.fillWidth: true
+                        currentIndex: mainBar.currentIndex
+                        Item {
+                            RowLayout {
+                                anchors.fill: parent
+                                spacing: 100
+                                SensorDataTableView {
+                                    Layout.alignment: Qt.AlignRight
                                 }
                                 ColumnLayout {
                                     Layout.fillWidth: true
                                     Layout.fillHeight: true
-                                    spacing: 12
-                                    Label {
-                                        id: saveArchiveLabel
-                                        text: "Pobierz archiwalne dane"
-                                        font.pixelSize: 17
-                                        font.bold: true
-                                    }
-                                    Row {
-                                        id: archiveBeginRangex
+                                    spacing: 15
+                                    ColumnLayout {
+                                        Layout.fillWidth: true
+                                        Layout.fillHeight: true
+                                        spacing: 5
                                         Label {
-                                            id: archiveBeginLabel
-                                            text: "Od:"
-                                            font.pixelSize: 15
+                                            id: saveLabel
+                                            text: "Zapisz pobrane dane"
+                                            font.pixelSize: 17
+                                            font.bold: true
                                         }
-                                        DatePicker {
-                                            anchors.left: archiveBeginLabel.right
-                                            width: 200
+                                        Button {
+                                            text: "Zapisz"
+                                            onClicked: sensorDataHandler.saveData()
                                         }
                                     }
-                                    Row {
-                                        id: archiveEndRange
+                                    ColumnLayout {
+                                        Layout.fillWidth: true
+                                        Layout.fillHeight: true
+                                        spacing: 12
                                         Label {
-                                            id: archiveEndLabel
-                                            text: "Do:"
-                                            font.pixelSize: 15
+                                            id: saveArchiveLabel
+                                            text: "Pobierz archiwalne dane"
+                                            font.pixelSize: 17
+                                            font.bold: true
                                         }
-                                        DatePicker {
-                                            anchors.left: archiveEndLabel.right
-                                            width: 200
+                                        Row {
+                                            id: archiveBeginRangex
+                                            Label {
+                                                id: archiveBeginLabel
+                                                text: "Od:"
+                                                font.pixelSize: 15
+                                            }
+                                            DatePicker {
+                                                id: archiveBegin
+                                                anchors.left: archiveBeginLabel.right
+                                                width: 200
+                                            }
                                         }
-                                    }
-                                    Button {
-                                        text: "Załaduj"
-                                        font.pixelSize: 14
+                                        Row {
+                                            id: archiveEndRange
+                                            Label {
+                                                id: archiveEndLabel
+                                                text: "Do:"
+                                                font.pixelSize: 15
+                                            }
+                                            DatePicker {
+                                                id: archiveEnd
+                                                anchors.left: archiveEndLabel.right
+                                                width: 200
+                                            }
+                                        }
+                                        Button {
+                                            text: "Załaduj"
+                                            font.pixelSize: 14
+                                            onClicked: {
+                                                sensorDataHandler.getArchiveData(archiveBegin.currentDate, archiveEnd.currentDate)
+                                            }
+                                        }
                                     }
                                 }
                             }
                         }
-                    }
-                    Item {
-                        RowLayout {
-                            anchors.fill: parent
-                            ColumnLayout {
-                                Layout.fillHeight: true
-                                Layout.preferredWidth: childrenRect.width
-                                Row {
-                                    spacing: 5
-                                    Label {
-                                        text: "Maksymalna wartość:"
-                                        font {
-                                            bold: true
-                                            pixelSize: 15
+                        Item {
+                            RowLayout {
+                                anchors.fill: parent
+                                ColumnLayout {
+                                    Layout.fillHeight: true
+                                    Layout.preferredWidth: childrenRect.width
+                                    Row {
+                                        spacing: 5
+                                        Label {
+                                            text: "Maksymalna wartość:"
+                                            font {
+                                                bold: true
+                                                pixelSize: 15
+                                            }
+                                        }
+                                        Text {
+                                            id: maxValue
+                                            font.pixelSize: 15
                                         }
                                     }
-                                    Text {
-                                        id: maxValue
-                                        font.pixelSize: 15
-                                    }
-                                }
-                                Row {
-                                    spacing: 5
-                                    Label {
-                                        text: "Minimalna wartość:"
-                                        font {
-                                            bold: true
-                                            pixelSize: 15
+                                    Row {
+                                        spacing: 5
+                                        Label {
+                                            text: "Minimalna wartość:"
+                                            font {
+                                                bold: true
+                                                pixelSize: 15
+                                            }
+                                        }
+                                        Text {
+                                            id: minValue
+                                            font.pixelSize: 15
                                         }
                                     }
-                                    Text {
-                                        id: minValue
-                                        font.pixelSize: 15
-                                    }
-                                }
-                                Row {
-                                    spacing: 5
-                                    Label {
-                                        text: "Średnia:"
-                                        font {
-                                            bold: true
-                                            pixelSize: 15
+                                    Row {
+                                        spacing: 5
+                                        Label {
+                                            text: "Średnia:"
+                                            font {
+                                                bold: true
+                                                pixelSize: 15
+                                            }
+                                        }
+                                        Text {
+                                            id: averageValue
+                                            font.pixelSize: 15
                                         }
                                     }
-                                    Text {
-                                        id: averageValue
-                                        font.pixelSize: 15
-                                    }
-                                }
-                                Row {
-                                    spacing: 5
-                                    Label {
-                                        text: "Trend:"
-                                        font {
-                                            bold: true
-                                            pixelSize: 15
+                                    Row {
+                                        spacing: 5
+                                        Label {
+                                            text: "Trend:"
+                                            font {
+                                                bold: true
+                                                pixelSize: 15
+                                            }
+                                        }
+                                        Text {
+                                            id: trendValue
+                                            font.pixelSize: 15
                                         }
                                     }
-                                    Text {
-                                        id: trendValue
-                                        font.pixelSize: 15
-                                    }
-                                }
-                                Connections {
-                                    target: sensorDataHandler
-                                    function onDataChanged() {
-                                        minValue.text = sensorDataModel.minValue
-                                        maxValue.text = sensorDataModel.maxValue
-                                        averageValue.text = sensorDataModel.average
+                                    Connections {
+                                        target: sensorDataHandler
 
-                                        trendValue.text = sensorDataModel.trend
-                                        trendValue.color = getTrendColor(sensorDataModel.trend)
-                                    }
-                                    function getTrendColor(trend) {
-                                        if(trend === "Rosnący") {
-                                            return "red"
-                                        } else if (trend === "Malejący") {
-                                            return "green"
-                                        } else {
-                                            return "black"
+                                        function onDataChanged() {
+                                            minValue.text = sensorDataModel.minValue.toFixed(2)
+                                            maxValue.text = sensorDataModel.maxValue.toFixed(2)
+                                            averageValue.text = sensorDataModel.average.toFixed(2)
+
+                                            trendValue.text = sensorDataModel.trend
+                                            trendValue.color = getTrendColor(sensorDataModel.trend)
+                                        }
+
+                                        function getTrendColor(trend) {
+                                            if (trend === "Rosnący") {
+                                                return "red"
+                                            } else if (trend === "Malejący") {
+                                                return "green"
+                                            } else {
+                                                return "black"
+                                            }
                                         }
                                     }
+                                }
+                                SensorDataChart {
                                 }
                             }
-                            SensorDataChart {}
                         }
                     }
                 }
@@ -261,7 +292,11 @@ Rectangle {
                 stationInfo.aqiStatus       =  "Indeksy jakości wskaźników - <po wybraniu stacji>"
 
                 sensorInfo.indicator        = "Wskaźnik stanowiska: <wybierz stanowisko z listy>"
-                sensorInfo.sensorId         = "ID stanowiska: <po wybraniu stanowiska>"            }
+                sensorInfo.sensorId         = "ID stanowiska: <po wybraniu stanowiska>"
+
+                sensorDataWrapper.visible = false
+                sensorDataPlaceholder.visible = true
+            }
         }
         Connections {
             target: stationHandler
@@ -271,6 +306,8 @@ Rectangle {
                 stationInfo.aqiStatus   = "Indeksy jakości wskaźników - Ładowanie"
                 sensorInfo.indicator        = "Wskaźnik stanowiska: <wybierz stanowisko z listy>"
                 sensorInfo.sensorId         = "ID stanowiska: <po wybraniu stanowiska>"
+                sensorDataWrapper.visible = false
+                sensorDataPlaceholder.visible = true
             }
         }
         Connections {
@@ -278,6 +315,21 @@ Rectangle {
             function onCurrentSensorChanged(sensor) {
                 sensorInfo.indicator        = `Wskaźnik stanowiska: ${sensorHandler.currentSensorIndicator}`
                 sensorInfo.sensorId         = `ID stanowiska: ${sensorHandler.currentSensorId}`
+
+                sensorDataWrapper.visible = false
+                sensorDataPlaceholder.visible = true
+            }
+        }
+        Connections {
+            target: sensorDataHandler
+            function onDataChanged() {
+                if(sensorDataModel.size) {
+                    sensorDataWrapper.visible = true
+                    sensorDataPlaceholder.visible = false
+                } else {
+                    sensorDataWrapper.visible = false
+                    sensorDataPlaceholder.visible = true
+                }
             }
         }
     }

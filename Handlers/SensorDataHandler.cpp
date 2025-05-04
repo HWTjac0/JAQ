@@ -30,6 +30,13 @@ SensorDataModel * SensorDataHandler::getSensorDataModel() const {
     return _sensorDataModel;
 }
 
+void SensorDataHandler::getArchiveData(const QDateTime &begin, const QDateTime &end) const {
+    QString beginParam = begin.toString("yyyy-MM-dd") + QStringLiteral("%2000%3A00");
+    QString endParam = end.toString("yyyy-MM-dd") + QStringLiteral("%2000%3A00");
+    int sensorId = AppContext::getInstance()->getSensorHandler()->currentSensorId();
+    _apiClient->fetchArchiveSensorData(sensorId, beginParam, endParam);
+}
+
 void SensorDataHandler::onDataLoaded(const QJsonArray &data) {
     _measurements.clear();
     double min = 9999999;
@@ -48,7 +55,6 @@ void SensorDataHandler::onDataLoaded(const QJsonArray &data) {
     }
     _sensorDataModel->setData(_measurements);
     emit dataChanged();
-
 }
 
 void SensorDataHandler::onCurrentSensorChanged(Sensor *sensor) const {

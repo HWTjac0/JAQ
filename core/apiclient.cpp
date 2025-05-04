@@ -41,6 +41,16 @@ void ApiClient::fetchSensorData(int sensorId, int hours) {
     connect(reply, &QNetworkReply::finished, this, &ApiClient::handleSensorData);
 }
 
+void ApiClient::fetchArchiveSensorData(int sensorId, const QString &begin, const QString &end) {
+    qDebug() << begin << " " << end;
+    QMap<QString, QString> params {{"dateFrom", begin}, {"dateTo", end}, {"size", "400"}};
+    QUrl url = buildUrl("/archivalData/getDataBySensor/" + QString::number(sensorId), params);
+    QNetworkRequest req(url);
+    QNetworkReply *reply = _manager->get(req);
+    connect(reply, &QNetworkReply::finished, this, &ApiClient::handleArchiveData);
+
+}
+
 void ApiClient::handleSensors() {
     QJsonObject data = getJsonFromReply(qobject_cast<QNetworkReply *>(sender())).object();
     QJsonArray sensors_json = data["Lista stanowisk pomiarowych dla podanej stacji"].toArray();
@@ -88,7 +98,18 @@ void ApiClient::handleStationAQI() {
 void ApiClient::handleSensorData() {
     QJsonObject data = getJsonFromReply(qobject_cast<QNetworkReply *>(sender())).object();
     QJsonArray measurments = data["Lista danych pomiarowych"].toArray();
-    emit sensorDataFinished(measurments);
+
+    if (!measurments.isEmpty()) {
+        emit sensorDataFinished(measurments);
+    }
+}
+
+void ApiClient::handleArchiveData() {
+    QJsonObject data = getJsonFromReply(qobject_cast<QNetworkReply *>(sender())).object();
+    QJsonArray measurments = data["Lista archiwalnych wyników pomiarów"].toArray();
+    if (!measurments.isEmpty()) {
+        emit sensorDataFinished(measurments);
+    }
 }
 
 void ApiClient::handleStations()
