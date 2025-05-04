@@ -92,7 +92,10 @@ Rectangle {
                     Item {
                         RowLayout {
                             anchors.fill: parent
-                            SensorDataTableView {}
+                            spacing: 100
+                            SensorDataTableView {
+                                Layout.alignment: Qt.AlignRight
+                            }
                             ColumnLayout {
                                 Layout.fillWidth: true
                                 Layout.fillHeight: true
@@ -115,7 +118,7 @@ Rectangle {
                                 ColumnLayout {
                                     Layout.fillWidth: true
                                     Layout.fillHeight: true
-                                    spacing: 10
+                                    spacing: 12
                                     Label {
                                         id: saveArchiveLabel
                                         text: "Pobierz archiwalne dane"
@@ -145,6 +148,10 @@ Rectangle {
                                             anchors.left: archiveEndLabel.right
                                             width: 200
                                         }
+                                    }
+                                    Button {
+                                        text: "Załaduj"
+                                        font.pixelSize: 14
                                     }
                                 }
                             }
