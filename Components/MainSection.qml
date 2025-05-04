@@ -155,7 +155,7 @@ Rectangle {
 
                 stationInfo.address         = "Adres stacji: <wybierz stacje z listy>"
                 stationInfo.stationId       = "ID stacji: <po wybraniu stacji>"
-                stationInfo.aqiStatus       = "Ogólny stan powietrza: <po wybraniu stacji>"
+                stationInfo.aqiStatus       =  "Indeksy jakości wskaźników - <po wybraniu stacji>"
 
                 sensorInfo.indicator        = "Wskaźnik stanowiska: <wybierz stanowisko z listy>"
                 sensorInfo.sensorId         = "ID stanowiska: <po wybraniu stanowiska>"            }
@@ -165,18 +165,9 @@ Rectangle {
             function onStationChanged() {
                 stationInfo.address     = `Adres stacji: ${stationHandler.currentStationAddress}`
                 stationInfo.stationId   = `ID stacji: ${stationHandler.currentStationId}`
-                stationInfo.aqiStatus   = "Ogólny stan powietrza: Ładowanie..."
-
+                stationInfo.aqiStatus   = "Indeksy jakości wskaźników - Ładowanie"
                 sensorInfo.indicator        = "Wskaźnik stanowiska: <wybierz stanowisko z listy>"
                 sensorInfo.sensorId         = "ID stanowiska: <po wybraniu stanowiska>"
-            }
-            function  onStationAQIAcquired(aqiStatus) {
-                aqiStatus = aqiStatus ? aqiStatus : "Brak indeksu"
-                try {
-                    stationInfo.aqiStatus  = `Ogólny stan powietrza: ${aqiStatus}`
-                } catch(e) {
-                    console.error("Error updating AQI:", e)
-                }
             }
         }
         Connections {

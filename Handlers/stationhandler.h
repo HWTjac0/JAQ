@@ -28,7 +28,7 @@ public slots:
     void stationSelected(int stationId);
 signals:
     void stationChanged();
-    void stationAQIAcquired(QString aqiStatus);
+    void stationAQIAcquired(const QVariantMap &aqiStatus);
 private:
     StationModel *_stationModel;
     SensorHandler *_sensorHandler;
