@@ -160,6 +160,86 @@ Rectangle {
                     Item {
                         RowLayout {
                             anchors.fill: parent
+                            ColumnLayout {
+                                Layout.fillHeight: true
+                                Layout.preferredWidth: childrenRect.width
+                                Row {
+                                    spacing: 5
+                                    Label {
+                                        text: "Maksymalna wartość:"
+                                        font {
+                                            bold: true
+                                            pixelSize: 15
+                                        }
+                                    }
+                                    Text {
+                                        id: maxValue
+                                        font.pixelSize: 15
+                                    }
+                                }
+                                Row {
+                                    spacing: 5
+                                    Label {
+                                        text: "Minimalna wartość:"
+                                        font {
+                                            bold: true
+                                            pixelSize: 15
+                                        }
+                                    }
+                                    Text {
+                                        id: minValue
+                                        font.pixelSize: 15
+                                    }
+                                }
+                                Row {
+                                    spacing: 5
+                                    Label {
+                                        text: "Średnia:"
+                                        font {
+                                            bold: true
+                                            pixelSize: 15
+                                        }
+                                    }
+                                    Text {
+                                        id: averageValue
+                                        font.pixelSize: 15
+                                    }
+                                }
+                                Row {
+                                    spacing: 5
+                                    Label {
+                                        text: "Trend:"
+                                        font {
+                                            bold: true
+                                            pixelSize: 15
+                                        }
+                                    }
+                                    Text {
+                                        id: trendValue
+                                        font.pixelSize: 15
+                                    }
+                                }
+                                Connections {
+                                    target: sensorDataHandler
+                                    function onDataChanged() {
+                                        minValue.text = sensorDataModel.minValue
+                                        maxValue.text = sensorDataModel.maxValue
+                                        averageValue.text = sensorDataModel.average
+
+                                        trendValue.text = sensorDataModel.trend
+                                        trendValue.color = getTrendColor(sensorDataModel.trend)
+                                    }
+                                    function getTrendColor(trend) {
+                                        if(trend === "Rosnący") {
+                                            return "red"
+                                        } else if (trend === "Malejący") {
+                                            return "green"
+                                        } else {
+                                            return "black"
+                                        }
+                                    }
+                                }
+                            }
                             SensorDataChart {}
                         }
                     }

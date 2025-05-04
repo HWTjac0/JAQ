@@ -63,6 +63,40 @@ QHash<int, QByteArray> SensorDataModel::roleNames() const {
     };
 }
 
+// https://www.ncl.ac.uk/webtemplate/ask-assets/external/maths-resources/statistics/regression-and-correlation/simple-linear-regression.html
+// https://en.wikipedia.org/wiki/Simple_linear_regression
+QString SensorDataModel::calculateTrend(const QVector<QPair<QDateTime, double>> &data) {
+    size_t n = static_cast<size_t>(data.size());
+
+    double sum_x = 0.0;
+    double sum_y = 0.0;
+    double sum_xy = 0.0;
+    double sum_xx = 0.0;
+
+    for (size_t i = 0; i < n; ++i) {
+        double xi = static_cast<double>(i);
+        double yi = data[static_cast<int>(i)].second;
+
+        sum_x += xi;
+        sum_y += yi;
+        sum_xy += xi * yi;
+        sum_xx += xi * xi;
+    }
+    double numerator = (static_cast<double>(n) * sum_xy) - (sum_x * sum_y);
+    double denominator = (static_cast<double>(n) * sum_xx) - (sum_x * sum_x);
+
+    double slope = numerator / denominator;
+
+    const double epsilon_slope = 1e-6; // tolerance for slope being flat
+    if (slope > epsilon_slope) {
+        return "Rosnący";
+    } else if (slope < -epsilon_slope) {
+        return "Malejący";
+    } else {
+        return "Stały";
+    }
+}
+
 void SensorDataModel::setData(const QVector<QPair<QDateTime, double>> &data) {
     beginResetModel();
     _data = data;
@@ -75,6 +109,12 @@ void SensorDataModel::setData(const QVector<QPair<QDateTime, double>> &data) {
     _minValue = (*mm.first).second;
     _maxValue = (*mm.second).second;
 
+    double sum = 0;
+    for (const auto& d : _data) {
+        sum += d.second;
+    }
+    _average = sum / _data.size();
+    _trend = calculateTrend(_data);
     endResetModel();
 }
 
@@ -90,6 +130,14 @@ double SensorDataModel::minValue() const {
 
 double SensorDataModel::maxValue() const {
     return _maxValue;
+}
+
+double SensorDataModel::average() const {
+    return _average;
+}
+
+QString SensorDataModel::trend() const {
+    return _trend;
 }
 
 QDateTime SensorDataModel::timerangeStart() const {
