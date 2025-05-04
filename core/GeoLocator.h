@@ -16,6 +16,8 @@ public:
     explicit GeoLocator(QObject *parent = nullptr);
     void getCoordinates(const QString &city, const QString &voivodeship);
     void getUserLocation();
+    double haversineDistance(double lat1, double lon1, double lat2, double lon2);
+    double toRadians(double deg);
 public slots:
     void handleCityCoordinates();
     void positionUpdated(const QGeoPositionInfo &info);

@@ -78,6 +78,14 @@ void CityHandler::getUserLocation() {
     _geoLocator->getUserLocation();
 }
 
+void CityHandler::changeCity(int cityId) {
+    currentCity = Database::getCity(cityId);
+    getCurrentCityCoordinates();
+    updateStationMarkers();
+    _stationHandler->loadStationsForCity();
+    emit cityChanged();
+}
+
 void CityHandler::citySelected(int comboBoxIndex)  {
     int cityId = getCityId(comboBoxIndex);
     currentCity = Database::getCity(cityId);

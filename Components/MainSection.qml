@@ -171,6 +171,7 @@ Rectangle {
                 sensorInfo.sensorId         = "ID stanowiska: <po wybraniu stanowiska>"
             }
             function  onStationAQIAcquired(aqiStatus) {
+                aqiStatus = aqiStatus ? aqiStatus : "Brak indeksu"
                 try {
                     stationInfo.aqiStatus  = `Ogólny stan powietrza: ${aqiStatus}`
                 } catch(e) {

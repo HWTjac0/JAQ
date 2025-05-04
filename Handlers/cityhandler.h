@@ -29,6 +29,9 @@ public:
     Q_INVOKABLE int getCityId(int comboBoxIndex) const;
     Q_INVOKABLE StationHandler* stationHandler() const;
     Q_INVOKABLE void getUserLocation();
+
+    void changeCity(int cityId);
+
 public slots:
     void citySelected(int comboBoxIndex);
     void handleCityCoordinates(QGeoCoordinate &coordinate);

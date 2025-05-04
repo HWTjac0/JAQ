@@ -87,6 +87,9 @@ ColumnLayout {
                         Text {
                             id: userLocationSearchStatus
                             text: "<po wyszukaniu>"
+                            font {
+                                bold: true
+                            }
                         }
                     }
                     Button {
@@ -102,8 +105,8 @@ ColumnLayout {
                 Connections {
                     target: cityHandler
                     function onUserLocationChanged(latitude, longitude) {
-                        userLocationSearchStatus.text = `${latitude.toFixed(2)} ${longitude.toFixed(2)}`
-                        console.log(latitude, longitude)
+                        userLocationSearchStatus.text = `Znaleziono`
+                        userLocationSearchStatus.color = "green"
                     }
                 }
             }
