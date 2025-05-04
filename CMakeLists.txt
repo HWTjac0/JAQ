@@ -49,6 +49,7 @@ qt_add_qml_module(appairQuality
         QML_FILES Components/SensorDataTableView.qml
         QML_FILES Components/SensorDataChart.qml
         QML_FILES Components/MapView.qml
+        QML_FILES Components/DatePicker.qml
         SOURCES app.h app.cpp
         SOURCES core/apiclient.h core/apiclient.cpp
         SOURCES Handlers/cityhandler.h Handlers/cityhandler.cpp

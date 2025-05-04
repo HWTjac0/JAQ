@@ -96,38 +96,54 @@ Rectangle {
                             ColumnLayout {
                                 Layout.fillWidth: true
                                 Layout.fillHeight: true
-                                Item {
+                                spacing: 15
+                                ColumnLayout {
                                     Layout.fillWidth: true
                                     Layout.fillHeight: true
+                                    spacing: 5
                                     Label {
                                         id: saveLabel
                                         text: "Zapisz pobrane dane"
+                                        font.pixelSize: 17
+                                        font.bold: true
                                     }
                                     Button {
-                                        anchors.top: saveLabel.bottom
                                         text: "Zapisz"
                                         onClicked: sensorDataHandler.saveData()
                                     }
                                 }
-                                Item {
+                                ColumnLayout {
                                     Layout.fillWidth: true
                                     Layout.fillHeight: true
+                                    spacing: 10
                                     Label {
                                         id: saveArchiveLabel
                                         text: "Pobierz archiwalne dane"
+                                        font.pixelSize: 17
+                                        font.bold: true
                                     }
                                     Row {
-                                        id: archiveBeginRange
-                                        anchors.top: saveArchiveLabel.bottom
+                                        id: archiveBeginRangex
                                         Label {
+                                            id: archiveBeginLabel
                                             text: "Od:"
+                                            font.pixelSize: 15
+                                        }
+                                        DatePicker {
+                                            anchors.left: archiveBeginLabel.right
+                                            width: 200
                                         }
                                     }
                                     Row {
                                         id: archiveEndRange
-                                        anchors.top: archiveBeginRange.bottom
                                         Label {
+                                            id: archiveEndLabel
                                             text: "Do:"
+                                            font.pixelSize: 15
+                                        }
+                                        DatePicker {
+                                            anchors.left: archiveEndLabel.right
+                                            width: 200
                                         }
                                     }
                                 }
