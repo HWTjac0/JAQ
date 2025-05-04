@@ -6,18 +6,21 @@ class TestAirQuality : public QObject {
     Q_OBJECT
 private slots:
     void initTestCase();
-    void testAppContextCreation();
+    void testParseIndicator();
+    void testParseCity();
+    void testParseSensors();
+    void testCityToIndexEntry();
+    void testStationToIndexEntry();
 };
 
 void TestAirQuality::initTestCase() {
     qDebug() << "Starting test suite...";
 }
-
-void TestAirQuality::testAppContextCreation() {
-    double sum = 25 + 3;
-    QVERIFY(sum == 28);
-}
-
+void TestAirQuality::testParseIndicator() {}
+void TestAirQuality::testParseCity() {}
+void TestAirQuality::testParseSensors() {}
+void TestAirQuality::testCityToIndexEntry() {}
+void TestAirQuality::testStationToIndexEntry() {}
 QTEST_MAIN(TestAirQuality)
 
 #include "test.moc"
