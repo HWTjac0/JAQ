@@ -32,8 +32,8 @@
 <area shape="poly" id="edge25_Node000000_Node000025" title=" " alt="" coords="47,439,51,490,64,556,89,624,107,655,130,683,149,695,146,700,126,687,103,658,84,626,59,557,46,491,42,439"/>
 <area shape="rect" id="Node000026" href="$classStationHandler.html" title=" " alt="" coords="147,745,265,771"/>
 <area shape="poly" id="edge26_Node000000_Node000026" title=" " alt="" coords="46,439,47,499,58,577,68,619,83,660,104,698,130,732,148,745,145,749,126,736,99,701,78,662,63,621,52,578,42,499,40,439"/>
-<area shape="rect" id="Node000027" href="$classTest.html" title=" " alt="" coords="182,795,230,820"/>
-<area shape="poly" id="edge27_Node000000_Node000027" title=" " alt="" coords="49,439,59,518,75,620,99,718,114,756,130,781,155,797,182,803,181,809,153,802,126,785,109,758,94,720,70,621,53,518,44,440"/>
+<area shape="rect" id="Node000027" href="$classTestAirQuality.html" title=" " alt="" coords="149,795,263,820"/>
+<area shape="poly" id="edge27_Node000000_Node000027" title=" " alt="" coords="49,439,59,518,75,620,99,718,114,756,130,781,151,795,148,800,126,785,109,758,94,720,70,621,53,518,44,440"/>
 <area shape="rect" id="Node000014" href="/home/runner/work/JAQ/JAQ/qt-tags/qtcore.tags$qabstractlistmodel.html" title=" " alt="" coords="347,500,496,525"/>
 <area shape="poly" id="edge14_Node000013_Node000014" title=" " alt="" coords="262,590,283,582,395,523,398,528,285,587,264,595"/>
 <area shape="rect" id="Node000018" href="/home/runner/work/JAQ/JAQ/qt-tags/qtcore.tags$qabstractproxymodel.html" title=" " alt="" coords="340,573,503,599"/>

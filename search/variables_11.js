@@ -163,7 +163,7 @@ var searchData=
   ['rg16_160',['RG16',['https://doc.qt.io/qt-6/qrhitexture.html#Format-enum',1,'QRhiTexture']]],
   ['rg32ui_161',['RG32UI',['https://doc.qt.io/qt-6/qrhitexture.html#Format-enum',1,'QRhiTexture']]],
   ['rg8_162',['RG8',['https://doc.qt.io/qt-6/qrhitexture.html#Format-enum',1,'QRhiTexture']]],
-  ['rgb_163',['rgb',['https://doc.qt.io/qt-6/qpixelformat.html#ColorModel-enum',1,'QPixelFormat::RGB'],['https://doc.qt.io/qt-6/qpdfwriter.html#ColorModel-enum',1,'QPdfWriter::RGB'],['https://doc.qt.io/qt-6/qcolorspace.html#ColorModel-enum',1,'QColorSpace::Rgb'],['https://doc.qt.io/qt-6/qcolor.html#Spec-enum',1,'QColor::Rgb']]],
+  ['rgb_163',['rgb',['https://doc.qt.io/qt-6/qcolorspace.html#ColorModel-enum',1,'QColorSpace::Rgb'],['https://doc.qt.io/qt-6/qcolor.html#Spec-enum',1,'QColor::Rgb'],['https://doc.qt.io/qt-6/qpixelformat.html#ColorModel-enum',1,'QPixelFormat::RGB'],['https://doc.qt.io/qt-6/qpdfwriter.html#ColorModel-enum',1,'QPdfWriter::RGB']]],
   ['rgb10a2_164',['RGB10A2',['https://doc.qt.io/qt-6/qrhitexture.html#Format-enum',1,'QRhiTexture']]],
   ['rgba16f_165',['RGBA16F',['https://doc.qt.io/qt-6/qrhitexture.html#Format-enum',1,'QRhiTexture']]],
   ['rgba32f_166',['RGBA32F',['https://doc.qt.io/qt-6/qrhitexture.html#Format-enum',1,'QRhiTexture']]],
