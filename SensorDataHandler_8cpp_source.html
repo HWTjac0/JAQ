@@ -114,41 +114,49 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    <span class="keywordflow">return</span> _sensorDataModel;</div>
 <div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>}</div>
 <div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="keywordtype">void</span> SensorDataHandler::onDataLoaded(<span class="keyword">const</span> <a class="code hl_classRef" href="https://doc.qt.io/qt-6/qjsonarray.html">QJsonArray</a> &amp;data) {</div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    _measurements.clear();</div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    <span class="keywordtype">double</span> min = 9999999;</div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    <span class="keywordtype">double</span> max = 0;</div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    <span class="keywordflow">for</span> (<span class="keyword">auto</span> <a class="code hl_functionRef" href="https://doc.qt.io/qt-6/qobject.html#qobject_cast">d</a> : data) {</div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>        <a class="code hl_classRef" href="https://doc.qt.io/qt-6/qjsonobject.html">QJsonObject</a> <a class="code hl_functionRef" href="https://doc.qt.io/qt-6/qobject.html#qobject_cast">mobj</a> = <a class="code hl_functionRef" href="https://doc.qt.io/qt-6/qobject.html#qobject_cast">d</a>.toObject();</div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>        <a class="code hl_classRef" href="https://doc.qt.io/qt-6/qdatetime.html">QDateTime</a> timestamp = <a class="code hl_functionRef" href="https://doc.qt.io/qt-6/qdatetime.html#fromString-3">QDateTime::fromString</a>(</div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>            <a class="code hl_functionRef" href="https://doc.qt.io/qt-6/qobject.html#qobject_cast">mobj</a>.value(<span class="stringliteral">&quot;Data&quot;</span>).toString(),</div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>            <span class="stringliteral">&quot;yyyy-MM-dd HH:mm:ss&quot;</span></div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>            );</div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>        <span class="keywordtype">double</span> value = <a class="code hl_functionRef" href="https://doc.qt.io/qt-6/qobject.html#qobject_cast">mobj</a>.value(<span class="stringliteral">&quot;Wartość&quot;</span>).toDouble();</div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>        min = min &lt; value ? min : value;</div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>        max = max &gt; value ? max : value;</div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>        _measurements.emplace_back(timestamp, value);</div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    }</div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    _sensorDataModel-&gt;setData(_measurements);</div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    <a class="code hl_functionRef" href="https://doc.qt.io/qt-6/qobject.html#qobject_cast">emit</a> dataChanged();</div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>}</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="keywordtype">void</span> SensorDataHandler::getArchiveData(<span class="keyword">const</span> <a class="code hl_classRef" href="https://doc.qt.io/qt-6/qdatetime.html">QDateTime</a> &amp;begin, <span class="keyword">const</span> <a class="code hl_classRef" href="https://doc.qt.io/qt-6/qdatetime.html">QDateTime</a> &amp;end)<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    <a class="code hl_classRef" href="https://doc.qt.io/qt-6/qstring.html">QString</a> <a class="code hl_functionRef" href="https://doc.qt.io/qt-6/qobject.html#qobject_cast">beginParam</a> = begin.<a class="code hl_functionRef" href="https://doc.qt.io/qt-6/qdatetime.html#toString-2">toString</a>(<span class="stringliteral">&quot;yyyy-MM-dd&quot;</span>) + QStringLiteral(<span class="stringliteral">&quot;%2000%3A00&quot;</span>);</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    <a class="code hl_classRef" href="https://doc.qt.io/qt-6/qstring.html">QString</a> <a class="code hl_functionRef" href="https://doc.qt.io/qt-6/qobject.html#qobject_cast">endParam</a> = end.<a class="code hl_functionRef" href="https://doc.qt.io/qt-6/qdatetime.html#toString-2">toString</a>(<span class="stringliteral">&quot;yyyy-MM-dd&quot;</span>) + QStringLiteral(<span class="stringliteral">&quot;%2000%3A00&quot;</span>);</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    <span class="keywordtype">int</span> <a class="code hl_functionRef" href="https://doc.qt.io/qt-6/qobject.html#qobject_cast">sensorId</a> = AppContext::getInstance()-&gt;getSensorHandler()-&gt;currentSensorId();</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    _apiClient-&gt;fetchArchiveSensorData(<a class="code hl_functionRef" href="https://doc.qt.io/qt-6/qobject.html#qobject_cast">sensorId</a>, <a class="code hl_functionRef" href="https://doc.qt.io/qt-6/qobject.html#qobject_cast">beginParam</a>, <a class="code hl_functionRef" href="https://doc.qt.io/qt-6/qobject.html#qobject_cast">endParam</a>);</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>}</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="keywordtype">void</span> SensorDataHandler::onDataLoaded(<span class="keyword">const</span> <a class="code hl_classRef" href="https://doc.qt.io/qt-6/qjsonarray.html">QJsonArray</a> &amp;data) {</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    _measurements.clear();</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    <span class="keywordtype">double</span> min = 9999999;</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    <span class="keywordtype">double</span> max = 0;</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    <span class="keywordflow">for</span> (<span class="keyword">auto</span> <a class="code hl_functionRef" href="https://doc.qt.io/qt-6/qobject.html#qobject_cast">d</a> : data) {</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>        <a class="code hl_classRef" href="https://doc.qt.io/qt-6/qjsonobject.html">QJsonObject</a> <a class="code hl_functionRef" href="https://doc.qt.io/qt-6/qobject.html#qobject_cast">mobj</a> = <a class="code hl_functionRef" href="https://doc.qt.io/qt-6/qobject.html#qobject_cast">d</a>.toObject();</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>        <a class="code hl_classRef" href="https://doc.qt.io/qt-6/qdatetime.html">QDateTime</a> timestamp = <a class="code hl_functionRef" href="https://doc.qt.io/qt-6/qdatetime.html#fromString-3">QDateTime::fromString</a>(</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>            <a class="code hl_functionRef" href="https://doc.qt.io/qt-6/qobject.html#qobject_cast">mobj</a>.value(<span class="stringliteral">&quot;Data&quot;</span>).toString(),</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>            <span class="stringliteral">&quot;yyyy-MM-dd HH:mm:ss&quot;</span></div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>            );</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>        <span class="keywordtype">double</span> value = <a class="code hl_functionRef" href="https://doc.qt.io/qt-6/qobject.html#qobject_cast">mobj</a>.value(<span class="stringliteral">&quot;Wartość&quot;</span>).toDouble();</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>        min = min &lt; value ? min : value;</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>        max = max &gt; value ? max : value;</div>
 <div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span> </div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span><span class="keywordtype">void</span> SensorDataHandler::onCurrentSensorChanged(<a class="code hl_class" href="classSensor.html">Sensor</a> *sensor)<span class="keyword"> const </span>{</div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    <span class="keywordflow">if</span> (<a class="code hl_functionRef" href="https://doc.qt.io/qt-6/qobject.html#qobject_cast">sensor</a>) {</div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>        loadData(<a class="code hl_functionRef" href="https://doc.qt.io/qt-6/qobject.html#qobject_cast">sensor</a>-&gt;id());</div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    }</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>        _measurements.emplace_back(timestamp, value);</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    }</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    _sensorDataModel-&gt;setData(_measurements);</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    <a class="code hl_functionRef" href="https://doc.qt.io/qt-6/qobject.html#qobject_cast">emit</a> dataChanged();</div>
 <div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>}</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span> </div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span><span class="keywordtype">void</span> SensorDataHandler::onCurrentSensorChanged(<a class="code hl_class" href="classSensor.html">Sensor</a> *sensor)<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    <span class="keywordflow">if</span> (<a class="code hl_functionRef" href="https://doc.qt.io/qt-6/qobject.html#qobject_cast">sensor</a>) {</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>        loadData(<a class="code hl_functionRef" href="https://doc.qt.io/qt-6/qobject.html#qobject_cast">sensor</a>-&gt;id());</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    }</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>}</div>
 <div class="ttc" id="aclassApiClient_html"><div class="ttname"><a href="classApiClient.html">ApiClient</a></div><div class="ttdef"><b>Definition</b> <a href="apiclient_8h_source.html#l00016">apiclient.h:17</a></div></div>
 <div class="ttc" id="aclassSensorDataModel_html"><div class="ttname"><a href="classSensorDataModel.html">SensorDataModel</a></div><div class="ttdef"><b>Definition</b> <a href="SensorDataModel_8h_source.html#l00014">SensorDataModel.h:14</a></div></div>
 <div class="ttc" id="aclassSensor_html"><div class="ttname"><a href="classSensor.html">Sensor</a></div><div class="ttdef"><b>Definition</b> <a href="sensor_8h_source.html#l00010">sensor.h:11</a></div></div>
 <div class="ttc" id="aqdatetime_html"><div class="ttname"><a href="https://doc.qt.io/qt-6/qdatetime.html">QDateTime</a></div></div>
 <div class="ttc" id="aqdatetime_html_fromString-3"><div class="ttname"><a href="https://doc.qt.io/qt-6/qdatetime.html#fromString-3">QDateTime::fromString</a></div><div class="ttdeci">QDateTime fromString(QStringView string, QStringView format, QCalendar cal)</div></div>
+<div class="ttc" id="aqdatetime_html_toString-2"><div class="ttname"><a href="https://doc.qt.io/qt-6/qdatetime.html#toString-2">QDateTime::toString</a></div><div class="ttdeci">QString toString(QStringView format) const const</div></div>
 <div class="ttc" id="aqjsonarray_html"><div class="ttname"><a href="https://doc.qt.io/qt-6/qjsonarray.html">QJsonArray</a></div></div>
 <div class="ttc" id="aqjsonobject_html"><div class="ttname"><a href="https://doc.qt.io/qt-6/qjsonobject.html">QJsonObject</a></div></div>
 <div class="ttc" id="aqobject_html"><div class="ttname"><a href="https://doc.qt.io/qt-6/qobject.html">QObject</a></div></div>
 <div class="ttc" id="aqobject_html_qobject_cast"><div class="ttname"><a href="https://doc.qt.io/qt-6/qobject.html#qobject_cast">QObject::qobject_cast</a></div><div class="ttdeci">T qobject_cast(QObject *object)</div></div>
+<div class="ttc" id="aqstring_html"><div class="ttname"><a href="https://doc.qt.io/qt-6/qstring.html">QString</a></div></div>
 <div class="ttc" id="aqtfuture_html_connect"><div class="ttname"><a href="https://doc.qt.io/qt-6/qtfuture.html#connect">QtFuture::connect</a></div><div class="ttdeci">QFuture&lt; QtFuture::ArgsType&lt; Signal &gt; &gt; connect(Sender *sender, Signal signal)</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
