@@ -28,12 +28,14 @@ public:
     Q_INVOKABLE CitySortProxyModel* getCities() const;
     Q_INVOKABLE int getCityId(int comboBoxIndex) const;
     Q_INVOKABLE StationHandler* stationHandler() const;
+    Q_INVOKABLE void getUserLocation();
 public slots:
     void citySelected(int comboBoxIndex);
     void handleCityCoordinates(QGeoCoordinate &coordinate);
 signals:
     void cityChanged();
     void cityCoordinatesChanged(double latitude, double longitude);
+    void userLocationChanged(double latitude, double longitude);
 private:
     ApiClient *_client;
     CityIndexModel  *_baseModel;

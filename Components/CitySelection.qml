@@ -25,9 +25,10 @@ ColumnLayout {
             anchors.margins: 7
             anchors.leftMargin: 15
             anchors.rightMargin: 15
-            columns: 2
+            columns: 3
             rows: 2
             rowSpacing: 2
+            columnSpacing: 2
             Item {
                 Layout.fillHeight: true
                 Layout.fillWidth: true
@@ -65,6 +66,45 @@ ColumnLayout {
                         }
                     }
 
+                }
+            }
+            Item {
+                Layout.rowSpan: 2
+                Layout.fillWidth: true
+                Layout.fillHeight: true
+                ColumnLayout {
+                    anchors.fill: parent
+                    Label {
+                        text: "Wybierz najbliższą stacje na podstawie twojej lokalizacji"
+                        Layout.fillWidth: true
+                        wrapMode: Text.WordWrap
+                    }
+                    Row {
+                        spacing: 5
+                        Label {
+                            text: "Status:"
+                        }
+                        Text {
+                            id: userLocationSearchStatus
+                            text: "<po wyszukaniu>"
+                        }
+                    }
+                    Button {
+                        Layout.fillWidth: true
+                        Layout.fillHeight: true
+                        text: "Znajdź"
+                        onClicked: {
+                            userLocationSearchStatus.text = "Szukanie..."
+                            cityHandler.getUserLocation()
+                        }
+                    }
+                }
+                Connections {
+                    target: cityHandler
+                    function onUserLocationChanged(latitude, longitude) {
+                        userLocationSearchStatus.text = `${latitude.toFixed(2)} ${longitude.toFixed(2)}`
+                        console.log(latitude, longitude)
+                    }
                 }
             }
             Item {

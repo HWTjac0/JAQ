@@ -4,6 +4,7 @@
 #include "../core/Database/database.h"
 #include "core/AppContext.h"
 #include "Entities/station.h"
+#include <algorithm>
 
 City *CityHandler::currentCity = nullptr;
 
@@ -22,6 +23,7 @@ CityHandler::CityHandler(ApiClient* apiClient, StationHandler* stationHandler, Q
     _proxyModel->setSourceModel(_baseModel);
 
     connect(_geoLocator, &GeoLocator::coordinatesAcquired, this, &CityHandler::handleCityCoordinates);
+    connect(_geoLocator, &GeoLocator::userLocationAcquired, this, &CityHandler::userLocationChanged);
 }
 QList<QString> CityHandler::getVoivodeships() {
     QSet<QString> voivodeshipsSet;
@@ -70,6 +72,10 @@ int CityHandler::getCityId(int comboBoxIndex) const {
 
 StationHandler* CityHandler::stationHandler() const{
     return _stationHandler;
+}
+
+void CityHandler::getUserLocation() {
+    _geoLocator->getUserLocation();
 }
 
 void CityHandler::citySelected(int comboBoxIndex)  {
