@@ -25,7 +25,7 @@ ColumnLayout {
             anchors.margins: 7
             anchors.leftMargin: 15
             anchors.rightMargin: 15
-            columns: 2
+            columns: 1
             rows: 2
             rowSpacing: 2
             Row {

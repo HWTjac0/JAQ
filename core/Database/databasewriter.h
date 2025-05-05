@@ -26,7 +26,7 @@ public slots:
     void saveCompleteDatabase();
 signals:
     void allStationsProcessed();
-    static void writeError(const QString &message);
+    void writeError(const QString &message);
     void indexesReady();
 private:
     ApiClient *_apiClient;

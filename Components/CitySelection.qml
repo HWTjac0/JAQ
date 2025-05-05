@@ -121,7 +121,7 @@ ColumnLayout {
                     anchors.top: citySearchLabel.bottom
                     anchors.margins: 3
                     padding: 7
-                    placeholderText: "Wyyszukaj dla województwa"
+                    placeholderText: "Wyszukaj dla województwa"
                     background: Rectangle {
                         implicitWidth: 200
                         color: "#fafafa"

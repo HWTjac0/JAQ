@@ -35,7 +35,7 @@ Rectangle {
             id: map
             anchors.fill: parent
             plugin: mapPlugin
-            center: QtPositioning.coordinate(59.91, 10.75)
+            center: QtPositioning.coordinate(52.2297, 21.0122)
             zoomLevel: 12
             layer.enabled: true
             layer.effect: OpacityMask {
