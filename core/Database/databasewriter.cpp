@@ -90,6 +90,7 @@ void DatabaseWriter::saveSensorData(const QVector<QPair<QString, double>> &data,
         }
         file.close();
     } catch (std::exception &e) {
+        emit writeError("Błąd zapisywania do pliku" );
         qWarning() << e.what();
     }
 }
