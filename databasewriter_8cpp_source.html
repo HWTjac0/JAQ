@@ -174,39 +174,40 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>        }</div>
 <div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>        file.close();</div>
 <div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>    } <span class="keywordflow">catch</span> (std::exception &amp;<a class="code hl_functionRef" href="https://doc.qt.io/qt-6/qobject.html#qobject_cast">e</a>) {</div>
-<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>        <a class="code hl_functionRef" href="https://doc.qt.io/qt-6/qobject.html#qobject_cast">qWarning</a>() &lt;&lt; <a class="code hl_functionRef" href="https://doc.qt.io/qt-6/qobject.html#qobject_cast">e</a>.what();</div>
-<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>    }</div>
-<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>}</div>
-<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span> </div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>        <a class="code hl_functionRef" href="https://doc.qt.io/qt-6/qobject.html#qobject_cast">emit</a> writeError(<span class="stringliteral">&quot;Błąd zapisywania do pliku&quot;</span> );</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>        <a class="code hl_functionRef" href="https://doc.qt.io/qt-6/qobject.html#qobject_cast">qWarning</a>() &lt;&lt; <a class="code hl_functionRef" href="https://doc.qt.io/qt-6/qobject.html#qobject_cast">e</a>.what();</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>    }</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>}</div>
 <div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span> </div>
-<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span><span class="keywordtype">void</span> DatabaseWriter::saveCompleteDatabase() {</div>
-<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>    <a class="code hl_classRef" href="https://doc.qt.io/qt-6/qjsonobject.html">QJsonObject</a> cityIndex = serializeCities(_processingCities);</div>
-<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>    <a class="code hl_classRef" href="https://doc.qt.io/qt-6/qjsonobject.html">QJsonObject</a> indicatorIndex = serializeIndicators(Database::indicatorIndex);</div>
-<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span> </div>
-<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>    writeJson(cityIndex, PathManager::cityIndex());</div>
-<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>    writeJson(indicatorIndex, PathManager::indicatorIndex());</div>
-<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>    <a class="code hl_functionRef" href="https://doc.qt.io/qt-6/qobject.html#qobject_cast">qDebug</a>() &lt;&lt; <span class="stringliteral">&quot;Indexes written!&quot;</span>;</div>
-<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>    <a class="code hl_functionRef" href="https://doc.qt.io/qt-6/qobject.html#qobject_cast">emit</a> indexesReady();</div>
-<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>}</div>
-<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span> </div>
-<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span><span class="comment">// write relative to root path</span></div>
-<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span><span class="keywordtype">void</span> DatabaseWriter::writeJson(<span class="keyword">const</span> <a class="code hl_classRef" href="https://doc.qt.io/qt-6/qjsonobject.html">QJsonObject</a> &amp;json, <span class="keyword">const</span> <a class="code hl_classRef" href="https://doc.qt.io/qt-6/qstring.html">QString</a> &amp;path) {</div>
-<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>    <a class="code hl_classRef" href="https://doc.qt.io/qt-6/qfile.html">QFile</a> file(path);</div>
-<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>    PathManager::doesPathExist(PathManager::baseDataDirectory());</div>
-<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>    <span class="keywordflow">try</span> {</div>
-<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>        file.open(<a class="code hl_variableRef" href="https://doc.qt.io/qt-6/qiodevicebase.html#OpenModeFlag-enum">QIODevice::WriteOnly</a> | <a class="code hl_variableRef" href="https://doc.qt.io/qt-6/qiodevicebase.html#OpenModeFlag-enum">QIODevice::Text</a>);</div>
-<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>        <a class="code hl_classRef" href="https://doc.qt.io/qt-6/qjsondocument.html">QJsonDocument</a> <a class="code hl_functionRef" href="https://doc.qt.io/qt-6/qobject.html#qobject_cast">doc</a>(<a class="code hl_functionRef" href="https://doc.qt.io/qt-6/qobject.html#qobject_cast">json</a>);</div>
-<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>        <a class="code hl_functionRef" href="https://doc.qt.io/qt-6/qobject.html#qobject_cast">qint64</a> <a class="code hl_functionRef" href="https://doc.qt.io/qt-6/qobject.html#qobject_cast">bytes_written</a> = file.write(<a class="code hl_functionRef" href="https://doc.qt.io/qt-6/qobject.html#qobject_cast">doc</a>.toJson());</div>
-<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>        <span class="keywordflow">if</span>(<a class="code hl_functionRef" href="https://doc.qt.io/qt-6/qobject.html#qobject_cast">bytes_written</a> == -1) {</div>
-<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>            <span class="keywordflow">throw</span> std::runtime_error(<span class="stringliteral">&quot;Failed to write index database&quot;</span>);</div>
-<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>        }</div>
-<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>        file.close();</div>
-<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>    } <span class="keywordflow">catch</span> (std::exception &amp;<a class="code hl_functionRef" href="https://doc.qt.io/qt-6/qobject.html#qobject_cast">e</a>) {</div>
-<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>        <a class="code hl_functionRef" href="https://doc.qt.io/qt-6/qobject.html#qobject_cast">qWarning</a>() &lt;&lt; <span class="stringliteral">&quot;Error: &quot;</span> &lt;&lt; <a class="code hl_functionRef" href="https://doc.qt.io/qt-6/qobject.html#qobject_cast">e</a>.what();</div>
-<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>    } <span class="keywordflow">catch</span> (...) {</div>
-<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>        <a class="code hl_functionRef" href="https://doc.qt.io/qt-6/qobject.html#qobject_cast">qWarning</a>() &lt;&lt; <span class="stringliteral">&quot;Error writing index database&quot;</span>;</div>
-<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>    }</div>
-<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>}</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span> </div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span><span class="keywordtype">void</span> DatabaseWriter::saveCompleteDatabase() {</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>    <a class="code hl_classRef" href="https://doc.qt.io/qt-6/qjsonobject.html">QJsonObject</a> cityIndex = serializeCities(_processingCities);</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>    <a class="code hl_classRef" href="https://doc.qt.io/qt-6/qjsonobject.html">QJsonObject</a> indicatorIndex = serializeIndicators(Database::indicatorIndex);</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span> </div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>    writeJson(cityIndex, PathManager::cityIndex());</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>    writeJson(indicatorIndex, PathManager::indicatorIndex());</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>    <a class="code hl_functionRef" href="https://doc.qt.io/qt-6/qobject.html#qobject_cast">qDebug</a>() &lt;&lt; <span class="stringliteral">&quot;Indexes written!&quot;</span>;</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>    <a class="code hl_functionRef" href="https://doc.qt.io/qt-6/qobject.html#qobject_cast">emit</a> indexesReady();</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>}</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span> </div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span><span class="comment">// write relative to root path</span></div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span><span class="keywordtype">void</span> DatabaseWriter::writeJson(<span class="keyword">const</span> <a class="code hl_classRef" href="https://doc.qt.io/qt-6/qjsonobject.html">QJsonObject</a> &amp;json, <span class="keyword">const</span> <a class="code hl_classRef" href="https://doc.qt.io/qt-6/qstring.html">QString</a> &amp;path) {</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>    <a class="code hl_classRef" href="https://doc.qt.io/qt-6/qfile.html">QFile</a> file(path);</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>    PathManager::doesPathExist(PathManager::baseDataDirectory());</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>    <span class="keywordflow">try</span> {</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>        file.open(<a class="code hl_variableRef" href="https://doc.qt.io/qt-6/qiodevicebase.html#OpenModeFlag-enum">QIODevice::WriteOnly</a> | <a class="code hl_variableRef" href="https://doc.qt.io/qt-6/qiodevicebase.html#OpenModeFlag-enum">QIODevice::Text</a>);</div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>        <a class="code hl_classRef" href="https://doc.qt.io/qt-6/qjsondocument.html">QJsonDocument</a> <a class="code hl_functionRef" href="https://doc.qt.io/qt-6/qobject.html#qobject_cast">doc</a>(<a class="code hl_functionRef" href="https://doc.qt.io/qt-6/qobject.html#qobject_cast">json</a>);</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>        <a class="code hl_functionRef" href="https://doc.qt.io/qt-6/qobject.html#qobject_cast">qint64</a> <a class="code hl_functionRef" href="https://doc.qt.io/qt-6/qobject.html#qobject_cast">bytes_written</a> = file.write(<a class="code hl_functionRef" href="https://doc.qt.io/qt-6/qobject.html#qobject_cast">doc</a>.toJson());</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>        <span class="keywordflow">if</span>(<a class="code hl_functionRef" href="https://doc.qt.io/qt-6/qobject.html#qobject_cast">bytes_written</a> == -1) {</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>            <span class="keywordflow">throw</span> std::runtime_error(<span class="stringliteral">&quot;Failed to write index database&quot;</span>);</div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>        }</div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>        file.close();</div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>    } <span class="keywordflow">catch</span> (std::exception &amp;<a class="code hl_functionRef" href="https://doc.qt.io/qt-6/qobject.html#qobject_cast">e</a>) {</div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>        <a class="code hl_functionRef" href="https://doc.qt.io/qt-6/qobject.html#qobject_cast">qWarning</a>() &lt;&lt; <span class="stringliteral">&quot;Error: &quot;</span> &lt;&lt; <a class="code hl_functionRef" href="https://doc.qt.io/qt-6/qobject.html#qobject_cast">e</a>.what();</div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>    } <span class="keywordflow">catch</span> (...) {</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>        <a class="code hl_functionRef" href="https://doc.qt.io/qt-6/qobject.html#qobject_cast">qWarning</a>() &lt;&lt; <span class="stringliteral">&quot;Error writing index database&quot;</span>;</div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>    }</div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>}</div>
 <div class="ttc" id="aclassApiClient_html"><div class="ttname"><a href="classApiClient.html">ApiClient</a></div><div class="ttdef"><b>Definition</b> <a href="apiclient_8h_source.html#l00016">apiclient.h:17</a></div></div>
 <div class="ttc" id="aqfile_html"><div class="ttname"><a href="https://doc.qt.io/qt-6/qfile.html">QFile</a></div></div>
 <div class="ttc" id="aqiodevicebase_html_OpenModeFlag-enum"><div class="ttname"><a href="https://doc.qt.io/qt-6/qiodevicebase.html#OpenModeFlag-enum">QIODeviceBase::WriteOnly</a></div><div class="ttdeci">WriteOnly</div></div>
