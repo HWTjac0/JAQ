@@ -120,7 +120,7 @@ if(BUILD_TESTING)
     target_link_libraries(jaq_test
             PRIVATE Qt6::Quick Qt6::Charts Qt6::Widgets Qt6::Location Qt6::Positioning Qt6::Gui Qt6::Test
     )
-    target_include_directories(test PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})
+    target_include_directories(jaq_test PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})
     add_test(NAME JaQUnitTests COMMAND jaq_test)
 
 endif()
